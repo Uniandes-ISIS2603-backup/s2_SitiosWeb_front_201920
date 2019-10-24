@@ -1,0 +1,17 @@
+<div class="container-fluid">
+    <div class="col-md-2">
+        <table class="table table-striped" id="proveedores">
+            <thead >
+                <tr>
+                    <th>ID</th>    
+                    <th>Nombre del proveedor</th>  
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor = "let e of providers">
+                  <td >{{e.id}}</td>
+                  <td >{{e.nombre}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>

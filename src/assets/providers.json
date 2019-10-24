@@ -1,0 +1,27 @@
+[{
+  "id": 1,
+  "nombre": "IBM"
+}, {
+  "id": 2,
+  "nombre": "Microsoft"
+},
+{
+  "id": 3,
+  "nombre": "Adobe"
+},
+{
+  "id": 4,
+  "nombre": "Oracle"
+},
+{
+  "id": 5,
+  "nombre": "Apple"
+},
+{
+  "id": 6,
+  "nombre": "Hola"
+},
+{
+  "id": 7,
+  "nombre": "Bam"
+}]
