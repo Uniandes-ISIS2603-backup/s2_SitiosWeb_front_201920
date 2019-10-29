@@ -11,8 +11,8 @@ import {NgxPermissionsModule} from 'ngx-permissions';
 import { ModalDialogModule } from 'ngx-modal-dialog';
 
 import { ProviderModule } from './provider/provider.module';
+import { ProjectModule } from './project/project.module';
 import { DeveloperModule } from './developer/developer.module';
-
 
 import {AppComponent} from './app.component';
 import {AppRoutingModule} from './app-routing/app-routing.module';
@@ -32,7 +32,6 @@ import {AuthModule} from './auth/auth.module';
         AppRoutingModule,
         HttpClientModule,
         ProviderModule,
-        DeveloperModule,
         BrowserAnimationsModule,
         ModalDialogModule.forRoot(),
         AuthModule,
