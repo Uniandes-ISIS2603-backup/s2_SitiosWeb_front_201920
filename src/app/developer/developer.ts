@@ -1,3 +1,8 @@
+
+enum DeveloperType {
+  Leader,Developer
+}
+
 export class Developer {
   /**
     * The developer's id
@@ -18,4 +23,9 @@ export class Developer {
     * The developer's phone
     */
     phone: string; 
+
+    /**
+     * The developer's type
+     */
+    developerType: DeveloperType;
 }
