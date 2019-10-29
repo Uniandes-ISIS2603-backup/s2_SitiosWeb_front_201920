@@ -13,7 +13,5 @@ export class ProjectDetail extends Project {
   internalSystems: InternalSystems[];
 
   requests: Request[];
-
-
   
 }
