@@ -19,17 +19,17 @@ export class Project {
   id:number;
 
    /**
-    * The project's id
+    * The project's hardware
     */
    hw:Hardware;
 
     /**
-    * The project's id
+    * The project's developer
     */
   leader:Developer;
 
    /**
-    * The project's id
+    * The project's provider
     */
    provider:Provider;
 
