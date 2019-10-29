@@ -1,3 +1,7 @@
+import { Hardware } from '../hardware/hardware';
+import { Developer } from '../developer/developer';
+import { Provider } from '../provider/provider';
+
 export class Project {
    /**
     * Says if the Project is internal or not
