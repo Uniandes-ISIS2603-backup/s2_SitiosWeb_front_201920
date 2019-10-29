@@ -1,0 +1,16 @@
+<div class="container-fluid">
+    <div class="col-md-2">
+        <table class="table table-striped">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Developer Id</th>    
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor = "let d of developers">
+                    <td>{{d.login}}</td>
+                  
+                </tr>
+            </tbody>
+        </table>
+    </div>
