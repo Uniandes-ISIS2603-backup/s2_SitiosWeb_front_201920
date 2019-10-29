@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Project } from './project';
 import { Observable } from 'rxjs';
+import { ProjectDetail } from './projectDetail';
 
 const API_URL = '../../assets/';
 const projects = 'projects.json';
@@ -15,8 +16,8 @@ export class ProjectService {
     */
     constructor(private http: HttpClient) { }    
   
-    getProjects() : Observable<Project[]> {
-        return this.http.get<Project[]>(API_URL + projects);
+    getProjects() : Observable<ProjectDetail[]> {
+        return this.http.get<ProjectDetail[]>(API_URL + projects);
     }
     
 }
