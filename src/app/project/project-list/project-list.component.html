@@ -1,0 +1,20 @@
+<div class="container-fluid">
+  <div class="col-md-2">
+    <table class="table table-striped">
+      <thead class="thead-dark">
+        <tr>
+          <th>Id</th>
+          <th>Company</th>
+          <th>Internal Project</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor = "let p of projects">
+          <td>{{p.id}}</td> 
+          <td>{{p.company}}</td>
+          <td>{{p.internalProject}}</td>  
+  
+        </tr>
+      </tbody>
+    </table>
+  </div>
