@@ -1,0 +1,31 @@
+<p>
+iteration-list works!
+</p>
+<div class="container-fluid">
+  <div class="col-md-2">
+    <table class="table table-striped">
+      <thead class="thead-dark">
+        <tr>
+          <th>objetivo de la iteracion</th>
+          <th>id de la iteracion</th>
+          <th>fecha de validacion</th>
+          <th>cambios en la iteracion</th>
+          <th>fecha de inicio</th>
+          <th>fecha final</th>
+        </tr>
+      </thead>
+      <tbody>
+                <tr *ngFor = "let e of iterations">
+                    <td>{{e.objetive}}</td>
+                    <td>{{e.id}}</td>
+                    <td>{{e.validationDate}}</td>
+                    <td>{{e.changes}}</td>
+                    <td>{{e.beginDate}}</td>
+                    <td>{{e.endDate}}</td>
+        <tr>
+          <td></td>
+
+        </tr>
+      </tbody>
+    </table>
+  </div>
