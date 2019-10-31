@@ -1,14 +1,13 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Project } from './project';
+import { Developer } from './developer';
 import { Observable } from 'rxjs';
-import { ProjectDetail } from './projectDetail';
 
-const API_URL = '../../assets/';
-const projects = 'projects.json';
+const API_URL = "../../assets/";
+const developers = 'developers.json';
 
 @Injectable()
-export class ProjectService {
+export class DeveloperService {
     
     /**
     * Constructor of the service
@@ -16,8 +15,8 @@ export class ProjectService {
     */
     constructor(private http: HttpClient) { }    
   
-    getProjects() : Observable<ProjectDetail[]> {
-        return this.http.get<ProjectDetail[]>(API_URL + projects);
+    getDevelopers() : Observable<Developer[]> {
+        return this.http.get<Developer[]>(API_URL + developers);
     }
     
 }

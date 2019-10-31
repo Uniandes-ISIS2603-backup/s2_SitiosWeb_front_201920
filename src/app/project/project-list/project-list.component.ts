@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {Project} from '../project';
+import {ProjectDetail} from '../projectDetail';
 import { ProjectService } from '../project.service';
 
 @Component({
@@ -11,7 +11,7 @@ export class ProjectListComponent implements OnInit {
 
 /**
      * The list of projects which belong to the app
- */ projects: Project[];
+ */ projects: ProjectDetail[];
 
   constructor(private projectService: ProjectService) { }
 
