@@ -1,0 +1,27 @@
+<form [formGroup]="providerForm" (ngSubmit)="createProvider(providerForm.value)">
+
+   <div class="form-group mx-sm-3 mb-2">
+    <label for="name">
+      Name
+    </label>
+    <input novalidate
+      id="name"
+      class="form-control"
+      formControlName="name"
+      placeholder="Your Full Name">
+   </div>
+
+   <div class="form-group  mx-sm-3 mb-2">
+    <label for="address">
+      Address
+    </label>
+   <input id="address" type="text"
+     class="form-control"
+     formControlName="address"
+     placeholder="Your Address">
+  </div>
+
+  <button class="button mx-sm-3 mb-2" type="submit"
+          [disabled]="providerForm.invalid">Create</button>
+
+</form>

@@ -15,10 +15,9 @@ export class ProviderListComponent implements OnInit {
     this.getProviders();
   }
 
-providers: Provider[];
+providers: ProviderDetail[];
 
 getProviders(): void {
         this.providerService.getProviders().subscribe(providers => this.providers = providers);
     }
-
 }

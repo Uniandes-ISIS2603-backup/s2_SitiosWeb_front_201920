@@ -1,27 +1,33 @@
 [{
   "id": 1,
-  "nombre": "IBM"
+  "name": "IBM",
+  "projects":[
+    { "company":"Ford", "id":1 },
+    { "company":"BMW", "id":2 },
+    { "company":"Fiat", "id":3 }
+  ]
 }, {
   "id": 2,
-  "nombre": "Microsoft"
+  "name": "Microsoft",
+  "projects":[]
 },
 {
   "id": 3,
-  "nombre": "Adobe"
+  "name": "Adobe",
+  "projects":[]
 },
 {
   "id": 4,
-  "nombre": "Oracle"
+  "name": "Oracle",
+  "projects":[
+    { "company":"GMC", "id":5 }
+  ]
 },
 {
   "id": 5,
-  "nombre": "Apple"
-},
-{
-  "id": 6,
-  "nombre": "Hola"
-},
-{
-  "id": 7,
-  "nombre": "Bam"
+  "name": "Apple",
+  "projects":[
+    { "company":"Ferrari", "id":4 },
+    { "company":"Maserati", "id":6 }
+  ]
 }]

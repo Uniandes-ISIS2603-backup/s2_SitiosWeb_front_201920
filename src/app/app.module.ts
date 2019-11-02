@@ -20,6 +20,8 @@ import {AppRoutingModule} from './app-routing/app-routing.module';
 import {AuthModule} from './auth/auth.module';
 
 
+import { PieComponent } from './pie/pie.component';
+import { HomeComponent } from './home/home.component';
 
 
 
@@ -46,7 +48,9 @@ import {AuthModule} from './auth/auth.module';
         }),
         NgxPaginationModule,
         NgxPermissionsModule.forRoot(),
-        NgbModule
+        NgbModule,
+PieComponent,
+HomeComponent
     ],
     bootstrap: [AppComponent],
     providers: [

@@ -7,6 +7,6 @@ export class Provider {
     /**
     * The provider's name
     */
-    nombre: string; 
+    name: string; 
 
 }
