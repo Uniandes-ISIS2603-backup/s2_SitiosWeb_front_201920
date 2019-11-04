@@ -11,6 +11,7 @@ import {NgxPermissionsModule} from 'ngx-permissions';
 import { ModalDialogModule } from 'ngx-modal-dialog';
 
 import { ProviderModule } from './provider/provider.module';
+import { IterationModule} from './iteration/iteration.module';
 import { ProjectModule } from './project/project.module';
 import { DeveloperModule } from './developer/developer.module';
 
@@ -19,6 +20,8 @@ import {AppRoutingModule} from './app-routing/app-routing.module';
 import {AuthModule} from './auth/auth.module';
 
 
+import { PieComponent } from './pie/pie.component';
+import { HomeComponent } from './home/home.component';
 
 
 
@@ -32,6 +35,8 @@ import {AuthModule} from './auth/auth.module';
         AppRoutingModule,
         HttpClientModule,
         ProviderModule,
+        ProjectModule,
+        IterationModule,
         BrowserAnimationsModule,
         ModalDialogModule.forRoot(),
         AuthModule,
@@ -43,7 +48,9 @@ import {AuthModule} from './auth/auth.module';
         }),
         NgxPaginationModule,
         NgxPermissionsModule.forRoot(),
-        NgbModule
+        NgbModule,
+PieComponent,
+HomeComponent
     ],
     bootstrap: [AppComponent],
     providers: [
