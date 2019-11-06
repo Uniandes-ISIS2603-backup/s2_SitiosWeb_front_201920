@@ -1,5 +1,6 @@
 import { Project } from '../project/project';
-export class ProviderDetail extends provider {
+import { Provider } from './provider';
+export class ProviderDetail extends Provider {
 
     projects: Project[];
 

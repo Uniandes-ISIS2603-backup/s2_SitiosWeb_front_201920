@@ -11,7 +11,7 @@
             </thead>
             <tbody>
                 <tr *ngFor = "let e of providers">
-                  <td ><a class="nav-link" [routerLink]="['/providers',{id: e.id}]" routerLinkActive="active">{{e.name}}</a></td>
+                  <td ><a class="nav-link" [routerLink]="['/providers', e.id]" routerLinkActive="active">{{e.name}}</a></td>
                   </tr>
             </tbody>
         </table>

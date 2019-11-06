@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Provider} from '../provider';
+import {ProviderDetail} from '../provider-detail';
 import { ProviderService } from '../provider.service';
 
 @Component({
@@ -15,7 +16,7 @@ export class ProviderListComponent implements OnInit {
     this.getProviders();
   }
 
-providers: ProviderDetail[];
+providers: Provider[];
 
 getProviders(): void {
         this.providerService.getProviders().subscribe(providers => this.providers = providers);
