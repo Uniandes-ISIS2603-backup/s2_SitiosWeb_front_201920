@@ -1,0 +1,65 @@
+<div class="row">
+    <div class="col-3"></div>
+    <div class="col-6">
+        <br>
+        <h2 class="text-center">Create a hardware</h2>
+        <br>
+        <form name="hardware" (ngSubmit)="f.form.valid && createHardware()" #f="ngForm" novalidate>
+            <div class="form-group">
+                <label for="hardwareId"><b>Id</b></label>
+                <input type="text" name="hardwareId" class="form-control" id="hardwareId" [(ngModel)]="hardware.id"
+                    #hardwareId="ngModel" [ngClass]="{ 'is-invalid': f.submitted && hardwareId.invalid }" required>
+                <div class="invalid-feedback">
+                    <div>The hardware's id is missing</div>
+                </div>
+            </div>
+                        <div class="form-group">
+                <label for="hardwareIp"><b>Ip</b></label>
+                <input type="text" name="hardwareIp" class="form-control" id="hardwareIp" [(ngModel)]="hardware.ip"
+                    #hardwareIp="ngModel" [ngClass]="{ 'is-invalid': f.submitted && hardwareIp.invalid }" required>
+                <div class="invalid-feedback">
+                    <div>The hardware's ip is missing</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="hardwareCores"><b>Cores</b></label>
+                <input type="text" name="hardwareCores" class="form-control" id="hardwareCores" [(ngModel)]="hardware.cores"
+                    #hardwareCores="ngModel" [ngClass]="{ 'is-invalid': f.submitted && hardwareCores.invalid }" required>
+                <div class="invalid-feedback">
+                    <div>The hardware's cores is missing</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="hardwareRam"><b>Ram</b></label>
+                <input type="text" name="hardwareRam" class="form-control" id="hardwareRam" [(ngModel)]="hardware.ram"
+                    #hardwareRam="ngModel" [ngClass]="{ 'is-invalid': f.submitted && hardwareRam.invalid }" required>
+                <div class="invalid-feedback">
+                    <div>The hardware's ram is missing</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="hardwareCpu"><b>Cpu</b></label>
+                <input type="text" name="hardwareCpu" class="form-control" id="hardwareCpu" [(ngModel)]="hardware.cpu"
+                    #hardwareCpu="ngModel" [ngClass]="{ 'is-invalid': f.submitted && hardwareCpu.invalid }" required>
+                <div class="invalid-feedback">
+                    <div>The hardware's cpu is missing</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="hardwarePlataforma"><b>Plataforma</b></label>
+                <input type="text" name="hardwarePlataforma" class="form-control" id="hardwarePlataforma" [(ngModel)]="hardware.plataforma"
+                    #hardwarePlataforma="ngModel" [ngClass]="{ 'is-invalid': f.submitted && hardwarePlataforma.invalid }" required>
+                <div class="invalid-feedback">
+                    <div>The hardware's plataforma is missing</div>
+                </div>
+            </div>
+
+            <div class="row form-inline justify-content-center align-self-center">
+                <button type="submit" class="btn btn-primary">Create</button>
+                <div class="divider"></div>
+                <button type="button" class="btn btn-danger" (click)="cancelCreation()">Cancel</button>
+            </div>
+        </form>
+    </div>
+    <div class="col-3"></div>
+</div>
