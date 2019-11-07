@@ -11,7 +11,7 @@ const projects = 'projects.json';
 @Injectable()
 export class ProjectService {
     
-    private projectsUrl = "api/editorials"; // URL to web api
+    private projectsUrl = "api/projects"; // URL to web api
 
     httpOptions = {
       headers: new HttpHeaders({ "Content-Type": "application/json" })
@@ -34,7 +34,8 @@ export class ProjectService {
      * @param projectId id of the project which detail is being requested
      */
     getProjectDetail(projectId:number): Observable<ProjectDetail> {
-        return this.http.get<ProjectDetail>(API_URL + projects + "/" + projectId);
+        const url =`${this.projectsUrl}/${projectId}`;
+        return this.http.get<ProjectDetail>(url);
     }
 
     /**
