@@ -24,4 +24,35 @@ export class ProjectService {
         return this.http.get<ProjectDetail[]>(API_URL + projects);
     }
     
+    /**
+     * Gets the detail of project
+     * @param projectId id of the project which detail is being requested
+     */
+    getProjectDetail(projectId): Observable<Project> {
+        return this.http.get<Project>(API_URL + "project-" + projectId+".json");
+    }
+
+    /**
+     * Creates a project
+     * @param project Project object to be created
+     */
+    createHardware(project): Observable<Project> {
+        return this.http.post<Project>(API_URL + projects, project);
+    }
+    
+    /**
+     * Updates a project by parameter
+     * @param project Project object to be updated
+     */
+    updateHardware(project): Observable<Project> {
+        return this.http.put<Project>(API_URL + projects + '/' + project.id, project);
+    }
+    
+    /**
+     * Deletes a project by its id given as parameter.
+     * @param projectId id of the project to be deleted
+     */
+    deleteEditorial(projectId): Observable<Project> {
+        return this.http.delete<Project>(API_URL + projects + '/' + projectId);
+    }
 }
