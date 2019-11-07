@@ -10,7 +10,7 @@
       </thead>
       <tbody>
         <tr *ngFor = "let p of projects">
-          <td>{{p.id}}</td> 
+          <td><a class="nav-link" [routerLink]="['/projects', p.id]" routerLinkActive="active">{{p.id}}</a></td> 
           <td>{{p.company}}</td>
           <td>{{p.internalProject}}</td>  
   

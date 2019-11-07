@@ -14,7 +14,7 @@ import { ProviderModule } from './provider/provider.module';
 import { IterationModule} from './iteration/iteration.module';
 import { ProjectModule } from './project/project.module';
 import { DeveloperModule } from './developer/developer.module';
-
+import{RequestModule} from "./request/request.module";
 import {AppComponent} from './app.component';
 import {AppRoutingModule} from './app-routing/app-routing.module';
 import {AuthModule} from './auth/auth.module';
@@ -37,6 +37,7 @@ import { HomeComponent } from './home/home.component';
         ProviderModule,
         ProjectModule,
         IterationModule,
+        RequestModule,
         BrowserAnimationsModule,
         ModalDialogModule.forRoot(),
         AuthModule,

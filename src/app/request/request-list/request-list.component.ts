@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Request } from '../request';
+import { Request } from './request';
 
 @Component({
   selector: 'app-request-list',
@@ -13,5 +13,5 @@ export class RequestListComponent implements OnInit {
   ngOnInit() {
   }
 
-  requests : Request[] = [{name:"Hola"}, {name:"Chao"}];
+  requests : Request[] = [{id:1,name:"Hola"}, {id:2,name:"Chao"}];
 }
