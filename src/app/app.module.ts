@@ -10,6 +10,7 @@ import {HttpErrorInterceptor} from './interceptors/httperrorinterceptor.service'
 import {NgxPermissionsModule} from 'ngx-permissions';
 import { ModalDialogModule } from 'ngx-modal-dialog';
 
+import { HardwareModule } from './hardware/hardware.module';
 import { ProviderModule } from './provider/provider.module';
 import { IterationModule} from './iteration/iteration.module';
 import { ProjectModule } from './project/project.module';
@@ -22,13 +23,13 @@ import {AuthModule} from './auth/auth.module';
 
 import { PieComponent } from './pie/pie.component';
 import { HomeComponent } from './home/home.component';
-
+import { BarraComponent } from './barra/barra.component';
 
 
 
 @NgModule({
     declarations: [
-        AppComponent,PieComponent,HomeComponent
+        AppComponent,PieComponent,HomeComponent,BarraComponent
     ],
     imports: [
         BrowserModule,
@@ -42,6 +43,7 @@ import { HomeComponent } from './home/home.component';
         ModalDialogModule.forRoot(),
         AuthModule,
         FormsModule,
+        HardwareModule,
         ToastrModule.forRoot({
             timeOut: 10000,
             positionClass: 'toast-bottom-right',
