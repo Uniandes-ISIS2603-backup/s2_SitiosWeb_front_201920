@@ -96,7 +96,8 @@ const routes: Routes = [
     path: 'projects',
     children: [{
       path: 'list',
-      component: ProjectListComponent
+      component: ProjectListComponent,
+      
     },
     {
       path: ':id',
@@ -105,8 +106,8 @@ const routes: Routes = [
     },
     {
       path: 'create',
-      component: ProjectCreateComponent
-
+      component: ProjectCreateComponent,
+      outlet:'detail'
     }
     ]
   }

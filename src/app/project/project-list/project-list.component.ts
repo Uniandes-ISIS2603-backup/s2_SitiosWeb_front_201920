@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import 'rxjs/add/operator/filter';
 
 import { ProjectService } from '../project.service';
@@ -20,7 +20,7 @@ export class ProjectListComponent implements OnInit {
   * Constructor of the project list component
   * @param projectService 
   */
-  constructor(private projectService: ProjectService, private route:ActivatedRoute) { }
+  constructor(private projectService: ProjectService, private router:Router ,private route:ActivatedRoute) { }
 
 
   /**
@@ -30,6 +30,12 @@ export class ProjectListComponent implements OnInit {
     this.projectService.getProjects().subscribe(projects => this.projects = projects);
   }
 
+  onSelectCreate(): void {
+    console.log("navigating ", this.route.toString());
+    this.router.navigate([{ outlets: { detail: ['create'] } }], {
+      relativeTo: this.route.parent
+    });
+  }
   /**
    * Default method to be executed once the component is initialized
    */

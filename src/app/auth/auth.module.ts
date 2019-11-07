@@ -20,6 +20,7 @@ import { AuthSignUpComponent } from './auth-sign-up/auth-sign-up.component';
     ],
     declarations: [AuthLoginComponent, AuthSignUpComponent],
     providers: [AuthService],
-    bootstrap: [AuthLoginComponent]
+    bootstrap: [AuthLoginComponent],
+    exports:[AuthLoginComponent]
 })
 export class AuthModule { }

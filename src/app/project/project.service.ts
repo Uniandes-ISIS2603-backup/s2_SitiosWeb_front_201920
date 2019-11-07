@@ -5,16 +5,17 @@ import { Observable,of } from 'rxjs';
 import { catchError, map, tap } from "rxjs/operators";
 import { ProjectDetail } from './projectDetail';
 
-const API_URL = 'http://localhost:8080/s2_sitiosweb-api/api';
-const projects = '/projects';
+const API_URL = '../../assets/';
+const projects = 'projects.json';
 
 @Injectable()
 export class ProjectService {
     
-    httpOptions = {
-        headers: new HttpHeaders({ "Content-Type": "application/json" })
-      };    
+    private projectsUrl = "api/editorials"; // URL to web api
 
+    httpOptions = {
+      headers: new HttpHeaders({ "Content-Type": "application/json" })
+    };
     /**
     * Constructor of the service
     * @param http The HttpClient - This is necessary in order to perform requests
