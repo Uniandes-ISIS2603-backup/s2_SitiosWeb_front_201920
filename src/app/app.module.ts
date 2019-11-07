@@ -28,7 +28,7 @@ import { HomeComponent } from './home/home.component';
 
 @NgModule({
     declarations: [
-        AppComponent
+        AppComponent,PieComponent,HomeComponent
     ],
     imports: [
         BrowserModule,
@@ -49,9 +49,8 @@ import { HomeComponent } from './home/home.component';
         }),
         NgxPaginationModule,
         NgxPermissionsModule.forRoot(),
-        NgbModule,
-PieComponent,
-HomeComponent
+        NgbModule
+
     ],
     bootstrap: [AppComponent],
     providers: [
