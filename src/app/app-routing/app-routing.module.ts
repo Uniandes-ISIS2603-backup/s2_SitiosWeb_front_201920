@@ -51,7 +51,7 @@ const routes: Routes = [
     },
     {
         path: 'home',
-        component: AuthLoginComponent
+        component: HomeComponent
     },
     {
         path: '**',
@@ -101,7 +101,7 @@ const routes: Routes = [
     children: [{
       path: 'list',
       component: ProjectListComponent,
-      
+
     },
     {
       path: ':id',
