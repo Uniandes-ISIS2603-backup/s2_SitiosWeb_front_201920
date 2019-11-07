@@ -10,6 +10,9 @@ import { HardwareListComponent } from '../hardware/hardware-list/hardware-list.c
 import { HardwareDetailComponent } from '../hardware/hardware-detail/hardware-detail.component';
 import { HardwareCreateComponent } from '../hardware/hardware-create/hardware-create.component';
 
+import {ProjectListComponent} from '../project/project-list/project-list.component';
+import {ProjectDetailComponent} from '../project/project-detail/project-detail.component';
+import {ProjectCreateComponent} from '../project/project-create/project-create.component';
 
 import { ProviderListComponent } from '../provider/provider-list/provider-list.component';
 import { ProviderDetailComponent } from '../provider/provider-detail/provider-detail.component';
@@ -81,6 +84,28 @@ const routes: Routes = [
     {
       path: 'create',
       component: HardwareCreateComponent
+
+    }
+    ]
+  },
+  {
+    path: "home",
+    component: HomeComponent
+  },
+  {
+    path: 'projects',
+    children: [{
+      path: 'list',
+      component: ProjectListComponent
+    },
+    {
+      path: ':id',
+      component: ProjectDetailComponent,
+      outlet: 'detail'
+    },
+    {
+      path: 'create',
+      component: ProjectCreateComponent
 
     }
     ]

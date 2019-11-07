@@ -1,0 +1,27 @@
+<form [formGroup]="clientForm" (ngSubmit)="createClient(clientForm.value)">
+
+   <div class="form-group mx-sm-3 mb-2">
+    <label for="company">
+      Company
+    </label>
+    <input novalidate
+      id="company"
+      class="form-control"
+      formControlName="company"
+      placeholder="Company in charge of project">
+   </div>
+
+   <div class="form-group  mx-sm-3 mb-2">
+    <label for="internalProject">
+      Is it Internal Project?
+    </label>
+   <input id="internalProject" type="text"
+     class="form-control"
+     formControlName="internalProject"
+     placeholder="Say true or false">
+  </div>
+
+  <button class="button mx-sm-3 mb-2" type="submit"   
+          [disabled]="clientForm.invalid">Submit</button>
+
+</form>
