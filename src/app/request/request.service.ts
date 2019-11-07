@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Editorial } from './request';
+import { Request } from './request-list/request';
 import { Observable } from 'rxjs';
 
 const API_URL = '../../assets';
@@ -15,8 +15,8 @@ export class RequestService {
     */
     constructor(private http: HttpClient) { }    
   
-    getEditorials() : Observable<Editorial[]> {
-        return this.http.get<Editorial[]>(API_URL + requests);
+    getEditorials() : Observable<Request[]> {
+        return this.http.get<Request[]>(API_URL + requests);
     }
     
 }

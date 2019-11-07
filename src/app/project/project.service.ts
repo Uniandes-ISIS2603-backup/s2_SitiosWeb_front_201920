@@ -11,6 +11,10 @@ const projects = '/projects';
 @Injectable()
 export class ProjectService {
     
+    httpOptions = {
+        headers: new HttpHeaders({ "Content-Type": "application/json" })
+      };    
+
     /**
     * Constructor of the service
     * @param http The HttpClient - This is necessary in order to perform requests
@@ -28,7 +32,7 @@ export class ProjectService {
      * Gets the detail of project
      * @param projectId id of the project which detail is being requested
      */
-    getProjectDetail(projectId): Observable<ProjectDetail> {
+    getProjectDetail(projectId:number): Observable<ProjectDetail> {
         return this.http.get<ProjectDetail>(API_URL + projects + "/" + projectId);
     }
 

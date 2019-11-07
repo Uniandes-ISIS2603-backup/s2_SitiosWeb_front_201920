@@ -1,10 +1,10 @@
-import {Component, OnInit, OnDestroy, ViewChild, ViewContainerRef} from '@angular/core';
-import {ActivatedRoute, Router, NavigationEnd} from '@angular/router';
-import {ModalDialogService, SimpleModalComponent} from 'ngx-modal-dialog';
-import {ToastrService} from 'ngx-toastr';
+import {Component, OnInit, Input} from '@angular/core';
+import {ActivatedRoute, Params} from '@angular/router';
+
 
 import { ProjectService } from '../project.service';
 import { Project } from '../project';
+import {ProjectDetail} from '../projectDetail';
 
 @Component({
   selector: 'app-project-detail',
@@ -26,7 +26,7 @@ export class ProjectDetailComponent implements OnInit {
   /**
    * ProjectDetail attribute of this component
    */
-  projectDetail: Project;
+  projectDetail: ProjectDetail;
 
   /**
    * id of the project as an input from html view
@@ -57,7 +57,7 @@ export class ProjectDetailComponent implements OnInit {
 
     this.projectid = parseInt(params['id']);
     console.log(" en detail " + this.projectid);
-    this.projectDetail = new Project();
+    this.projectDetail = new ProjectDetail();
     this.getProjectDetail();
   }
 
