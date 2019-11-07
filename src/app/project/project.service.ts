@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Project } from './project';
-import { Observable } from 'rxjs';
+import { Observable,of } from 'rxjs';
+import { catchError, map, tap } from "rxjs/operators";
 import { ProjectDetail } from './projectDetail';
 
-const API_URL = '../../assets/';
-const projects = 'projects.json';
+const API_URL = 'http://localhost:8080/s2_sitiosweb-api/api';
+const projects = '/projects';
 
 @Injectable()
 export class ProjectService {
@@ -16,6 +17,9 @@ export class ProjectService {
     */
     constructor(private http: HttpClient) { }    
   
+    /**
+     * Gets all projects known in the app using the API_URL and the projects route
+     */
     getProjects() : Observable<ProjectDetail[]> {
         return this.http.get<ProjectDetail[]>(API_URL + projects);
     }
