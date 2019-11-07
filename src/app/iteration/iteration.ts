@@ -1,16 +1,12 @@
 export class Iteration {
-
-  constructor() { }
-  
-  id: number;
-
-  objetive: String;
+  objetive: string;
 
   validationDate:Date;
 
-  changes: String;
+  changes:string;
 
   beginDate: Date;
 
   endDate: Date;
+
 }

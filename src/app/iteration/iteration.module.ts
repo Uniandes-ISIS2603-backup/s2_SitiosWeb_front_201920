@@ -1,13 +1,17 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { IterationListComponent } from './iteration-list/iteration-list.component';
-import { IterationService } from './iteration.service';
+import {FormsModule } from '@angular/forms';
+import { IterationDetailComponent } from './iteration-detail/iteration-detail.component';
+import { IterationCreateComponent } from './iteration-create/iteration-create.component';
+import {AppRoutingModule} from '../app-routing/app-routing.module';
+import {IterationService} from './iteration.service';
+import {IterationListComponent} from './iteration-list/iteration-list.component';
 
 @NgModule({
   imports: [
-    CommonModule
+    AppRoutingModule, CommonModule, FormsModule
   ],
-  declarations: [IterationListComponent],
+  declarations: [IterationDetailComponent, IterationCreateComponent,IterationListComponent],
   exports: [IterationListComponent],
   providers: [IterationService]
 })
