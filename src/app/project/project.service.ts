@@ -20,23 +20,23 @@ export class ProjectService {
     /**
      * Gets all projects known in the app using the API_URL and the projects route
      */
-    getProjects() : Observable<ProjectDetail[]> {
-        return this.http.get<ProjectDetail[]>(API_URL + projects);
+    getProjects() : Observable<Project[]> {
+        return this.http.get<Project[]>(API_URL + projects);
     }
     
     /**
      * Gets the detail of project
      * @param projectId id of the project which detail is being requested
      */
-    getProjectDetail(projectId): Observable<Project> {
-        return this.http.get<Project>(API_URL + "project-" + projectId+".json");
+    getProjectDetail(projectId): Observable<ProjectDetail> {
+        return this.http.get<ProjectDetail>(API_URL + projects + "/" + projectId);
     }
 
     /**
      * Creates a project
      * @param project Project object to be created
      */
-    createHardware(project): Observable<Project> {
+    createProject(project): Observable<Project> {
         return this.http.post<Project>(API_URL + projects, project);
     }
     
@@ -44,15 +44,15 @@ export class ProjectService {
      * Updates a project by parameter
      * @param project Project object to be updated
      */
-    updateHardware(project): Observable<Project> {
-        return this.http.put<Project>(API_URL + projects + '/' + project.id, project);
+    updateProject(project): Observable<ProjectDetail> {
+        return this.http.put<ProjectDetail>(API_URL + projects + '/' + project.id, project);
     }
     
     /**
      * Deletes a project by its id given as parameter.
      * @param projectId id of the project to be deleted
      */
-    deleteEditorial(projectId): Observable<Project> {
-        return this.http.delete<Project>(API_URL + projects + '/' + projectId);
+    deleteProject(projectId): Observable<ProjectDetail> {
+        return this.http.delete<ProjectDetail>(API_URL + projects + '/' + projectId);
     }
 }

@@ -1,6 +1,9 @@
-import { Component, OnInit } from '@angular/core';
-import {ProjectDetail} from '../projectDetail';
+import { Component, OnInit, Input } from '@angular/core';
+import {ActivatedRoute} from '@angular/router';
+import 'rxjs/add/operator/filter';
+
 import { ProjectService } from '../project.service';
+import { Project } from '../project';
 
 @Component({
   selector: 'app-project-list',
@@ -11,13 +14,14 @@ export class ProjectListComponent implements OnInit {
 
 /**
  * The list of projects which belong to the app
- */ projects: ProjectDetail[];
+ */ projects: Project[];
 
  /**
   * Constructor of the project list component
   * @param projectService 
   */
-  constructor(private projectService: ProjectService) { }
+  constructor(private projectService: ProjectService, private route:ActivatedRoute) { }
+
 
   /**
    * Retrieves the projects form the DB
