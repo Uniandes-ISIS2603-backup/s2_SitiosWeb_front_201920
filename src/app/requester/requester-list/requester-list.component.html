@@ -1,0 +1,28 @@
+<div class="container">
+	<div class="row">
+    <div class="col-10">
+
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th scope="col">id</th>
+            <th scope="col">Name</th>
+            <th scope="col">Login</th>
+            <th scope="col">Email</th>
+
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let requester of requesters" >
+            <th scope="row">{{requester.id}}</th>
+            <td>{{requester.name}}</td>
+            <td>{{requester.login}}</td>
+            <td>{{requester.email}}</td>
+            <td><a class="btn btn-primary btn-sm" [routerLink] ="['/requesters', { outlets: { 'detail': [requester.id] } }]">Detalles</a></td>
+          </tr>
+        </tbody>
+      </table>
+
+    </div>
+	</div>
+</div>

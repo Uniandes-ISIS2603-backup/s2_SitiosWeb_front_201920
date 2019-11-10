@@ -14,6 +14,14 @@ import {ProjectListComponent} from '../project/project-list/project-list.compone
 import {ProjectDetailComponent} from '../project/project-detail/project-detail.component';
 import {ProjectCreateComponent} from '../project/project-create/project-create.component';
 
+import { DeveloperListComponent } from '../developer/developer-list/developer-list.component';
+import { DeveloperDetailComponent } from '../developer/developer-detail/developer-detail.component';
+import { DeveloperCreateComponent } from '../developer/developer-create/developer-create.component';
+
+import { RequesterListComponent } from '../requester/requester-list/requester-list.component';
+import { RequesterDetailComponent } from '../requester/requester-detail/requester-detail.component';
+import { RequesterCreateComponent } from '../requester/requester-create/requester-create.component';
+
 import { ProviderListComponent } from '../provider/provider-list/provider-list.component';
 import { ProviderDetailComponent } from '../provider/provider-detail/provider-detail.component';
 import { ProviderCreateComponent } from '../provider/provider-create/provider-create.component';
@@ -93,6 +101,44 @@ const routes: Routes = [
         component:ProjectCreateComponent,
         outlet:'create'
       }
+    ]
+  },
+
+  {
+    path: 'requesters',
+    children: [{
+      path: 'list',
+      component: RequesterListComponent
+    },
+    {
+      path: ':id',
+      component: RequesterDetailComponent,
+      outlet: 'detail'
+    },
+    {
+      path: 'create',
+      component: RequesterCreateComponent
+
+    }
+    ]
+  },
+
+  {
+    path: 'developers',
+    children: [{
+      path: 'list',
+      component: DeveloperListComponent
+    },
+    {
+      path: ':id',
+      component: DeveloperDetailComponent,
+      outlet: 'detail'
+    },
+    {
+      path: 'create',
+      component: DeveloperCreateComponent
+
+    }
     ]
   },
 

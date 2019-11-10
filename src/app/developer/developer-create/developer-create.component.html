@@ -1,0 +1,62 @@
+<h1>CREATE DEVELOPER<h1>
+  
+<form [formGroup]="developerForm" (ngSubmit)="createDeveloper(developerForm.value)">
+
+
+  <div class="form-group mx-sm-3 mb-2">
+    <label for="name">
+      Name
+    </label>
+    <input novalidate
+      id="name"
+      class="form-control"
+      formControlName="name"
+      placeholder="Name of the developer">
+   </div>
+
+   <div class="form-group mx-sm-3 mb-2">
+    <label for="login">
+      Login
+    </label>
+    <input novalidate
+      id="login"
+      class="form-control"
+      formControlLogin="login"
+      placeholder="Login of the developer">
+   </div>
+
+   <div class="form-group mx-sm-3 mb-2">
+    <label for="email">
+      Email
+    </label>
+    <input novalidate
+      id="email"
+      class="form-control"
+      formControlEmail="email"
+      placeholder="Email of the developer">
+   </div>
+
+   <div class="form-group mx-sm-3 mb-2">
+    <label for="phone">
+      Phone
+    </label>
+    <input novalidate
+      id="phone"
+      class="form-control"
+      formControlPhone="phone"
+      placeholder="Phone of the developer">
+   </div>
+
+   <div class="form-group  mx-sm-3 mb-2">
+    <label for="leader">
+      Is it a Leader?
+    </label>
+   <input id="leader" type="text"
+     class="form-control"
+     formControlName="leader"
+     placeholder="Say true or false">
+  </div>
+
+		<button class="button mx-sm-3 mb-2" type="submit">Create</button>
+
+</form>

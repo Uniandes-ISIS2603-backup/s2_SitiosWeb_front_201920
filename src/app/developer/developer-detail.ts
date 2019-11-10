@@ -1,6 +1,8 @@
 import { Project } from '../project/project';
 
-export class Developer {
+import { Developer } from './developer'
+
+export class DeveloperDetail extends Developer{
   /**
     * The developer's projects
     */

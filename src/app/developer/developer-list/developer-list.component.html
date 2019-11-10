@@ -1,21 +1,30 @@
-<div class="container-fluid">
-    <div class="col-md-2">
-        <table class="table table-striped">
-            <thead class="thead-dark">
-                <tr>
-                    <th>Developer Id</th>
-                    <th>Login</th>
-                    <th>Email</th>   
-                    <th>Phone</th>     
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor = "let d of developers">
-                    <td>{{d.id}}</td>
-                    <td>{{d.login}}</td>
-                    <td>{{d.email}}</td>
-                    <td>{{d.phone}}</td>
-                </tr>
-            </tbody>
-        </table>
+<div class="container">
+	<div class="row">
+    <div class="col-10">
+
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th scope="col">id</th>
+            <th scope="col">Name</th>
+            <th scope="col">Login</th>
+            <th scope="col">Email</th>
+            <th scope="col">Leader</th>
+
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let developer of developers" >
+            <th scope="row">{{developer.id}}</th>
+            <td>{{developer.name}}</td>
+            <td>{{developer.login}}</td>
+            <td>{{developer.email}}</td>
+            <td>{{developer.leader}}</td>
+            <td><a class="btn btn-primary btn-sm" [routerLink] ="['/developers', { outlets: { 'detail': [developer.id] } }]">Detalles</a></td>
+          </tr>
+        </tbody>
+      </table>
+
     </div>
+	</div>
+</div>
