@@ -15,6 +15,7 @@ import { ProviderModule } from './provider/provider.module';
 import { IterationModule} from './iteration/iteration.module';
 import { ProjectModule } from './project/project.module';
 import { DeveloperModule } from './developer/developer.module';
+import { RequesterModule } from './requester/requester.module';
 import{RequestModule} from "./request/request.module";
 import {AppComponent} from './app.component';
 import {AppRoutingModule} from './app-routing/app-routing.module';
@@ -40,6 +41,7 @@ import { BarraComponent } from './barra/barra.component';
         IterationModule,
         RequestModule,
         DeveloperModule,
+        RequesterModule,
         BrowserAnimationsModule,
         ModalDialogModule.forRoot(),
         AuthModule,
