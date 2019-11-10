@@ -1,6 +1,6 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
-import {FormsModule} from '@angular/forms';
+import {ReactiveFormsModule, FormsModule} from '@angular/forms';
 import {NgxPaginationModule} from 'ngx-pagination';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {ToastrModule} from 'ngx-toastr';
@@ -42,6 +42,7 @@ import { BarraComponent } from './barra/barra.component';
         BrowserAnimationsModule,
         ModalDialogModule.forRoot(),
         AuthModule,
+        ReactiveFormsModule,
         FormsModule,
         HardwareModule,
         ToastrModule.forRoot({
