@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Hardware } from './hardware';
 import { Observable } from 'rxjs';
 
-const API_URL = 'http://localhost:8080/s2_sitiosweb-api/api';
+const API_URL = 'http://localhost:8080/s2_sitiosweb-api/api/hardwares';
 const editorials = '/hardwares';
 
 @Injectable()
@@ -12,16 +12,16 @@ export class HardwareService {
     constructor(public http: HttpClient) { }    
   
     getHardwares() : Observable<Hardware[]> {
-        return this.http.get<Hardware[]>(API_URL + editorials);
+        return this.http.get<Hardware[]>(API_URL);
     }
 
   getHardwareDetail(hardwareid): Observable<Hardware> {
-        return this.http.get<Hardware>(API_URL + "hardware-" + hardwareid+".json");
+        return this.http.get<Hardware>('http://localhost:8080/s2_sitiosweb-api/api/projects/3/hardwares/' + hardwareid);
   }
 
 
     createHardware(hardware): Observable<Hardware> {
-        return this.http.post<Hardware>(API_URL + editorials, hardware);
+        return this.http.post<Hardware>('http://localhost:8080/s2_sitiosweb-api/api/projects/3/hardwares', hardware);
     }
     
     updateHardware(hardware): Observable<Hardware> {

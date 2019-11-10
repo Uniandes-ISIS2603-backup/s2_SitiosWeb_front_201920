@@ -1,31 +1,14 @@
-<p>
-iteration-list works!
-</p>
 <div class="container-fluid">
-  <div class="col-md-2">
-    <table class="table table-striped">
-      <thead class="thead-dark">
-        <tr>
-          <th>objetivo de la iteracion</th>
-          <th>id de la iteracion</th>
-          <th>fecha de validacion</th>
-          <th>cambios en la iteracion</th>
-          <th>fecha de inicio</th>
-          <th>fecha final</th>
-        </tr>
-      </thead>
-      <tbody>
-                <tr *ngFor = "let e of iterations">
-                    <td>{{e.objetive}}</td>
-                    <td>{{e.id}}</td>
-                    <td>{{e.validationDate}}</td>
-                    <td>{{e.changes}}</td>
-                    <td>{{e.beginDate}}</td>
-                    <td>{{e.endDate}}</td>
-        <tr>
-          <td></td>
+	<div class="col">
+<div class="card" style="width: 18rem;" *ngFor="let iteration of iterations">
+			<a class="figure-caption" [routerLink] ="['/iterations', { outlets: { 'detail': [h.id] } }]" > <img src="https://www.esun.edu.pe/assets/img/courses/comp-info.jpg" class="card-img-top" alt="..."></a>
+  <div class="card-body" >
+    <h5 class="card-title">Iteration id {{iteration.id}}</h5>
+    <h5 class="card-body"></h5>
 
-        </tr>
-      </tbody>
-    </table>
   </div>
+
+</div>
+
+</div>
+</div>
