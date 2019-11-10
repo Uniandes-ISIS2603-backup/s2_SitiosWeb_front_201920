@@ -1,9 +1,8 @@
-import { Component, OnInit } from './node_modules/@angular/core';
-import { ActivatedRoute, Params } from './node_modules/src/app/requester/requester-detail/node_modules/@angular/router';
+import { Component, OnInit } from '@angular/core';
 import { Requester } from '../requester';
 import { RequesterDetail } from '../requester-detail';
 import { RequesterService } from '../requester.service';
-import { FormBuilder, FormGroup, Validators } from "./node_modules/@angular/forms";
+import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 
 @Component({
   selector: 'app-requester-create',
