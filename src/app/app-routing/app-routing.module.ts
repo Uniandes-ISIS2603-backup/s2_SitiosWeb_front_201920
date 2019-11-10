@@ -54,6 +54,7 @@ const routes: Routes = [
         path: 'home',
         component: HomeComponent
     },
+    
     {
     path: 'providers',
     children: [
@@ -73,6 +74,7 @@ const routes: Routes = [
       }
     ]
   },
+  
   {
     path: 'hardwares',
     children: [{
@@ -91,6 +93,7 @@ const routes: Routes = [
     }
     ]
   },
+  
   {
     path: 'projects',
     children: [{
@@ -101,7 +104,7 @@ const routes: Routes = [
     {
       path: ':id',
       component: ProjectDetailComponent,
-      outlet: 'detail'
+
     },
     {
       path: 'create',
