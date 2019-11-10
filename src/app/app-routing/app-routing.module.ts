@@ -55,10 +55,6 @@ const routes: Routes = [
         component: HomeComponent
     },
     {
-        path: '**',
-        redirectTo: 'home',
-    },
-    {
     path: 'providers',
     children: [
       {
@@ -78,10 +74,6 @@ const routes: Routes = [
     ]
   },
   {
-    path: "home",
-    component: HomeComponent
-  },
-  {
     path: 'hardwares',
     children: [{
       path: 'list',
@@ -98,10 +90,6 @@ const routes: Routes = [
 
     }
     ]
-  },
-  {
-    path: "home",
-    component: HomeComponent
   },
   {
     path: 'projects',
