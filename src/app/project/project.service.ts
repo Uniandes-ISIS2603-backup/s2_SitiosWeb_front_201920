@@ -34,8 +34,7 @@ export class ProjectService {
      * @param projectId id of the project which detail is being requested
      */
     getProjectDetail(projectId:number): Observable<ProjectDetail> {
-        const url =`${this.projectsUrl}/${projectId}`;
-        return this.http.get<ProjectDetail>(url);
+        return this.http.get<ProjectDetail>(API_URL + "project-" +projectId + ".json");
     }
 
     /**

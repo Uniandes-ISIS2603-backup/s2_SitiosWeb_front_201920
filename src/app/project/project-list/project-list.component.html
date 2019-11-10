@@ -1,6 +1,6 @@
 <div class="container-fluid">
   <div class="col-md-2">
-
+   
     <table class="table table-striped">
       <thead class="thead-dark">
         <tr>
@@ -11,14 +11,14 @@
       </thead>
       <tbody>
         <tr *ngFor = "let p of projects">
-          <td><a class="nav-link active" [routerLink]="['/projects',p.id]" routerLinkActive="active">{{p.id}}</a></td> 
+          <td><a class="nav-link" [routerLink]="['/projects',{outlets:{'detail':[p.id]}}]" routerLinkActive="active">{{p.id}}</a></td> 
           <td>{{p.company}}</td>
           <td>{{p.internalProject}}</td>  
-  
         </tr>
+        <div>
+            <button class="small" (click)="onSelectCreate()">Add Project</button>
+          </div>
       </tbody>
     </table>
-    <div>
-        <button class="small" (click)="onSelectCreate()">Add Project</button>
-      </div>
+    
   </div>

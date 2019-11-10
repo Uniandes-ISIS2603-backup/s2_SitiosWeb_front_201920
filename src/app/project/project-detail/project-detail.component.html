@@ -1,16 +1,24 @@
 <div class="col-md-12">
   <div class="container-fluid">   
-    <p class="h3 p-3">El project # {{projectid}}</p>   
+    <p class="h3 p-3">El project # {{projectid}}</p>
+    <h1>Developers</h1>   
   <table class="table">
   <thead class="thead-light">
     <tr>
-      <th scope="col">Internal Project</th>
+      <th scope="col">ID</th>
+      <th scope='col'>Login</th>
+      <th scope='col'>Email</th>
+      <th scope='col'>Phone</th>
+
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <td>{{projectDetail.id}}</td>
-      
+    <tr *ngFor="let d of projectDetail.developers">
+      <td>{{d.id}}</td>
+      <td>{{d.login}}</td>
+      <td>{{d.email}}</td>
+      <td>{{d.phone}}</td>
+
     </tr>
   </tbody>
   </table>
