@@ -32,7 +32,7 @@ export class ProjectListComponent implements OnInit {
 
   onSelectCreate(): void {
     console.log("navigating ", this.route.toString());
-    this.router.navigate([{ outlets: { detail: ['agregar'] } }], {
+    this.router.navigate(['/projects', { outlets: { create: ['agregar'] } }], {
       relativeTo: this.route.parent
     });
   }
