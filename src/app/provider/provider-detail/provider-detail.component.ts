@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Params } from '@angular/router';
 import {Provider} from '../provider';
 import {ProviderDetail} from '../provider-detail';
 import { ProviderService } from '../provider.service';
+
 
 @Component({
   selector: 'app-provider-detail',
@@ -17,17 +18,30 @@ export class ProviderDetailComponent implements OnInit {
 
   provider_id: number;
 
+  loader: any;
 
   getProviderDetail(): void {
-      //  this.providerService.getProviderDetail(this.provider_id).subscribe(providerDetail => {this.providerDetail = providerDetail});
-
+      this.providerService.getProvider(this.provider_id).subscribe(providerDetail => {this.providerDetail = providerDetail});
     }
-
+/*
   ngOnInit() {
-   this.provider_id = +this.route.snapshot.paramMap.get('id');
-   
-  //this.providerDetail = new ProviderDetail();
+    this.provider_id = +this.route.snapshot.paramMap.get('id');
+    this.providerDetail = new ProviderDetail();
     this.getProviderDetail();
   }
+*/
+
+onLoad(params) {
+  this.provider_id = parseInt(params['id']);
+  this.providerDetail = new ProviderDetail();
+  this.getProviderDetail();
+}
+ngOnInit() {
+  this.loader = this.route.params.subscribe((params: Params) => this.onLoad(params));
+}
+
+ngOnDestroy() {
+  this.loader.unsubscribe();
+}
 
 }

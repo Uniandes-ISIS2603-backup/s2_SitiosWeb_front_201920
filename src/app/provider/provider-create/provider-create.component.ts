@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Params } from '@angular/router';
+import {Provider} from '../provider';
+import {ProviderDetail} from '../provider-detail';
+import { ProviderService } from '../provider.service';
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
-
-
 
 @Component({
   selector: 'app-provider-create',
@@ -11,16 +13,33 @@ import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 export class ProviderCreateComponent implements OnInit {
 
   providerForm: FormGroup;
-  constructor(private formBuilder: FormBuilder) { 
+  providers: Provider[];
 
-      this.providerForm = this.formBuilder.group({
-      name: ["", [Validators.required, Validators.minLength(2)]],
-      address: ["", Validators.required]
-    });
+  constructor(private providerService: ProviderService,
+    private formBuilder: FormBuilder
+  ) {
+    this.providerForm = this.formBuilder.group({name: ["", [Validators.required, Validators.minLength(1)]]});
+   }
 
-  }
+   createProvider(newProvider: Provider) {
+     console.warn("el provider fue creado", newProvider);
 
-  ngOnInit() {
-  }
+     this.providerService.createProvider(newProvider).subscribe(provider => {this.providers.push(provider);this.showSuccess();});
+     this.providerForm.reset();
+   }
+
+   showSuccess() {
+
+     for (let i = 0; i < this.providers.length; i++){
+       console.log(this.providers[i].id+' '+this.providers[i].name);
+     }
+/*
+     this.toastr.success("Provider", "Creado exitosamente!", {"progressBar": true,timeOut:4000});
+    */
+   }
+   ngOnInit() {
+
+     this.providerService.getProviders().subscribe(providers => (this.providers = providers));
+   }
 
 }

@@ -1,27 +1,21 @@
-<form [formGroup]="providerForm" (ngSubmit)="createProvider(providerForm.value)">
+<form [formGroup]="providerForm" (ngSubmit)="!providerForm.invalid && createProvider(providerForm.value)">
 
-   <div class="form-group mx-sm-3 mb-2">
-    <label for="name">
-      Name
+	<div class="form-group mx-sm-3 mb-2">
+		<label for="name">
+      Provider Name
     </label>
-    <input novalidate
-      id="name"
-      class="form-control"
+		<input novalidate
+    id="name"
+    class="form-control"
       formControlName="name"
-      placeholder="Your Full Name">
-   </div>
+      placeholder="">
 
-   <div class="form-group  mx-sm-3 mb-2">
-    <label for="address">
-      Address
-    </label>
-   <input id="address" type="text"
-     class="form-control"
-     formControlName="address"
-     placeholder="Your Address">
-  </div>
+		<div class="alert alert-danger alert-dismissible fade show"
+			*ngIf="providerForm.get('name').hasError('required') && providerForm.get('name').touched">
+			Name required
+		</div>
+	</div>
 
-  <button class="button mx-sm-3 mb-2" type="submit"
-          [disabled]="providerForm.invalid">Create</button>
+		<button class="button mx-sm-3 mb-2" type="submit">Create</button>
 
 </form>

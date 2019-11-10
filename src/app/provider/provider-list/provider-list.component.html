@@ -1,25 +1,18 @@
 
 
-<div class="row">
-  <div class="col-6" >
 
-        <table class="table table-striped" id="proveedores">
-            <thead >
-                <tr>
-                    <th>Proveedor</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor = "let e of providers">
-                  <td ><a class="nav-link" [routerLink]="['/providers', e.id]" routerLinkActive="active">{{e.name}}</a></td>
-                  </tr>
-            </tbody>
-        </table>
-
-      </div>
-
-      <div class="col-6" >
-
-
-          </div>
-    </div>
+<table class="table table-striped" id="proveedores">
+    <thead >
+        <tr>
+            <th>Proveedor</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor = "let e of providers">
+          <td ><a class="nav-link" [routerLink]="['/providers',{outlets:{'del':[e.id]}}]" routerLinkActive="active">{{e.name}}</a></td>
+        </tr>
+        <tr>
+          <td ><a class="nav-link" [routerLink]="['/providers',{outlets:{'del':'agregar'}}]" routerLinkActive="active">Agregar</a></td>
+        </tr>
+    </tbody>
+</table>

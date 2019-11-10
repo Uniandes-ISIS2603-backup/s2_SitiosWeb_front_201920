@@ -16,6 +16,7 @@ import {ProjectCreateComponent} from '../project/project-create/project-create.c
 
 import { ProviderListComponent } from '../provider/provider-list/provider-list.component';
 import { ProviderDetailComponent } from '../provider/provider-detail/provider-detail.component';
+import { ProviderCreateComponent } from '../provider/provider-create/provider-create.component';
 
 import { IterationListComponent } from "../iteration/iteration-list/iteration-list.component";
 import {IterationDetailComponent} from '../iteration/iteration-detail/iteration-detail.component';
@@ -24,31 +25,31 @@ import {IterationCreateComponent} from '../iteration/iteration-create/iteration-
 
 const routes: Routes = [
 
-     {
-        path: 'auth',
-        children: [
-            {
-                path: 'login',
-                component: AuthLoginComponent,
-                canActivate: [NgxPermissionsGuard],
-                data: {
-                    permissions: {
-                        only: ['GUEST']
-                    }
-                }
-            },
-            {
-                path: ':sign-up',
-                component: AuthSignUpComponent,
-                canActivate: [NgxPermissionsGuard],
-                data: {
-                    permissions: {
-                        only: ['GUEST']
-                    }
-                }
-            }
-        ]
-    },
+  {
+     path: 'auth',
+     children: [
+         {
+             path: 'login',
+             component: AuthLoginComponent,
+             canActivate: [NgxPermissionsGuard],
+             data: {
+                 permissions: {
+                     only: ['GUEST']
+                 }
+             }
+         },
+         {
+             path: ':sign-up',
+             component: AuthSignUpComponent,
+             canActivate: [NgxPermissionsGuard],
+             data: {
+                 permissions: {
+                     only: ['GUEST']
+                 }
+             }
+         }
+     ]
+ },
     {
         path: 'home',
         component: HomeComponent
@@ -58,15 +59,21 @@ const routes: Routes = [
         redirectTo: 'home',
     },
     {
-    path: "providers",
+    path: 'providers',
     children: [
       {
-        path: "list",
+        path: 'list',
         component: ProviderListComponent
       },
       {
-        path: ":id",
-        component: ProviderDetailComponent
+        path: 'agregar',
+        component: ProviderCreateComponent,
+        outlet:'del'
+      },
+      {
+        path: ':id',
+        component: ProviderDetailComponent,
+        outlet:'del'
       }
     ]
   },
