@@ -97,7 +97,7 @@ const routes: Routes = [
     {
       path: ':id',
       component: ProjectDetailComponent,
-      outlet: 'detail'
+
     },
     {
       path: 'create',
