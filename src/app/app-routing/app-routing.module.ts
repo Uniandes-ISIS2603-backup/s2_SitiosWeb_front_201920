@@ -64,12 +64,12 @@ const routes: Routes = [
       {
         path: 'agregar',
         component: ProviderCreateComponent,
-        outlet:'del'
+        outlet:'detail'
       },
       {
         path: ':id',
         component: ProviderDetailComponent,
-        outlet:'del'
+        outlet:'detail'
       }
     ]
   },

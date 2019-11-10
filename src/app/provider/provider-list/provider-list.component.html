@@ -9,10 +9,10 @@
     </thead>
     <tbody>
         <tr *ngFor = "let e of providers">
-          <td ><a class="nav-link" [routerLink]="['/providers',{outlets:{'del':[e.id]}}]" routerLinkActive="active">{{e.name}}</a></td>
+          <td ><a class="nav-link" [routerLink]="['/providers',{outlets:{'detail':[e.id]}}]" routerLinkActive="active">{{e.name}}</a></td>
         </tr>
         <tr>
-          <td ><a class="nav-link" [routerLink]="['/providers',{outlets:{'del':'agregar'}}]" routerLinkActive="active">Agregar</a></td>
+          <td ><a class="nav-link" [routerLink]="['/providers',{outlets:{'detail':'agregar'}}]" routerLinkActive="active">Agregar</a></td>
         </tr>
     </tbody>
 </table>
