@@ -39,6 +39,7 @@ import { BarraComponent } from './barra/barra.component';
         ProjectModule,
         IterationModule,
         RequestModule,
+        DeveloperModule,
         BrowserAnimationsModule,
         ModalDialogModule.forRoot(),
         AuthModule,
