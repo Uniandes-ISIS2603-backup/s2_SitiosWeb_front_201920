@@ -25,7 +25,7 @@ import {IterationCreateComponent} from '../iteration/iteration-create/iteration-
 
 const routes: Routes = [
 
-  {
+    {
      path: 'auth',
      children: [
          {
@@ -49,7 +49,7 @@ const routes: Routes = [
              }
          }
      ]
- },
+    },
     {
         path: 'home',
         component: HomeComponent
@@ -74,7 +74,28 @@ const routes: Routes = [
       }
     ]
   },
-  
+   
+  {
+    path: 'projects',
+    children: [
+      {
+        path: 'list',
+        component: ProjectListComponent,
+
+      },
+      {
+        path: ':id',
+        component: ProjectDetailComponent,
+        outlet:'detail'
+      },
+      {
+        path:'agregar',
+        component:ProjectCreateComponent,
+        outlet:'create'
+      }
+    ]
+  },
+
   {
     path: 'hardwares',
     children: [{
@@ -93,26 +114,7 @@ const routes: Routes = [
     }
     ]
   },
-  
-  {
-    path: 'projects',
-    children: [{
-      path: 'list',
-      component: ProjectListComponent,
-
-    },
-    {
-      path: ':id',
-      component: ProjectDetailComponent,
-      outlet:'detail'
-    },
-    {
-      path: 'agregar',
-      component: ProjectCreateComponent,
-      outlet:'detail'
-    }
-    ]
-  },
+ 
   {
     path: "iterations",
     children: [
