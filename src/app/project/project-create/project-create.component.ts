@@ -34,9 +34,9 @@ export class ProjectCreateComponent implements OnInit {
   providers: Provider[];
 
   constructor(private projectService:ProjectService, private hardwareService:HardwareService, private developerService:DeveloperService, private providerService: ProviderService, private toastr:ToastrService, private formBuilder:FormBuilder) {
-    //this.projectForm  = this.formBuilder.group({
-     // company:["",[Validators.required, Validators.minLength(2)]],
-      //internalProject:["", Validators.required]});
+    this.projectForm  = this.formBuilder.group({
+      company:["",[Validators.required, Validators.minLength(2)]],
+      internalProject:["", Validators.required]});
    }
 
    getProviders():void{
