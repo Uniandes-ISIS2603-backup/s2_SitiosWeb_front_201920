@@ -43,17 +43,18 @@ export class ProjectDetailComponent implements OnInit {
    */
   getProjectDetail(): void {
 
-    this.projectService.getProjectDetail(this.projectid)
-      .subscribe(value => {
+    this.projectService.getProjectDetail(this.projectid).subscribe
+    (value => {
         this.projectDetail = value
-      });
+      }
+    );
   }
 
   /**
    * Method to be executed once this component is loads
    * @param params default parameter of method
    */
-  /**
+  
   onLoad(params) {
 
     this.projectid = parseInt(params['id']);
@@ -61,22 +62,21 @@ export class ProjectDetailComponent implements OnInit {
     this.projectDetail = new ProjectDetail();
     this.getProjectDetail();
   }
-  */
+  
   /**
    * Method to be executed automatically once this component is initialized.
    */
   ngOnInit() {
-    this.projectid = +this.route.snapshot.paramMap.get('id');
 
-    //this.loader = this.route.params.subscribe((params: Params) => this.onLoad(params));
+    this.loader = this.route.params.subscribe((params: Params) => this.onLoad(params));
   }
 
   /**
    * Method to be execuuted automatically once this component is destroyed.
    */
-  /*
+  
   ngOnDestroy() {
     this.loader.unsubscribe();
   }
-*/
+
 }
