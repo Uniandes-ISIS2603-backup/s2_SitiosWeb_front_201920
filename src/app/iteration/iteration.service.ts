@@ -24,7 +24,7 @@ export class IterationService {
     return this.http.get<Iteration>(API_URL+ iterations + '/' + iterationId);
   }
 
-  createProvider(iteration: Iteration): Observable<Iteration> {
+  createIteration(iteration: Iteration): Observable<Iteration> {
     return this.http.post<Iteration>(API_URL, iteration, this.httpOptions).pipe(tap((iteration: Iteration) => console.log(`added iteration w/ ${iteration.objetive} id=${iteration.id}`)));
 }
 
