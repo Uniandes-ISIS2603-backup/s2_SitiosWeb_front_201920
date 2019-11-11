@@ -5,8 +5,8 @@ import { ProviderDetail } from './provider-detail';
 import { Observable } from 'rxjs';
 import { catchError, map, tap } from "rxjs/operators";
 
-const API_URL = '../../assets/';
-const providers = 'providers.json';
+const API_URL = environment.apiURL;
+const providers = '/providers';
 
 
 
@@ -22,7 +22,7 @@ export class ProviderService {
     }
 
     getProvider(idProvider) : Observable<ProviderDetail> {
-        return this.http.get<ProviderDetail>(API_URL + 'provider-'+idProvider+'.json');
+        return this.http.get<ProviderDetail>(API_URL + providers + '/' + idProvider));
     }
 
     createProvider(provider: Provider): Observable<Provider> {
