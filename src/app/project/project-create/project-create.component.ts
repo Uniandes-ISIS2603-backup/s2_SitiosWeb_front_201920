@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { ToastrService } from "ngx-toastr";
-
 import { Project } from "../project";
 import { ProjectService } from "../project.service";
 import {DeveloperService} from '../../developer/developer.service';
@@ -32,11 +31,16 @@ export class ProjectCreateComponent implements OnInit {
   developers:Developer[];
 
   providers: Provider[];
-
+  selected:number = -1;
+  selectedL:number = -1;
+  selectedH:number = -1;
   constructor(private projectService:ProjectService, private hardwareService:HardwareService, private developerService:DeveloperService, private providerService: ProviderService, private toastr:ToastrService, private formBuilder:FormBuilder) {
     this.projectForm  = this.formBuilder.group({
       company:["",[Validators.required, Validators.minLength(2)]],
-      internalProject:["", Validators.required]});
+      internalProject:["", Validators.required],
+      providerSelect:[" ",Validators.required],
+      leaderSelect:[" ", Validators.required],
+      hardwareSelect:[" ", Validators.required]});
    }
 
    getProviders():void{
@@ -45,6 +49,18 @@ export class ProjectCreateComponent implements OnInit {
         this.providers = p;
 
     });
+   }
+
+   getDevelopers():void{
+     this.developerService.getDevelopers().subscribe(l=>{this.developers=l});
+   }
+
+   getHardware():void{
+    this.hardwareService.getHardwares().subscribe(h=>{this.hardware=h});
+  }
+
+   onSelectShow(num:number):void{
+     console.log(num);
    }
 
    createProject(newProject: Project) {
@@ -69,7 +85,9 @@ export class ProjectCreateComponent implements OnInit {
   ngOnInit() {
     this.project = new Project();
     this.project.provider = new Provider();
+    this.project.leader = new Developer();
     this.getProviders();
+    this.getDevelopers();
     this.projectService
       .getProjects()
       .subscribe(p => (this.projects = p));
