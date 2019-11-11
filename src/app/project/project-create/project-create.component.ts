@@ -75,13 +75,13 @@ export class ProjectCreateComponent implements OnInit {
                 this.toastr.error(err, 'Error')});
 
 
-
-    this.projectForm.reset();
-
-    this.providerService.getProvider(+newProject.provider).subscribe(pr => {this.prov = pr;});
+    this.providerService.getProvider(Number(newProject.provider)).subscribe(pr => {this.prov = pr;});
     console.log(this.prov);
     this.prov.projects.push(newProject);
     this.providerService.updateProvider(this.prov);
+
+
+    this.projectForm.reset();
 
   }
 
