@@ -13,7 +13,7 @@ export class ProjectIterationComponent implements OnInit {
     /**
      * The function called when a iteration is posted to update the iterations
      */
-    updateReviews(iterations:Iteration[]): void {
+    updateIterations(iterations:Iteration[]): void {
         this.projectIterations = iterations;
     }
     

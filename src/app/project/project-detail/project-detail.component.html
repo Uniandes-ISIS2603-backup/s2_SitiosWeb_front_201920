@@ -18,7 +18,27 @@
       <td>{{d.login}}</td>
       <td>{{d.email}}</td>
       <td>{{d.phone}}</td>
-
+      <div >
+        <div class="row">
+            <div class="col-md-3">
+                <p *ngIf="projectDetail.iterations.length > 0">
+                    <button type="button" class="btn" [ngClass]="{ 'btn-primary': iterationListComponent.isCollapsed,'btn-outline-primary':!iterationListComponent.isCollapsed}" (click)="toggleIterations()">
+                            Iterations of the project
+                </button>
+                </p>
+            </div>
+        <div class="col-md-3">
+            <p>
+                <button type="button" class="btn" [ngClass]="{ 'btn-primary': iterationAddComponent.isCollapsed,'btn-outline-primary':!iterationAddComponent.isCollapsed}" (click)="toggleCreateIteration()">
+                        Create a Iteration
+                </button>
+            </p>
+        </div>
+        </div>
+      </div>
+      <app-project-iterations [bookIterations]="projectDetail.iterations"></app-project-iterations>
+      <app-project-add-iteration [project]="projectDetail" (updateIterations)="updateIterations()"></app-project-add-iteration>
+    <br>
     </tr>
   </tbody>
   </table>
