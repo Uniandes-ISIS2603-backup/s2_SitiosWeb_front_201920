@@ -1,5 +1,5 @@
 import { Project } from "./project";
-import { Iteration } from "../iteration/iteration";
+import { Iteration } from "./iteration";
 import { Developer } from "../developer/developer";
 //import {InternalSystems} from '../internalsystems/internalsystems';
 export class ProjectDetail extends Project {

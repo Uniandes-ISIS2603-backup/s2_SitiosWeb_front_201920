@@ -5,9 +5,11 @@ import { Observable,of } from 'rxjs';
 import { catchError, map, tap } from "rxjs/operators";
 import { ProjectDetail } from './projectDetail';
 import { environment } from '../../environments/environment';
+import {Iteration} from './iteration';
 
 const API_URL = environment.apiURL;
 const projects = '/projects';
+const iterations = '/iterations';
 
 @Injectable()
 export class ProjectService {
@@ -58,5 +60,14 @@ export class ProjectService {
      */
     deleteProject(projectId): Observable<ProjectDetail> {
         return this.http.delete<ProjectDetail>(API_URL + projects + '/' + projectId);
+    }
+
+    /**
+    * Creates a iteration
+    * @param iteration The iteration
+    * @returns True if the iteration was posted, false otherwise
+    */
+   createIteration(projectId, iteration): Observable<Iteration> {
+    return this.http.post<Iteration>(API_URL + projects + '/' + projectId + iterations, iteration);
     }
 }
