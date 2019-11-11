@@ -80,11 +80,10 @@ export class ProjectCreateComponent implements OnInit {
     console.log(this.provider_id+" here");
     this.providerService.getProvider(this.provider_id).subscribe(pr => {this.prov = pr;});
     console.log(this.prov);
-/*
 
     this.prov.projects.push(newProject);
     this.providerService.updateProvider(this.prov);
-*/
+
     this.projectForm.reset();
 
   }
