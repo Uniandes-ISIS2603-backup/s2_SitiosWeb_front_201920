@@ -49,13 +49,13 @@ export class ProjectAddIterationComponent implements OnInit {
     */
     postIteration(iterationForm: NgForm): Iteration {
         let valiDate: Date = new Date(this.iteration.validationDate.year, this.iteration.validationDate.month - 1, this.iteration.validationDate.day);
-        this.iteration.validationDate = this.dp.transform(valiDate, 'yyyy-MM-dd');
+        //this.iteration.validationDate = this.dp.transform(valiDate, 'yyyy-MM-dd');
         
         let begDate: Date = new Date(this.iteration.beginDate.year, this.iteration.beginDate.month - 1, this.iteration.beginDate.day);
-        this.iteration.beginDate = this.dp.transform(begDate, 'yyyy-MM-dd');
+        //this.iteration.beginDate = this.dp.transform(begDate, 'yyyy-MM-dd');
         
         let endDate: Date = new Date(this.iteration.endDate.year, this.iteration.endDate.month - 1, this.iteration.endDate.day);
-        this.iteration.endDate = this.dp.transform(endDate, 'yyyy-MM-dd');
+       // this.iteration.endDate = this.dp.transform(endDate, 'yyyy-MM-dd');
 
         this.iteration.projecto = this.project;
         this.projectService.createIteration(this.project.id,this.iteration)
