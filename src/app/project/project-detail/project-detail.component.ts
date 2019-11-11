@@ -1,7 +1,7 @@
-import {Component, OnInit, Input, ViewChild} from '@angular/core';
-import {ActivatedRoute, Params} from '@angular/router';
+import {Component, OnInit, Input, ViewChild, ViewContainerRef} from '@angular/core';
+import {ActivatedRoute, Params,  Router} from '@angular/router';
 import {DatePipe} from '@angular/common';
-
+import {ModalDialogService, SimpleModalComponent} from 'ngx-modal-dialog';
 import { ProjectService } from '../project.service';
 import { Project } from '../project';
 import {ProjectDetail} from '../projectDetail';
@@ -25,6 +25,9 @@ export class ProjectDetailComponent implements OnInit {
   constructor(
     private projectService: ProjectService,
     private route: ActivatedRoute,
+    private modalDialogService: ModalDialogService,
+    private router: Router,
+    private viewRef: ViewContainerRef,
     private dp: DatePipe
   ) { }
 
