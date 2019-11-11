@@ -4,15 +4,14 @@ import { Project } from './project';
 import { Observable,of } from 'rxjs';
 import { catchError, map, tap } from "rxjs/operators";
 import { ProjectDetail } from './projectDetail';
+import { environment } from '../../environments/environment';
 
-const API_URL = '../../assets/';
-const projects = 'projects.json';
+const API_URL = environment.apiURL;
+const projects = '/projects';
 
 @Injectable()
 export class ProjectService {
     
-    private projectsUrl = "api/projects"; // URL to web api
-
     httpOptions = {
       headers: new HttpHeaders({ "Content-Type": "application/json" })
     };
