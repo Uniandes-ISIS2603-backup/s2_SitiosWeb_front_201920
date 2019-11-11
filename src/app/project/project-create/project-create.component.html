@@ -23,9 +23,9 @@
 
   <div class="form-group mx-sm-3 mb-2">
       <label for="projectProvider">Choose the project's provider</label>
-      <select class="custom-select" (change) ="onSelectShow($event.target.value)"[(ngModel)] = "project.provider.id" formControlName="providerSelect"  id="projectProvider"
+      <select class="custom-select" (change) ="onSelectShow($event.target.value)" [(ngModel)] = "project.provider" formControlName="providerSelect"  id="projectProvider"
           required>
-          <option [value]="p.id" *ngFor="let p of providers">
+          <option [ngValue]="p" *ngFor="let p of providers">
             {{p.name}}
           </option>
       </select>
@@ -36,10 +36,10 @@
 
   <div class="form-group mx-sm-3 mb-2">
       <label for="projectLeader">Choose the project's leader</label>
-      <select class="custom-select" (change) ="onSelectShow($event.target.value)"[(ngModel)] = "project.leader.id" formControlName="leaderSelect"  id="projectLeader"
+      <select class="custom-select" [(ngModel)] = "project.leader" formControlName="leaderSelect"  id="projectLeader"
           required>
-          <option [value]="l.id" *ngFor="let l of developers">
-            {{l.login}}
+          <option [ngValue]="l" *ngFor="let l of developers">
+            {{l.name}}
           </option>
       </select>
       <div class="invalid-feedback">
@@ -47,18 +47,7 @@
       </div>
   </div>
 
-  <div class="form-group mx-sm-3 mb-2">
-      <label for="projectHardware">Choose the project's hw</label>
-      <select class="custom-select" (change) ="onSelectShow($event.target.value)"[(ngModel)] = "project.hw.id" formControlName="hardwareSelect"  id="projectHardware"
-          required>
-          <option [value]="h.id" *ngFor="let h of hardware">
-            {{h.cpu}}
-          </option>
-      </select>
-      <div class="invalid-feedback">
-          <div>The project's hardware is missing</div>
-      </div>
-  </div>
+
 
   <button class="button mx-sm-3 mb-2" type="submit" [disabled]="projectForm.invalid">Submit</button>
 

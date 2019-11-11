@@ -10,6 +10,7 @@ import {Developer} from '../../developer/developer';
 import {Hardware} from '../../hardware/hardware';
 import {Provider} from '../../provider/provider';
 import {ProviderDetail} from '../../provider/provider-detail';
+import { ifStmt } from '@angular/compiler/src/output/output_ast';
 
 @Component({
   selector: 'app-project-create',
@@ -35,6 +36,7 @@ export class ProjectCreateComponent implements OnInit {
   selected:number = -1;
   selectedL:number = -1;
   selectedH:number = -1;
+  providerPrueba:ProviderDetail;
 
   constructor(private projectService:ProjectService, private hardwareService:HardwareService, private developerService:DeveloperService, private providerService: ProviderService, private toastr:ToastrService, private formBuilder:FormBuilder) {
     this.projectForm  = this.formBuilder.group({
@@ -61,12 +63,14 @@ export class ProjectCreateComponent implements OnInit {
     this.hardwareService.getHardwares().subscribe(h=>{this.hardware=h});
   }
 
-   onSelectShow(num:number):void{
-     console.log(num);
+   onSelectShow():void{
+    console.log(this.project.provider.id);
    }
 
    createProject(newProject: Project) {
     // Process checkout data here
+    newProject.provider = this.project.provider;
+    newProject.leader = this.project.leader;
     console.warn("el proyecto fue creado", newProject);
     this.projectService.createProject(newProject).subscribe(p => {
       this.projects.push(p);
@@ -87,7 +91,6 @@ export class ProjectCreateComponent implements OnInit {
 
 */
     this.projectForm.reset();
-
   }
 
   showSuccess() {
