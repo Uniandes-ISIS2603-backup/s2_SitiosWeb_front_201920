@@ -75,9 +75,9 @@ export class ProjectCreateComponent implements OnInit {
     }, err => {
                 this.toastr.error(err, 'Error')});
 
-
+    console.log(newProject.provider+" there");
     this.provider_id = Number(newProject.provider);
-    console.log(this.provider_id);
+    console.log(this.provider_id+" here");
     this.providerService.getProvider(this.provider_id).subscribe(pr => {this.prov = pr;});
     console.log(this.prov);
 /*
