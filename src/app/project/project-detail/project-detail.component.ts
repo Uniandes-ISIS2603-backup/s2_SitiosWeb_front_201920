@@ -86,7 +86,7 @@ export class ProjectDetailComponent implements OnInit {
   /**
    * The function called when a review is posted, so that the child component can refresh the list
    */
-  updateItertaions(): void {
+  updateIterations(): void {
     this.getProjectDetail();
     this.iterationListComponent.updateIterations(this.projectDetail.iterations);
     this.iterationListComponent.isCollapsed = false;
