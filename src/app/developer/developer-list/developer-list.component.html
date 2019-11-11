@@ -9,7 +9,7 @@
             <th scope="col">Name</th>
             <th scope="col">Login</th>
             <th scope="col">Email</th>
-            <th scope="col">Info</th>
+            <th scope="col">Leader</th>
 
           </tr>
         </thead>
@@ -19,6 +19,7 @@
             <td>{{developer.name}}</td>
             <td>{{developer.login}}</td>
             <td>{{developer.email}}</td>
+            <td>{{developer.leader}}</td>
             <td><a class="btn btn-primary btn-sm" [routerLink] ="['/developers', { outlets: { 'detail': [developer.id] } }]">Detalles</a></td>
           </tr>
         </tbody>

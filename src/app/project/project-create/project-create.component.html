@@ -21,7 +21,17 @@
      placeholder="Say true or false">
   </div>
 
-  <button class="button mx-sm-3 mb-2" type="submit"   
-          [disabled]="projectForm.invalid">Submit</button>
+  <div class="form-group">
+      <label for="projectProvider"><b>Provider</b></label>
+      <select class="custom-select" name="projectProvider" id="projectProvider" [ngClass]="{ 'is-invalid': f.submitted && projectProvider.invalid }"
+          required>
+          <option [value]="provider.id" *ngFor="let p of providers">{{provider.name}}</option>
+      </select>
+      <div class="invalid-feedback">
+          <div>The project's provider is missing</div>
+      </div>
+  </div>
+
+  <button class="button mx-sm-3 mb-2" type="submit" [disabled]="projectForm.invalid">Submit</button>
 
 </form>

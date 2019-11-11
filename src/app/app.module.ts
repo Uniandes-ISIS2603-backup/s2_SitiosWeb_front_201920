@@ -1,6 +1,6 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
-import {FormsModule} from '@angular/forms';
+import {ReactiveFormsModule, FormsModule} from '@angular/forms';
 import {NgxPaginationModule} from 'ngx-pagination';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {ToastrModule} from 'ngx-toastr';
@@ -15,6 +15,7 @@ import { ProviderModule } from './provider/provider.module';
 import { IterationModule} from './iteration/iteration.module';
 import { ProjectModule } from './project/project.module';
 import { DeveloperModule } from './developer/developer.module';
+import { RequesterModule } from './requester/requester.module';
 import{RequestModule} from "./request/request.module";
 import {AppComponent} from './app.component';
 import {AppRoutingModule} from './app-routing/app-routing.module';
@@ -40,9 +41,11 @@ import { BarraComponent } from './barra/barra.component';
         IterationModule,
         RequestModule,
         DeveloperModule,
+        RequesterModule,
         BrowserAnimationsModule,
         ModalDialogModule.forRoot(),
         AuthModule,
+        ReactiveFormsModule,
         FormsModule,
         HardwareModule,
         ToastrModule.forRoot({
