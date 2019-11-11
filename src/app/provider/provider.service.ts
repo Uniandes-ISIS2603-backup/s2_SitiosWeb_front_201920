@@ -27,7 +27,7 @@ export class ProviderService {
     }
 
     createProvider(provider: Provider): Observable<Provider> {
-        return this.http.post<Provider>(API_URL, provider, this.httpOptions).pipe(tap((provider: Provider) => console.log(`added provider w/ ${provider.name} id=${provider.id}`)));
+        return this.http.post<Provider>(API_URL+providers, provider);
 }
 
 
