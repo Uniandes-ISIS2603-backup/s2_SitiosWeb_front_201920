@@ -1,10 +1,13 @@
-import {Component, OnInit, Input} from '@angular/core';
+import {Component, OnInit, Input, ViewChild} from '@angular/core';
 import {ActivatedRoute, Params} from '@angular/router';
 
 
 import { ProjectService } from '../project.service';
 import { Project } from '../project';
 import {ProjectDetail} from '../projectDetail';
+import {ProjectIterationComponent} from '../project-iterations/project-iteration.component';
+import {ProjectAddIterationComponent} from '../project-add-iteration/project-add-iteration.component';
+
 
 @Component({
   selector: 'app-project-detail',
@@ -39,6 +42,30 @@ export class ProjectDetailComponent implements OnInit {
   loader: any;
 
   /**
+   * The child IterationListComponent
+   */
+  @ViewChild(ProjectIterationComponent) iterationListComponent: ProjectIterationComponent;
+
+  /**
+   * The child IterationAddComponent
+   */
+  @ViewChild(ProjectAddIterationComponent) iterationAddComponent: ProjectAddIterationComponent;
+
+  toggleIterations(): void {
+    if (this.iterationAddComponent.isCollapsed == false) {
+        this.iterationAddComponent.isCollapsed = true;
+    }
+    this.iterationListComponent.isCollapsed = !this.iterationListComponent.isCollapsed;
+  }
+
+  toggleCreateIteration(): void {
+    if (this.iterationListComponent.isCollapsed == false) {
+        this.iterationListComponent.isCollapsed = true;
+    }
+    this.iterationAddComponent.isCollapsed = !this.iterationAddComponent.isCollapsed;
+  }
+
+  /**
    * Method that gets the detail of a project from its id
    */
   getProjectDetail(): void {
@@ -50,6 +77,15 @@ export class ProjectDetailComponent implements OnInit {
     );
   }
 
+  /**
+   * The function called when a review is posted, so that the child component can refresh the list
+   */
+  updateItertaions(): void {
+    this.getProjectDetail();
+    this.iterationListComponent.updateIterations(this.projectDetail.iterations);
+    this.iterationListComponent.isCollapsed = false;
+    this.iterationAddComponent.isCollapsed = true;
+  }
   /**
    * Method to be executed once this component is loads
    * @param params default parameter of method

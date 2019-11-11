@@ -9,6 +9,7 @@ import {HardwareService} from '../../hardware/hardware.service';
 import {Developer} from '../../developer/developer';
 import {Hardware} from '../../hardware/hardware';
 import {Provider} from '../../provider/provider';
+import {ProviderDetail} from '../../provider/provider-detail';
 
 @Component({
   selector: 'app-project-create',
@@ -34,6 +35,7 @@ export class ProjectCreateComponent implements OnInit {
   selected:number = -1;
   selectedL:number = -1;
   selectedH:number = -1;
+
   constructor(private projectService:ProjectService, private hardwareService:HardwareService, private developerService:DeveloperService, private providerService: ProviderService, private toastr:ToastrService, private formBuilder:FormBuilder) {
     this.projectForm  = this.formBuilder.group({
       company:["",[Validators.required, Validators.minLength(2)]],
@@ -71,7 +73,21 @@ export class ProjectCreateComponent implements OnInit {
       this.showSuccess();
     }, err => {
                 this.toastr.error(err, 'Error')});
+
+/*
+    prov :ProviderDetail;
+    provider_id: number;
+    console.log(newProject.provider+" there");
+    this.provider_id = Number(newProject.provider);
+    console.log(this.provider_id+" here");
+    this.providerService.getProvider(this.provider_id).subscribe(pr => {this.prov = pr;});
+    console.log(this.prov);
+    this.prov.projects.push(newProject);
+    this.providerService.updateProvider(this.prov);
+
+*/
     this.projectForm.reset();
+
   }
 
   showSuccess() {
@@ -79,14 +95,16 @@ export class ProjectCreateComponent implements OnInit {
       console.log(this.projects[i].id+' '+this.projects[i].company);
     }
     this.toastr.success("Project", "Creado exitosamente!", {"progressBar": true,timeOut:4000});
-   
+
   }
   ngOnInit() {
     this.project = new Project();
     this.project.provider = new Provider();
     this.project.leader = new Developer();
+    this.project.hw = new Hardware();
     this.getProviders();
     this.getDevelopers();
+    this.getHardware();
     this.projectService
       .getProjects()
       .subscribe(p => (this.projects = p));

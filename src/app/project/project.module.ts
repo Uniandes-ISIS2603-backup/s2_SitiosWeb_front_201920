@@ -6,10 +6,12 @@ import { ProjectCreateComponent } from './project-create/project-create.componen
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { RouterModule } from "@angular/router";
 import { ProjectDetailComponent } from './project-detail/project-detail.component';
+import {ProjectAddIterationComponent} from './project-add-iteration/project-add-iteration.component';
+import {ProjectIterationComponent} from './project-iterations/project-iteration.component';
 
 @NgModule({
   imports: [CommonModule, ReactiveFormsModule, RouterModule, FormsModule],
-  declarations: [ProjectListComponent, ProjectDetailComponent, ProjectCreateComponent],
+  declarations: [ProjectListComponent, ProjectDetailComponent, ProjectCreateComponent,ProjectAddIterationComponent,ProjectIterationComponent],
   exports: [ProjectListComponent, ProjectCreateComponent],
   providers: [ProjectService]
 })
