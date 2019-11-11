@@ -4,6 +4,7 @@ import {Provider} from '../provider';
 import {ProviderDetail} from '../provider-detail';
 import { ProviderService } from '../provider.service';
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import { ToastrService } from "ngx-toastr";
 
 @Component({
   selector: 'app-provider-create',
@@ -16,7 +17,8 @@ export class ProviderCreateComponent implements OnInit {
   providers: Provider[];
 
   constructor(private providerService: ProviderService,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private toastr: ToastrService
   ) {
     this.providerForm = this.formBuilder.group({name: ["", [Validators.required, Validators.minLength(1)]]});
    }
@@ -33,9 +35,7 @@ export class ProviderCreateComponent implements OnInit {
      for (let i = 0; i < this.providers.length; i++){
        console.log(this.providers[i].id+' '+this.providers[i].name);
      }
-/*
-     this.toastr.success("Provider", "Creado exitosamente!", {"progressBar": true,timeOut:4000});
-    */
+     this.toastr.success("Provider", "Creado exitosamente!", {"progressBar": true,timeOut:3000});
    }
    ngOnInit() {
 
