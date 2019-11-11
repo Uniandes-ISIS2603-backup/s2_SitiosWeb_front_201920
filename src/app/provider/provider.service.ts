@@ -22,7 +22,7 @@ export class ProviderService {
     }
 
     getProvider(idProvider) : Observable<ProviderDetail> {
-        return this.http.get<ProviderDetail>(API_URL + providers + '/' + idProvider));
+        return this.http.get<ProviderDetail>(API_URL + providers + '/' + idProvider);
     }
 
     createProvider(provider: Provider): Observable<Provider> {
