@@ -15,7 +15,7 @@ export class Iteration {
   /**
    * fecha de validación de la iteración
    */
-  validationDate:Date;
+  validationDate:any;
 
   /**
    * cambios que se dieron en la iteración
@@ -25,12 +25,12 @@ export class Iteration {
   /**
    * fecha de inicio de la iteración
    */
-  beginDate: Date;
+  beginDate: any;
 
   /**
    * fecha de finalización de la iteración
    */
-  endDate: Date;
+  endDate: any;
 
   /**
    * proyecto al cual pertence la iteración
