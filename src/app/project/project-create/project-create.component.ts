@@ -74,9 +74,7 @@ export class ProjectCreateComponent implements OnInit {
     }, err => {
                 this.toastr.error(err, 'Error')});
 
-
-
-    console.log(newProject.provider.id);
+    console.log(newProject.provider);
 
     this.projectForm.reset();
     /*
