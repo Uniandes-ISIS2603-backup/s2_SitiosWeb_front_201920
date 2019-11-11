@@ -36,7 +36,7 @@
 
   <div class="form-group mx-sm-3 mb-2">
       <label for="projectLeader">Choose the project's leader</label>
-      <select class="custom-select" (change) ="onSelectShow($event.target.value)"[(ngModel)] = "selectedL" formControlName="leaderSelect"  id="projectLeader"
+      <select class="custom-select" (change) ="onSelectShow($event.target.value)"[(ngModel)] = "project.leader.id" formControlName="leaderSelect"  id="projectLeader"
           required>
           <option [value]="l.id" *ngFor="let l of developers">
             {{l.login}}
@@ -49,7 +49,7 @@
 
   <div class="form-group mx-sm-3 mb-2">
       <label for="projectHardware">Choose the project's hw</label>
-      <select class="custom-select" (change) ="onSelectShow($event.target.value)"[(ngModel)] = "selectedH" formControlName="hardwareSelect"  id="projectHardware"
+      <select class="custom-select" (change) ="onSelectShow($event.target.value)"[(ngModel)] = "project.hw.id" formControlName="hardwareSelect"  id="projectHardware"
           required>
           <option [value]="h.id" *ngFor="let h of hardware">
             {{h.cpu}}

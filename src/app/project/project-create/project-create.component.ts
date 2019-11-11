@@ -101,8 +101,10 @@ export class ProjectCreateComponent implements OnInit {
     this.project = new Project();
     this.project.provider = new Provider();
     this.project.leader = new Developer();
+    this.project.hw = new Hardware();
     this.getProviders();
     this.getDevelopers();
+    this.getHardware();
     this.projectService
       .getProjects()
       .subscribe(p => (this.projects = p));
