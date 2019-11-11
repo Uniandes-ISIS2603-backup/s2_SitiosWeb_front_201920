@@ -29,7 +29,7 @@ export class ProviderService {
     createProvider(provider: Provider): Observable<Provider> {
         return this.http.post<Provider>(API_URL+providers, provider);
 }
-  deleteprovider(idProvider): Observable<ProviderDetail> {
+  deleteProvider(idProvider): Observable<ProviderDetail> {
       return this.http.delete<ProviderDetail>(API_URL + providers + '/' + idProvider);
 }
 
