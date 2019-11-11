@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, OnChanges, EventEmitter, Output } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { NgForm } from '@angular/forms';
-
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { Iteration } from '../iteration';
 import { ProjectService } from '../project.service';
 import { Project } from '../../project/project';
