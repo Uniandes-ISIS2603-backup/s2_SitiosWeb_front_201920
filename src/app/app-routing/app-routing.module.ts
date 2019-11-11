@@ -134,9 +134,8 @@ const routes: Routes = [
       outlet: 'detail'
     },
     {
-      path: 'create',
+      path: 'agregar',
       component: RequesterCreateComponent
-
     }
     ]
   },
@@ -172,8 +171,10 @@ const routes: Routes = [
       outlet: 'detail'
     },
     {
-      path: 'create',
-      component: HardwareCreateComponent
+      path: 'agregar',
+      component: HardwareCreateComponent,
+      outlet: 'create'
+
 
     }
     ]

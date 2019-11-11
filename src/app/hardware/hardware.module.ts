@@ -10,7 +10,7 @@ import { HardwareCreateComponent } from './hardware-create/hardware-create.compo
 @NgModule({
   imports: [ AppRoutingModule, CommonModule, FormsModule],
   declarations: [HardwareListComponent, HardwareDetailComponent, HardwareCreateComponent],
-  exports: [HardwareListComponent],
+  exports: [HardwareListComponent, HardwareCreateComponent],
   providers: [HardwareService]
 })
 export class HardwareModule { }
