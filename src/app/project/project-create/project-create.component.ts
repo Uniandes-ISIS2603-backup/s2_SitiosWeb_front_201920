@@ -66,7 +66,6 @@ export class ProjectCreateComponent implements OnInit {
    createProject(newProject: Project) {
     // Process checkout data here
     console.warn("el proyecto fue creado", newProject);
-    console.log(newProject.provider.name);
     this.projectService.createProject(newProject).subscribe(p => {
       this.projects.push(p);
       this.showSuccess();
