@@ -1,16 +1,18 @@
 import { Component, OnInit, Input, OnChanges, EventEmitter, Output } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { NgForm } from '@angular/forms';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { Iteration } from '../iteration';
 import { ProjectService } from '../project.service';
 import { Project } from '../../project/project';
+import {DatePipe} from '@angular/common';
+
 @Component({
     selector: 'app-project-add-iteration',
     templateUrl: './project-add-iteration.component.html',
-    styleUrls: ['./project-add-iteration.component.css']
+    styleUrls: ['./project-add-iteration.component.css'],
+    providers: [DatePipe]
 })
-export class ProjectAddIterationComponent implements OnInit, OnChanges {
+export class ProjectAddIterationComponent implements OnInit {
 
     /**
     * The constructor of the component
@@ -19,7 +21,8 @@ export class ProjectAddIterationComponent implements OnInit, OnChanges {
     */
     constructor(
         private projectService: ProjectService,
-        private toastrService: ToastrService
+        private toastrService: ToastrService,
+        private dp: DatePipe
     ) { }
 
     /**
@@ -41,10 +44,19 @@ export class ProjectAddIterationComponent implements OnInit, OnChanges {
     @Output() updateIterations = new EventEmitter();
 
     /**
-    * This function posts a review
-    * @param iteraionForm The form of the review
+    * This function posts a iteration
+    * @param iteraionForm The form of the iteration
     */
     postIteration(iterationForm: NgForm): Iteration {
+        let valiDate: Date = new Date(this.iteration.validationDate.year, this.iteration.validationDate.month - 1, this.iteration.validationDate.day);
+        this.iteration.validationDate = this.dp.transform(valiDate, 'yyyy-MM-dd');
+        
+        let begDate: Date = new Date(this.iteration.beginDate.year, this.iteration.beginDate.month - 1, this.iteration.beginDate.day);
+        this.iteration.beginDate = this.dp.transform(begDate, 'yyyy-MM-dd');
+        
+        let endDate: Date = new Date(this.iteration.endDate.year, this.iteration.endDate.month - 1, this.iteration.endDate.day);
+        this.iteration.endDate = this.dp.transform(endDate, 'yyyy-MM-dd');
+
         this.iteration.projecto = this.project;
         this.projectService.createIteration(this.project.id,this.iteration)
             .subscribe(() => {

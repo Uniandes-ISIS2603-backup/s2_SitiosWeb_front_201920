@@ -1,6 +1,6 @@
 import {Component, OnInit, Input, ViewChild} from '@angular/core';
 import {ActivatedRoute, Params} from '@angular/router';
-
+import {DatePipe} from '@angular/common';
 
 import { ProjectService } from '../project.service';
 import { Project } from '../project';
@@ -12,7 +12,8 @@ import {ProjectAddIterationComponent} from '../project-add-iteration/project-add
 @Component({
   selector: 'app-project-detail',
   templateUrl: './project-detail.component.html',
-  styleUrls: ['./project-detail.component.css']
+  styleUrls: ['./project-detail.component.css'],
+  providers: [DatePipe]
 })
 export class ProjectDetailComponent implements OnInit {
 
@@ -23,7 +24,8 @@ export class ProjectDetailComponent implements OnInit {
    */
   constructor(
     private projectService: ProjectService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private dp: DatePipe
   ) { }
 
   /**
