@@ -41,7 +41,7 @@ export class ProjectCreateComponent implements OnInit {
     this.projectForm  = this.formBuilder.group({
       company:["",[Validators.required, Validators.minLength(2)]],
       internalProject:["", Validators.required],
-      providerSelect:[" ",Validators.required],
+      provider:[" ",Validators.required],
       leaderSelect:[" ", Validators.required],
       hardwareSelect:[" ", Validators.required]});
    }
