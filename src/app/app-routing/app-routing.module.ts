@@ -26,9 +26,6 @@ import { ProviderListComponent } from '../provider/provider-list/provider-list.c
 import { ProviderDetailComponent } from '../provider/provider-detail/provider-detail.component';
 import { ProviderCreateComponent } from '../provider/provider-create/provider-create.component';
 
-import { IterationListComponent } from "../iteration/iteration-list/iteration-list.component";
-import {IterationDetailComponent} from '../iteration/iteration-detail/iteration-detail.component';
-import {IterationCreateComponent} from '../iteration/iteration-create/iteration-create.component';
 
 
 const routes: Routes = [
@@ -161,24 +158,6 @@ const routes: Routes = [
     ]
   },
  
-  {
-    path: "iterations",
-    children: [
-      {
-        path: "list",
-        component: IterationListComponent
-      },
-      {
-        path: ':id',
-        component: IterationDetailComponent,
-        outlet:'detail'
-      },
-      {
-        path:'create',
-        component: IterationCreateComponent
-      }
-    ]
-  }
 ];
 
 @NgModule({

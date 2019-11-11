@@ -12,7 +12,6 @@ import { ModalDialogModule } from 'ngx-modal-dialog';
 
 import { HardwareModule } from './hardware/hardware.module';
 import { ProviderModule } from './provider/provider.module';
-import { IterationModule} from './iteration/iteration.module';
 import { ProjectModule } from './project/project.module';
 import { DeveloperModule } from './developer/developer.module';
 import { RequesterModule } from './requester/requester.module';
@@ -38,7 +37,6 @@ import { BarraComponent } from './barra/barra.component';
         HttpClientModule,
         ProviderModule,
         ProjectModule,
-        IterationModule,
         RequestModule,
         DeveloperModule,
         RequesterModule,

@@ -1,0 +1,14 @@
+<div id="collapseReview" [ngbCollapse]="isCollapsed">
+    <table class="table table-striped">
+        <tbody>
+            <tr *ngFor="let iteration of projectIterations">
+                <td><span ><b>{{iteration.id}}</b></span><span>: 
+
+                </span><span>{{iteration.objetive}}</span><br><span><i>{{iteration.validationDate}}</i></span>
+                <span><i>{{iteration.changes}}</i></span><br><span><i>{{iteration.beginDate}}</i></span>
+                <span><i>{{iteration.endDate}}</i></span>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
