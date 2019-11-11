@@ -1,4 +1,4 @@
-<form [formGroup]="projectForm" (ngSubmit)="createProject(projectForm.value)">
+<form [formGroup]="projectForm" (ngSubmit)="!providerForm.invalid &&createProject(projectForm.value)">
 
    <div class="form-group mx-sm-3 mb-2">
     <label for="company">
@@ -21,14 +21,42 @@
      placeholder="Say true or false">
   </div>
 
-  <div class="form-group">
-      <label for="projectProvider"><b>Provider</b></label>
-      <select class="custom-select" name="projectProvider" id="projectProvider" [ngClass]="{ 'is-invalid': f.submitted && projectProvider.invalid }"
+  <div class="form-group mx-sm-3 mb-2">
+      <label for="projectProvider">Choose the project's provider</label>
+      <select class="custom-select" (change) ="onSelectShow($event.target.value)"[(ngModel)] = "selected" formControlName="providerSelect"  id="projectProvider"
           required>
-          <option [value]="provider.id" *ngFor="let p of providers">{{provider.name}}</option>
+          <option [value]="p.id" *ngFor="let p of providers">
+            {{p.name}}
+          </option>
       </select>
       <div class="invalid-feedback">
           <div>The project's provider is missing</div>
+      </div>
+  </div>
+
+  <div class="form-group mx-sm-3 mb-2">
+      <label for="projectLeader">Choose the project's leader</label>
+      <select class="custom-select" (change) ="onSelectShow($event.target.value)"[(ngModel)] = "selectedL" formControlName="leaderSelect"  id="projectLeader"
+          required>
+          <option [value]="l.id" *ngFor="let l of developers">
+            {{l.login}}
+          </option>
+      </select>
+      <div class="invalid-feedback">
+          <div>The project's leader is missing</div>
+      </div>
+  </div>
+
+  <div class="form-group mx-sm-3 mb-2">
+      <label for="projectHardware">Choose the project's hw</label>
+      <select class="custom-select" (change) ="onSelectShow($event.target.value)"[(ngModel)] = "selectedH" formControlName="hardwareSelect"  id="projectHardware"
+          required>
+          <option [value]="h.id" *ngFor="let h of hardware">
+            {{h.cpu}}
+          </option>
+      </select>
+      <div class="invalid-feedback">
+          <div>The project's hardware is missing</div>
       </div>
   </div>
 
