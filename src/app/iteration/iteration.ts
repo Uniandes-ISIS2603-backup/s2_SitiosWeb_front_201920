@@ -3,6 +3,11 @@ import {Project} from '../project/project';
 export class Iteration {
   
   /**
+   * el id de la iteración
+   */
+  id: number;
+
+  /**
    * objetivo de la iteración
    */
   objetive: string;
