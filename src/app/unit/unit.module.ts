@@ -9,7 +9,7 @@ import { UnitDetailComponent } from './unit-detail/unit-detail.component';
 
 @NgModule({
   imports: [
-    CommonModule, ReactiveFormsModule, RouterModule
+    RouterModule, CommonModule, ReactiveFormsModule
   ],
   declarations: [UnitListComponent, UnitCreateComponent, UnitDetailComponent],
     exports: [UnitListComponent, UnitCreateComponent],
