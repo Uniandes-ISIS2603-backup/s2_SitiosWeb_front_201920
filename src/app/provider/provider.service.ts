@@ -32,5 +32,8 @@ export class ProviderService {
   deleteProvider(idProvider): Observable<ProviderDetail> {
       return this.http.delete<ProviderDetail>(API_URL + providers + '/' + idProvider);
 }
+updateProvider(provider): Observable<ProviderDetail> {
+    return this.http.put<ProviderDetail>(API_URL + providers + '/' + provider.id, provider);
+}
 
 }
