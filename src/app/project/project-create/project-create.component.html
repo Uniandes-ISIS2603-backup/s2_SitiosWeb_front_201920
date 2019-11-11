@@ -23,7 +23,7 @@
 
   <div class="form-group mx-sm-3 mb-2">
       <label for="projectProvider">Choose the project's provider</label>
-      <select class="custom-select" (change) ="onSelectShow($event.target.value)"[(ngModel)] = "project.provider.id" formControlName="provider"  id="projectProvider"
+      <select class="custom-select" (change) ="onSelectShow($event.target.value)"[(ngModel)] = "project.provider.id" formControlName="providerSelect"  id="projectProvider"
           required>
           <option [value]="p.id" *ngFor="let p of providers">
             {{p.name}}

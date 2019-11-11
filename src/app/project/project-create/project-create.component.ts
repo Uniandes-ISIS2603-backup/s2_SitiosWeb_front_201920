@@ -35,13 +35,12 @@ export class ProjectCreateComponent implements OnInit {
   selected:number = -1;
   selectedL:number = -1;
   selectedH:number = -1;
-  prov :ProviderDetail;
-  provider_id: number;
+
   constructor(private projectService:ProjectService, private hardwareService:HardwareService, private developerService:DeveloperService, private providerService: ProviderService, private toastr:ToastrService, private formBuilder:FormBuilder) {
     this.projectForm  = this.formBuilder.group({
       company:["",[Validators.required, Validators.minLength(2)]],
       internalProject:["", Validators.required],
-      provider:[" ",Validators.required],
+      providerSelect:[" ",Validators.required],
       leaderSelect:[" ", Validators.required],
       hardwareSelect:[" ", Validators.required]});
    }
@@ -75,15 +74,18 @@ export class ProjectCreateComponent implements OnInit {
     }, err => {
                 this.toastr.error(err, 'Error')});
 
+/*
+    prov :ProviderDetail;
+    provider_id: number;
     console.log(newProject.provider+" there");
     this.provider_id = Number(newProject.provider);
     console.log(this.provider_id+" here");
     this.providerService.getProvider(this.provider_id).subscribe(pr => {this.prov = pr;});
     console.log(this.prov);
-
     this.prov.projects.push(newProject);
     this.providerService.updateProvider(this.prov);
 
+*/
     this.projectForm.reset();
 
   }
