@@ -7,13 +7,15 @@
           <th>Id</th>
           <th>Company</th>
           <th>Internal Project</th>
+          
         </tr>
       </thead>
       <tbody>
         <tr *ngFor = "let p of projects">
           <td><a class="nav-link" [routerLink]="['/projects',{outlets:{'detail':[p.id]}}]" routerLinkActive="active">{{p.id}}</a></td> 
           <td>{{p.company}}</td>
-          <td>{{p.internalProject}}</td>  
+          <td>{{p.internalProject}}</td>
+         
         </tr>
 
         <div>

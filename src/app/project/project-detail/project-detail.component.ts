@@ -80,6 +80,7 @@ export class ProjectDetailComponent implements OnInit {
         this.projectDetail = value
       }
     );
+   
   }
 
   /**
