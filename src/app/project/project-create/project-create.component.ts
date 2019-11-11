@@ -9,6 +9,7 @@ import {HardwareService} from '../../hardware/hardware.service';
 import {Developer} from '../../developer/developer';
 import {Hardware} from '../../hardware/hardware';
 import {Provider} from '../../provider/provider';
+import {ProviderDetail} from '../../provider/provider-detail';
 
 @Component({
   selector: 'app-project-create',
@@ -34,6 +35,7 @@ export class ProjectCreateComponent implements OnInit {
   selected:number = -1;
   selectedL:number = -1;
   selectedH:number = -1;
+  prov :ProviderDetail;
   constructor(private projectService:ProjectService, private hardwareService:HardwareService, private developerService:DeveloperService, private providerService: ProviderService, private toastr:ToastrService, private formBuilder:FormBuilder) {
     this.projectForm  = this.formBuilder.group({
       company:["",[Validators.required, Validators.minLength(2)]],
@@ -72,6 +74,9 @@ export class ProjectCreateComponent implements OnInit {
     }, err => {
                 this.toastr.error(err, 'Error')});
     this.projectForm.reset();
+    this.providerService.getProvider(newProject.provider).subscribe(pr => {this.prov = pr;});
+    this.prov.projects.push(newProject);
+    this.providerService.updateProvider(this.prov);
   }
 
   showSuccess() {
@@ -79,7 +84,7 @@ export class ProjectCreateComponent implements OnInit {
       console.log(this.projects[i].id+' '+this.projects[i].company);
     }
     this.toastr.success("Project", "Creado exitosamente!", {"progressBar": true,timeOut:4000});
-   
+
   }
   ngOnInit() {
     this.project = new Project();
