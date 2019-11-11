@@ -4,6 +4,7 @@ import { Provider } from './provider';
 import { ProviderDetail } from './provider-detail';
 import { Observable } from 'rxjs';
 import { catchError, map, tap } from "rxjs/operators";
+import { environment } from '../../environments/environment';
 
 const API_URL = environment.apiURL;
 const providers = '/providers';
