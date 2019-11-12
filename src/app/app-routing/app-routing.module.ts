@@ -26,7 +26,9 @@ import { ProviderListComponent } from '../provider/provider-list/provider-list.c
 import { ProviderDetailComponent } from '../provider/provider-detail/provider-detail.component';
 import { ProviderCreateComponent } from '../provider/provider-create/provider-create.component';
 
-
+import { UnitListComponent } from '../unit/unit-list/unit-list.component';
+import { UnitDetailComponent } from '../unit/unit-detail/unit-detail.component';
+import { UnitCreateComponent } from '../unit/unit-create/unit-create.component';
 
 const routes: Routes = [
 
@@ -59,7 +61,7 @@ const routes: Routes = [
         path: 'home',
         component: HomeComponent
     },
-    
+
     {
     path: 'providers',
     children: [
@@ -79,7 +81,26 @@ const routes: Routes = [
       }
     ]
   },
-   
+  {
+  path: 'units',
+  children: [
+    {
+      path: 'list',
+      component: UnitListComponent
+    },
+    {
+      path: 'agregar',
+      component: UnitCreateComponent,
+      outlet:'detail'
+    },
+    {
+      path: ':id',
+      component: UnitDetailComponent,
+      outlet:'detail'
+    }
+  ]
+},
+
   {
     path: 'projects',
     children: [
@@ -113,9 +134,8 @@ const routes: Routes = [
       outlet: 'detail'
     },
     {
-      path: 'create',
+      path: 'agregar',
       component: RequesterCreateComponent
-
     }
     ]
   },
@@ -151,13 +171,15 @@ const routes: Routes = [
       outlet: 'detail'
     },
     {
-      path: 'create',
-      component: HardwareCreateComponent
+      path: 'agregar',
+      component: HardwareCreateComponent,
+      outlet: 'create'
+
 
     }
     ]
   },
- 
+
 ];
 
 @NgModule({
