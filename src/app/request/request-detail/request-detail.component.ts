@@ -6,9 +6,9 @@ import { RequestService } from '../request.service';
 
 
 @Component({
-  selector: 'app-request-detail'
- // templateUrl: './request-detail.component.html'
-  //styleUrls: ['./request-detail.component.css']
+  selector: 'app-request-detail',
+  templateUrl: './request-detail.component.html',
+  styleUrls: ['./request-detail.component.css']
 })
 export class RequestDetailComponent implements OnInit {
 
