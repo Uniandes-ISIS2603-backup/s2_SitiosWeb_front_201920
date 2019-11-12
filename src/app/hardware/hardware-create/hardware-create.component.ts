@@ -54,18 +54,6 @@ export class HardwareCreateComponent implements OnInit {
     }, err => {
                 this.toastr.error(err, 'Error')});
 
-/*
-    prov :ProviderDetail;
-    provider_id: number;
-    console.log(newProject.provider+" there");
-    this.provider_id = Number(newProject.provider);
-    console.log(this.provider_id+" here");
-    this.providerService.getProvider(this.provider_id).subscribe(pr => {this.prov = pr;});
-    console.log(this.prov);
-    this.prov.projects.push(newProject);
-    this.providerService.updateProvider(this.prov);
-
-*/
     this.hardwareForm.reset();
   }
 
@@ -78,9 +66,6 @@ export class HardwareCreateComponent implements OnInit {
   }
   ngOnInit() {
     this.hardware = new Hardware();
-    this.hardware.provider = new Provider();
-    this.hardware.leader = new Developer();
-    this.hardware.hw = new Hardware();
     this.hardwareService
       .getHardwares()
       .subscribe(p => (this.hardwares = p));
