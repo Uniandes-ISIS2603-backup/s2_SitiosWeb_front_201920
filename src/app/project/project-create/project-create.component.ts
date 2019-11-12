@@ -65,7 +65,7 @@ export class ProjectCreateComponent implements OnInit {
     // Process checkout data here
     newProject.provider = this.project.provider;
     newProject.leader = this.project.leader;
-    newProject.hw = this.project.hw;
+//    newProject.hw = this.project.hw;
     console.warn("el proyecto fue creado", newProject);
     this.projectService.createProject(newProject).subscribe(p => {
       this.projects.push(p);
@@ -99,10 +99,10 @@ export class ProjectCreateComponent implements OnInit {
     this.project = new Project();
     this.project.provider = new Provider();
     this.project.leader = new Developer();
-    this.project.hw = new Hardware();
+   // this.project.hw = new Hardware();
     this.getProviders();
     this.getDevelopers();
-    this.getHardware();
+ //   this.getHardware();
     this.projectService
       .getProjects()
       .subscribe(p => (this.projects = p));

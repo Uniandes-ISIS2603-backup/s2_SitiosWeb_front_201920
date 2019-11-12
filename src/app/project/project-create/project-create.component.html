@@ -23,7 +23,7 @@
 
   <div class="form-group mx-sm-3 mb-2">
       <label for="projectProvider">Choose the project's provider</label>
-      <select class="custom-select" (change) ="onSelectShow($event.target.value)" [(ngModel)] = "project.provider" formControlName="providerSelect"  id="projectProvider"
+      <select class="custom-select"  [(ngModel)] = "project.provider" formControlName="providerSelect"  id="projectProvider"
           required>
           <option [ngValue]="p" *ngFor="let p of providers">
             {{p.name}}
@@ -47,18 +47,6 @@
       </div>
   </div>
 
-  <div class="form-group mx-sm-3 mb-2">
-      <label for="projectHardware">Choose the project's hardware</label>
-      <select class="custom-select" [(ngModel)] = "project.hw" formControlName="hardwareSelect"  id="projectHardware"
-          required>
-          <option [value]="h" *ngFor="let h of hardware">
-            CPU: {{h.cpu}}, Cores: {{h.cores}}
-          </option>
-      </select>
-      <div class="invalid-feedback">
-          <div>The project's hardware is missing</div>
-      </div>
-  </div>
 
   <button class="button mx-sm-3 mb-2" type="submit" [disabled]="projectForm.invalid">Submit</button>
 
