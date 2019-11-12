@@ -1,3 +1,4 @@
+<h2>Developers</h2>
 <div class="container">
 	<div class="row">
     <div class="col-10">
@@ -28,9 +29,6 @@
 
     </div>
   </div>
-  
-  <div class="row">
-    <a class="nav-link active" routerLink="developers/add" routerLinkActive="active">add Developer</a>
-  </div>
 
 </div>
+<button class="button mx-sm-3 mb-2" [routerLink]="['/developers',{outlets:{'create':'add'}}]" >Add developer</button>

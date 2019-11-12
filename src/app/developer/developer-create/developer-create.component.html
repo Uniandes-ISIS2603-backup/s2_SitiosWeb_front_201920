@@ -1,7 +1,6 @@
 <h1>CREATE DEVELOPER<h1>
   
-<form [formGroup]="developerForm" (ngSubmit)="createDeveloper(developerForm.value)">
-
+<form [formGroup]="developerForm" (ngSubmit)="!developerForm.invalid && createDeveloper(developerForm.value)">
 
   <div class="form-group mx-sm-3 mb-2">
     <label for="name">
@@ -12,6 +11,12 @@
       class="form-control"
       formControlName="name"
       placeholder="Name of the developer">
+
+    <div class="alert alert-danger alert-dismissible fade show"
+    *ngIf="developerForm.get('name').hasError('required') && developerForm.get('name').touched">
+      Name required
+    </div>
+
    </div>
 
    <div class="form-group mx-sm-3 mb-2">
@@ -23,6 +28,11 @@
       class="form-control"
       formControlLogin="login"
       placeholder="Login of the developer">
+
+      <div class="alert alert-danger alert-dismissible fade show"
+    *ngIf="developerForm.get('login').hasError('required') && developerForm.get('login').touched">
+      Login required
+    </div>
    </div>
 
    <div class="form-group mx-sm-3 mb-2">
@@ -34,6 +44,11 @@
       class="form-control"
       formControlEmail="email"
       placeholder="Email of the developer">
+
+    <div class="alert alert-danger alert-dismissible fade show"
+    *ngIf="developerForm.get('email').hasError('required') && developerForm.get('email').touched">
+      Email required
+    </div>
    </div>
 
    <div class="form-group mx-sm-3 mb-2">
@@ -45,6 +60,11 @@
       class="form-control"
       formControlPhone="phone"
       placeholder="Phone of the developer">
+
+    <div class="alert alert-danger alert-dismissible fade show"
+    *ngIf="developerForm.get('phone').hasError('required') && developerForm.get('phone').touched">
+      Phone required
+    </div>
    </div>
 
    <div class="form-group  mx-sm-3 mb-2">
@@ -55,8 +75,13 @@
      class="form-control"
      formControlName="leader"
      placeholder="Say true or false">
+     <div class="alert alert-danger alert-dismissible fade show"
+    *ngIf="developerForm.get('leader').hasError('required') && developerForm.get('leader').touched">
+      Wrong answer
+    </div>
   </div>
 
 		<button class="button mx-sm-3 mb-2" type="submit">Create</button>
+
 
 </form>

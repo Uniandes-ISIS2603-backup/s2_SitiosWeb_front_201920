@@ -9,6 +9,7 @@
             <th scope="col">Name</th>
             <th scope="col">Login</th>
             <th scope="col">Email</th>
+            <th scope="col">Unit</th>
 
           </tr>
         </thead>
@@ -18,7 +19,7 @@
             <td>{{requester.name}}</td>
             <td>{{requester.login}}</td>
             <td>{{requester.email}}</td>
-            <td><a class="btn btn-primary btn-sm" [routerLink] ="['/requesters', { outlets: { 'detail': [requester.id] } }]">Detalles</a></td>
+            <td>{{requester.unit}}</td>
           </tr>
         </tbody>
       </table>
@@ -26,3 +27,5 @@
     </div>
 	</div>
 </div>
+
+<button class="button mx-sm-3 mb-2" [routerLink]="['/requesters',{outlets:{'create':'add'}}]" >Add requester</button>
