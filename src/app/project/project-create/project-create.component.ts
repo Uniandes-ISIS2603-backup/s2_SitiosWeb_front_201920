@@ -33,9 +33,7 @@ export class ProjectCreateComponent implements OnInit {
   developers:Developer[];
 
   providers: Provider[];
-  selected:number = -1;
-  selectedL:number = -1;
-  selectedH:number = -1;
+
   providerPrueba:ProviderDetail;
 
   constructor(private projectService:ProjectService, private hardwareService:HardwareService, private developerService:DeveloperService, private providerService: ProviderService, private toastr:ToastrService, private formBuilder:FormBuilder) {
@@ -63,14 +61,11 @@ export class ProjectCreateComponent implements OnInit {
     this.hardwareService.getHardwares().subscribe(h=>{this.hardware=h});
   }
 
-   onSelectShow():void{
-    console.log(this.project.provider.id);
-   }
-
    createProject(newProject: Project) {
     // Process checkout data here
     newProject.provider = this.project.provider;
     newProject.leader = this.project.leader;
+    newProject.hw = this.project.hw;
     console.warn("el proyecto fue creado", newProject);
     this.projectService.createProject(newProject).subscribe(p => {
       this.projects.push(p);
