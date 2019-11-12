@@ -30,6 +30,9 @@ import { UnitListComponent } from '../unit/unit-list/unit-list.component';
 import { UnitDetailComponent } from '../unit/unit-detail/unit-detail.component';
 import { UnitCreateComponent } from '../unit/unit-create/unit-create.component';
 
+import {RequestListComponent} from '../request/request-list/request-list.component';
+import {RequestDetailComponent} from '../request/request-detail/request-detail.component';
+
 const routes: Routes = [
 
     {
@@ -179,6 +182,25 @@ const routes: Routes = [
     }
     ]
   },
+  {
+    path: 'requests',
+    children: [{
+      path: 'list',
+      component: RequestListComponent
+    },
+    {
+      path: ':id',
+      component: RequestDetailComponent,
+      outlet: 'detail'
+    },
+    {
+      path: 'create',
+      component: DeveloperCreateComponent
+
+    }
+    ]
+  }
+
 
 ];
 
