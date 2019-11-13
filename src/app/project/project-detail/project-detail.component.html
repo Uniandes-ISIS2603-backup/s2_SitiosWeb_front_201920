@@ -37,10 +37,31 @@
             </button>
         </p>
     </div>
-    </div>
+    <app-project-iterations [projectIterations]="projectDetail.iterations"></app-project-iterations>
+    <app-project-add-iteration [project]="projectDetail" (updateIterations)="updateIterations()"></app-project-add-iteration>
   </div>
-  <app-project-iterations [projectIterations]="projectDetail.iterations"></app-project-iterations>
-  <app-project-add-iteration [project]="projectDetail" (updateIterations)="updateIterations()"></app-project-add-iteration>
+  <div class="row">
+    <div class="col-md-3">
+        <p>
+            <button type="button" class="btn" [ngClass]="{ 'btn-primary':developerListComponent.isCollapsed,'btn-outline-primary':!developerListComponent.isCollapsed}" (click)="toggleDevelopers()">
+                    Developers of a Project
+            </button>
+        </p>
+    </div>
+    <div class="col-md-3">
+        <p>
+            <button type="button" class="btn" [ngClass]="{ 'btn-primary': developerAddComponent.isCollapsed,'btn-outline-primary':!developerAddComponent.isCollapsed}" (click)="toggleCreateDevelopers()">
+                    Add Developers
+            </button>
+        </p>
+    </div>
+    <app-project-developers [projectDevelopers]="projectDetail.developers"></app-project-developers>
+    <app-project-add-developer [projectDetail]="projectDetail" (updateDevelopers)="updateDevelopers()"></app-project-add-developer>
+  </div>
+    
+  </div>
+
+  
 <br>
     </div>
 </div>

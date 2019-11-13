@@ -7,6 +7,8 @@ import { Project } from '../project';
 import {ProjectDetail} from '../projectDetail';
 import {ProjectIterationComponent} from '../project-iterations/project-iteration.component';
 import {ProjectAddIterationComponent} from '../project-add-iteration/project-add-iteration.component';
+import { ProjectDeveloperComponent } from '../project-developers/project-developer.component';
+import {ProjectAddDeveloperComponent} from '../project-add-developers/project-add-developers.component';
 
 
 @Component({
@@ -56,6 +58,16 @@ export class ProjectDetailComponent implements OnInit {
    */
   @ViewChild(ProjectAddIterationComponent) iterationAddComponent: ProjectAddIterationComponent;
 
+   /**
+   * The child IterationListComponent
+   */
+  @ViewChild(ProjectDeveloperComponent) developerListComponent: ProjectDeveloperComponent;
+
+  /**
+   * The child IterationAddComponent
+   */
+  @ViewChild(ProjectAddDeveloperComponent) developerAddComponent: ProjectAddDeveloperComponent;
+
   toggleIterations(): void {
     if (this.iterationAddComponent.isCollapsed == false) {
         this.iterationAddComponent.isCollapsed = true;
@@ -70,6 +82,20 @@ export class ProjectDetailComponent implements OnInit {
     this.iterationAddComponent.isCollapsed = !this.iterationAddComponent.isCollapsed;
   }
 
+  
+  toggleDevelopers(): void {
+    if (this.developerAddComponent.isCollapsed == false) {
+        this.developerAddComponent.isCollapsed = true;
+    }
+    this.developerListComponent.isCollapsed = !this.developerListComponent.isCollapsed;
+  }
+
+  toggleCreateDevelopers(): void {
+    if (this.developerListComponent.isCollapsed == false) {
+        this.developerListComponent.isCollapsed = true;
+    }
+    this.developerAddComponent.isCollapsed = !this.developerAddComponent.isCollapsed;
+  }
   /**
    * Method that gets the detail of a project from its id
    */
