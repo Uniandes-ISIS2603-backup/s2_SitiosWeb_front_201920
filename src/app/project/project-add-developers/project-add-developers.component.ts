@@ -6,7 +6,8 @@ import { Developer } from '../../developer/developer';
 import { ProjectService } from '../project.service';
 import { ProjectDetail } from '../projectDetail';
 import { DeveloperService} from '../../developer/developer.service';
-import {CdkDragDrop, moveItemInArray, transferArrayItem} from '@angular/cdk/drag-drop';
+import {CdkDragDrop, moveItemInArray, transferArrayItem} from "@angular/cdk/drag-drop";
+
 
 import {DatePipe} from '@angular/common';
 
@@ -90,6 +91,19 @@ export class ProjectAddDeveloperComponent implements OnInit {
 
     }
 */
+
+    drop(event: CdkDragDrop<string[]>) {
+        if (event.previousContainer === event.container) {
+             moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
+        } else {
+transferArrayItem(event.previousContainer.data,
+                        event.container.data,
+                        event.previousIndex,
+                        event.currentIndex);
+    }
+  
+  
+  }
     /**
     * The function which initializes the component.
     */

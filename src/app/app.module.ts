@@ -9,7 +9,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {HttpErrorInterceptor} from './interceptors/httperrorinterceptor.service';
 import {NgxPermissionsModule} from 'ngx-permissions';
 import { ModalDialogModule } from 'ngx-modal-dialog';
-
+import{DragDropModule} from "@angular/cdk/drag-drop";
 import { HardwareModule } from './hardware/hardware.module';
 import { ProviderModule } from './provider/provider.module';
 import { UnitModule } from './unit/unit.module';
@@ -55,8 +55,8 @@ import { BarraComponent } from './barra/barra.component';
         }),
         NgxPaginationModule,
         NgxPermissionsModule.forRoot(),
-        NgbModule
-
+        NgbModule,
+        DragDropModule
     ],
     bootstrap: [AppComponent],
     providers: [
