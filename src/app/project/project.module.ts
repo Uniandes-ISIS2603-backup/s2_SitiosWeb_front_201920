@@ -11,9 +11,11 @@ import {ProjectIterationComponent} from './project-iterations/project-iteration.
 import{ProjectAddDeveloperComponent} from "./project-add-developers/project-add-developers.component";
 import{ProjectDeveloperComponent} from "./project-developers/project-developer.component";
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import {DragDropModule} from "@angular/cdk/drag-drop";
+
 
 @NgModule({
-  imports: [CommonModule, ReactiveFormsModule, RouterModule, FormsModule,NgbModule],
+  imports: [CommonModule, ReactiveFormsModule, RouterModule, FormsModule,NgbModule, DragDropModule],
   declarations: [ProjectListComponent, ProjectDetailComponent, ProjectCreateComponent,ProjectAddIterationComponent,ProjectIterationComponent, ProjectAddDeveloperComponent, ProjectDeveloperComponent],
   exports: [ProjectListComponent, ProjectCreateComponent],
   providers: [ProjectService]

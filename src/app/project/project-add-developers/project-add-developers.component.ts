@@ -40,6 +40,11 @@ export class ProjectAddDeveloperComponent implements OnInit {
     */
     initialDevelopers: Developer[];
     
+    /**
+     * The developer to be updated
+     */
+    developerDetail:DeveloperDetail;
+
      /**
     * The initial array of developers to assign to the project
     */
@@ -65,7 +70,7 @@ export class ProjectAddDeveloperComponent implements OnInit {
     * This function posts a iteration
     * @param iteraionForm The form of the iteration
     */
-   /** 
+   
     postDeveloper(developerForm: NgForm): DeveloperDetail {
 
         this.developerDetail.projects.push(this.projectDetail);
@@ -90,8 +95,8 @@ export class ProjectAddDeveloperComponent implements OnInit {
         return this.developerDetail;
 
     }
-*/
 
+/**
     drop(event: CdkDragDrop<string[]>) {
         if (event.previousContainer === event.container) {
              moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
@@ -104,6 +109,7 @@ transferArrayItem(event.previousContainer.data,
   
   
   }
+  */
     /**
     * The function which initializes the component.
     */
