@@ -30,7 +30,9 @@ export class ProjectCreateComponent implements OnInit {
 
   hardware:Hardware[];
 
-  developers:Developer[];
+  allDevelopers: Developer[]=[];
+
+  leaders:Developer[]=[];
 
   providers: Provider[];
 
@@ -54,7 +56,8 @@ export class ProjectCreateComponent implements OnInit {
    }
 
    getDevelopers():void{
-     this.developerService.getDevelopers().subscribe(l=>{this.developers=l});
+     this.developerService.getDevelopers().subscribe(l=>{this.allDevelopers=l});
+     
    }
 
    getHardware():void{
@@ -95,6 +98,17 @@ export class ProjectCreateComponent implements OnInit {
     this.toastr.success("Project", "Creado exitosamente!", {"progressBar": true,timeOut:4000});
 
   }
+
+  filterDevs():void{
+  console.log(this.projects.length);
+    for(let i of this.allDevelopers){
+      if(i.leader==true){
+        this.leaders.push(i);
+        console.log("entro");
+      }
+    }
+  }
+
   ngOnInit() {
     this.project = new Project();
     this.project.provider = new Provider();
@@ -103,6 +117,7 @@ export class ProjectCreateComponent implements OnInit {
     this.getProviders();
     this.getDevelopers();
  //   this.getHardware();
+    this.filterDevs();
     this.projectService
       .getProjects()
       .subscribe(p => (this.projects = p));
