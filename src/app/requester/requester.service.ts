@@ -9,7 +9,6 @@ import {RequesterDetail} from './requester-detail';
 import {environment} from '../../environments/environment';
 const API_URL = environment.apiURL;
 const requesters = '/requesters';
-const reviews = '/reviews';
 
 
 /**

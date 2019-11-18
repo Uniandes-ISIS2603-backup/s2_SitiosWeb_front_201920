@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Requester } from '../requester';
 import { RequesterService } from '../requester.service';
 
-const requesterInfoTbody: HTMLElement = document.getElementById("promedio");
 @Component({
   selector: 'app-requester-list',
   templateUrl: './requester-list.component.html',

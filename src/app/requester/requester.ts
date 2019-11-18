@@ -1,4 +1,4 @@
-//import { Unit } from '../unit/unit';
+import { Unit } from '../unit/unit';
 
 export class Requester {
   
@@ -30,6 +30,6 @@ export class Requester {
   /**
    * The requester's unit
    */
-  //unit: Unit;
+  unit: Unit;
 
 }

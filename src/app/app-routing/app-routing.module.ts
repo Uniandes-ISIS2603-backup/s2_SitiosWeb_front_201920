@@ -131,15 +131,9 @@ const routes: Routes = [
       component: RequesterListComponent
     },
     {
-      path: ':id',
-      component: RequesterDetailComponent,
-      outlet: 'detail'
-    },
-    {
       path: 'add',
-      component: RequesterCreateComponent
-      outlet: 'create
-      '
+      component: RequesterCreateComponent,
+      outlet: 'create'
     }
     ]
   },
