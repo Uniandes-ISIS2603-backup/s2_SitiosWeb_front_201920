@@ -1,64 +1,55 @@
-<h1>CREATE REQUESTER<h1>
-    <form [formGroup]="requesterForm" (ngSubmit)="!requesterForm.invalid &&createRequester(requesterForm.value)">
+<form [formGroup]="requesterForm" (ngSubmit)="!requesterForm.invalid &&createRequester(requesterForm.value)">
 
-        <div class="form-group mx-sm-3 mb-2">
-         <label for="name">
-           Name
-         </label>
-         <input novalidate
-           id="name"
-           class="form-control"
-           formControlName="name"
-           placeholder="Name of the requester">
-        </div>
-    
-        <div class="form-group mx-sm-3 mb-2">
-            <label for="login">
-              Login
-            </label>
-            <input novalidate
-              id="login"
-              class="form-control"
-              formControlName="login"
-              placeholder="Login of the requester">
-        </div>
-    
-        <div class="form-group mx-sm-3 mb-2">
-            <label for="email">
-              Email
-            </label>
-            <input novalidate
-              id="email"
-              class="form-control"
-              formControlName="email"
-              placeholder="Email of the requester">
-           </div>
-    
-        <div class="form-group mx-sm-3 mb-2">
-            <label for="phone">
-                Phone
-            </label>
-            <input novalidate
-                id="phone"
-                class="form-control"
-                formControlName="phone"
-                placeholder="Phone of the requester">
-        </div>
-        
-        <div class="form-group mx-sm-3 mb-2">
-            <label for="requesterUnit">Choose the requester's unit</label>
-            <select class="custom-select"  [(ngModel)] = "requester.unit" formControlName="unitSelect"  id="requesterUnit"
-                required>
-                <option [ngValue]="p" *ngFor="let p of units">
-                  {{p.name}}
-                </option>
-            </select>
-            <div class="invalid-feedback">
-                <div>The requester's unit is missing</div>
-            </div>
-        </div>
+  <div class="form-group mx-sm-3 mb-2">
+    <label for="name">
+      Name
+    </label>
+    <input novalidate id="name" class="form-control" formControlName="name" placeholder="Name of the requester">
+  </div>
 
-     
-       <button class="button mx-sm-3 mb-2" type="submit" [disabled]="requesterForm.invalid">Create</button>
-     
-     </form>
+  <div class="form-group mx-sm-3 mb-2">
+    <label for="login">
+      Login
+    </label>
+    <input novalidate id="login" class="form-control" formControlName="login" placeholder="Login of the requester">
+  </div>
+
+  <div class="form-group mx-sm-3 mb-2">
+    <label for="email">
+      Email
+    </label>
+    <input novalidate id="email" class="form-control" formControlName="email" placeholder="Email of the requester">
+  </div>
+
+  <div class="form-group mx-sm-3 mb-2">
+    <label for="phone">
+      Phone
+    </label>
+    <input novalidate id="phone" class="form-control" formControlName="phone" placeholder="Phone of the requester">
+  </div>
+
+  <div class="form-group mx-sm-3 mb-2">
+    <label for="requesterUnit">Choose the requester's unit</label>
+    <select class="custom-select" [(ngModel)]="requester.unit" formControlName="unitSelect" id="requesterUnit" required>
+      <option [ngValue]="u" *ngFor="let u of units">
+        {{u.name}}
+      </option>
+    </select>
+    <div class="invalid-feedback">
+      <div>The requester's unit is missing</div>
+    </div>
+  </div>
+
+  <div class="form-group">
+      <label for="requesterImage"><b>Image</b></label>
+      <input type="text" name="requesterImage" class="form-control" id="requesterImage" [(ngModel)]="requester.image"
+          #requesterImage="ngModel" [ngClass]="{ 'is-invalid': f.submitted && requesterImage.invalid }" required>
+      <div class="invalid-feedback">
+          <div>The requester's image is missing</div>
+      </div>
+  </div>
+
+
+  <button class="button mx-sm-3 mb-2" type="submit" [disabled]="requesterForm.invalid">Create</button>
+
+</form>

@@ -1,6 +1,6 @@
-import {Injectable} from '@angular/core';
-import {Observable} from 'rxjs';
-import {HttpClient} from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import {Requester} from './requester';
 import {RequesterDetail} from './requester-detail';
@@ -16,6 +16,10 @@ const requesters = '/requesters';
 */
 @Injectable()
 export class RequesterService {
+
+    httpOptions = {
+        headers: new HttpHeaders({ "Content-Type": "application/json" })
+      };  
 
     /**
     * Constructor of the service
