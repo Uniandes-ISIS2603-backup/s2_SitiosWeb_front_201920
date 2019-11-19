@@ -53,8 +53,8 @@ export class DeveloperService {
     }
 
     /**
-     * Updates a developer by parameter
      * @param developer Developer object to be updated
+     * Updates a developer by parameter
      */
     updateDeveloper(developer): Observable<DeveloperDetail> {
         return this.http.put<DeveloperDetail>(API_URL + developers + '/' + developer.id, developer);
