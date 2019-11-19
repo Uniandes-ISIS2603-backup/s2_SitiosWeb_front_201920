@@ -8,7 +8,7 @@ import { Developer } from '../../developer/developer';
 export class ProjectDeveloperComponent implements OnInit {
     @Input() projectDevelopers : Developer [];
     
-    public isCollapsed = false;
+    public isCollapsed = true;
     
     /**
      * The function called when a iteration is posted to update the iterations
