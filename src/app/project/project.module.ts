@@ -14,10 +14,11 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import {DragDropModule} from "@angular/cdk/drag-drop";
 
 
+
 @NgModule({
   imports: [CommonModule, ReactiveFormsModule, RouterModule, FormsModule,NgbModule, DragDropModule],
   declarations: [ProjectListComponent, ProjectDetailComponent, ProjectCreateComponent,ProjectAddIterationComponent,ProjectIterationComponent, ProjectAddDeveloperComponent, ProjectDeveloperComponent],
   exports: [ProjectListComponent, ProjectCreateComponent],
-  providers: [ProjectService]
+  providers: [ProjectService],
 })
 export class ProjectModule { }

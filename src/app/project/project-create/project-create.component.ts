@@ -97,7 +97,6 @@ export class ProjectCreateComponent implements OnInit {
 
   filterDevs(developer: Developer[]):void{
   
-   
     for(let i of developer){
       if(i.leader==true){
         this.leaders.push(i);

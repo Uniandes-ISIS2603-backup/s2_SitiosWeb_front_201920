@@ -42,9 +42,9 @@
   </div>
   <div class="row">
     <div class="col-md-3">
-        <p>
+        <p *ngIf = "projectDetail.developers.length > 0">
             <button type="button" class="btn" [ngClass]="{ 'btn-primary':developerListComponent.isCollapsed,'btn-outline-primary':!developerListComponent.isCollapsed}" (click)="toggleDevelopers()">
-                    Developers of a Project
+                    Developers of the Project
             </button>
         </p>
     </div>
