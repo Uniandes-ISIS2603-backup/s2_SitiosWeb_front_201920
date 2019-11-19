@@ -41,6 +41,11 @@ export class ProjectAddDeveloperComponent implements OnInit {
     initialDevelopers: Developer[];
     
     /**
+     * The initial array of developerDetail
+     */
+    initialDevelopersDetail:DeveloperDetail[];
+    
+    /**
      * The developer to be updated
      */
     developerDetail:DeveloperDetail;
@@ -48,7 +53,7 @@ export class ProjectAddDeveloperComponent implements OnInit {
      /**
     * The initial array of developers to assign to the project
     */
-    finalDevelopers: Developer[]= [];
+    finalDevelopers: DeveloperDetail[]= [];
 
     /**
     * The initial array of developers that are not leaders
@@ -67,10 +72,10 @@ export class ProjectAddDeveloperComponent implements OnInit {
     @Output() updateDevelopers = new EventEmitter();
 
     /**
-    * This function posts a iteration
-    * @param iteraionForm The form of the iteration
+    * This function posts a project
+    * @param developerForm The form of the project
     */
-   
+   /**
     postDeveloper(developerForm: NgForm): DeveloperDetail {
 
         this.developerDetail.projects.push(this.projectDetail);
@@ -95,8 +100,32 @@ export class ProjectAddDeveloperComponent implements OnInit {
         return this.developerDetail;
 
     }
+    */
+    onSelectAddDevelopers():void{
+        this.projectDetail.developers = this.finalDevelopers;
+        this.projectService.updateProject(this.projectDetail).subscribe(()=>{
+            this.updateDevelopers.emit();
+            this.toastrService.success("The project was successfully updated", "Project Updated");
+        }, err => {
+            this.toastrService.error(err, "Error");
+        });
+        for(let dev of this.finalDevelopers){
+            this.developerService.getDeveloperDetail(dev.id).subscribe(newDev => {
+                newDev.projects.push(this.projectDetail);
+                this.developerService.updateDeveloper(newDev).subscribe(()=>{
+                    this.toastrService.success("The developer was successfully updated","Developer updated");
+                },err =>{
+                    this.toastrService.error(err, "Error");
+                })
+            });
 
+        }
+    }
 
+    /**
+     * Method that listens to drag drop event and takes action
+     * @param event drag-drop event to be heard in the html component, meaning that a developer from one list has been dragged and dropped to another list
+     */
     drop(event: CdkDragDrop<string[]>) {
         if (event.previousContainer === event.container) {
              moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
@@ -137,9 +166,10 @@ export class ProjectAddDeveloperComponent implements OnInit {
             if(d.leader==false){
                 this.filteredDevelopers.push(d);
             }
-            console.log("entro");
         }
     }
+
+
     /**
     * The function which notices that the input which defines the book_id has changed.
     * If the book has changed, we update the reviews to show
