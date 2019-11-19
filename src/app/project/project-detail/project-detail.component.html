@@ -1,26 +1,7 @@
 <div class="col-md-12">
   <div class="container-fluid">   
     <p class="h3 p-3">El project # {{projectid}}</p>
-    <h1>Developers</h1>   
-  <table class="table">
-  <thead class="thead-light">
-    <tr>
-      <th scope="col">ID</th>
-      <th scope='col'>Login</th>
-      <th scope='col'>Email</th>
-      <th scope='col'>Phone</th>
-
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let d of projectDetail.developers">
-      <td>{{d.id}}</td>
-      <td>{{d.login}}</td>
-      <td>{{d.email}}</td>
-      <td>{{d.phone}}</td>
-    </tr>
-  </tbody>
-  </table>
+ 
   <div >
     <div class="row">
         <div class="col-md-3">
@@ -56,7 +37,7 @@
         </p>
     </div>
     <app-project-developers [projectDevelopers]="projectDetail.developers"></app-project-developers>
-    <app-project-add-developer [projectDetail]="projectDetail" (updateDevelopers)="updateDevelopers()"></app-project-add-developer>
+    <app-project-add-developer [projectDetail]="projectDetail" ></app-project-add-developer>
   </div>
     
   </div>
