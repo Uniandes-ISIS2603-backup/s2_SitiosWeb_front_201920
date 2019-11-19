@@ -48,7 +48,7 @@ export class ProjectAddDeveloperComponent implements OnInit {
      /**
     * The initial array of developers to assign to the project
     */
-    finalDevelopers: Developer[];
+    finalDevelopers: Developer[]= [];
 
     /**
     * The initial array of developers that are not leaders
@@ -96,20 +96,21 @@ export class ProjectAddDeveloperComponent implements OnInit {
 
     }
 
-/**
+
     drop(event: CdkDragDrop<string[]>) {
         if (event.previousContainer === event.container) {
              moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
         } else {
-transferArrayItem(event.previousContainer.data,
+             transferArrayItem(event.previousContainer.data,
                         event.container.data,
                         event.previousIndex,
                         event.currentIndex);
     }
   
   
-  }
-  */
+    }
+  
+
     /**
     * The function which initializes the component.
     */
@@ -121,25 +122,31 @@ transferArrayItem(event.previousContainer.data,
      * Gets all developers in the app
      */
     getDevelopers():void{
-        this.developerService.getDevelopers().subscribe(p => this.initialDevelopers = p);
+        this.developerService.getDevelopers().subscribe(
+            p => {this.initialDevelopers = p
+                this.filterDevelopers(p)
+               
+            });
     }
 
     /**
      * Filters developers according to the 
      */
-    filterDevelopers():void{
+    filterDevelopers(developers: Developer[]):void{
         for(let d of this.initialDevelopers){
             if(d.leader==false){
                 this.filteredDevelopers.push(d);
             }
+            console.log("entro");
         }
     }
     /**
     * The function which notices that the input which defines the book_id has changed.
     * If the book has changed, we update the reviews to show
     */
+   /**
     ngOnChanges() {
         this.ngOnInit();
     }
-
+    */
 }

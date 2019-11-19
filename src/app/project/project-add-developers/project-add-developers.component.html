@@ -5,11 +5,11 @@
               
                   <div
                     cdkDropList
-                    [cdkDropListData]="initialDevelopers"
+                    [cdkDropListData]="filteredDevelopers"
                     class="example-list"
                     cdkDropListSortingDisabled
                     (cdkDropListDropped)="drop($event)">
-                    <div class="example-box" *ngFor="let id of initialDevelopers" cdkDrag>{{id.name}}</div>
+                    <div class="example-box" *ngFor="let id of filteredDevelopers" cdkDrag>{{id.name}}</div>
                   </div>
                 </div>
               
@@ -20,6 +20,7 @@
                     cdkDropList
                     [cdkDropListData]="finalDevelopers"
                     class="example-list"
+                    cdkDropListSortingDisabled
                     (cdkDropListDropped)="drop($event)">
                     <div class="example-box" *ngFor="let fd of finalDevelopers" cdkDrag>{{fd.name}}</div>
                   </div>
