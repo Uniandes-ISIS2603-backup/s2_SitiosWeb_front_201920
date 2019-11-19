@@ -101,6 +101,9 @@ export class ProjectAddDeveloperComponent implements OnInit {
 
     }
     */
+   /**
+    * Method to add developers to the project and adds th project to each developer
+    */
     onSelectAddDevelopers():void{
         this.projectDetail.developers = this.finalDevelopers;
         this.projectService.updateProject(this.projectDetail).subscribe(()=>{
