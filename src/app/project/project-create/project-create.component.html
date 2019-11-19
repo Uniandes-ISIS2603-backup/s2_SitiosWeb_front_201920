@@ -36,17 +36,20 @@
 
   <div class="form-group mx-sm-3 mb-2">
       <label for="projectLeader">Choose the project's leader</label>
+      
       <select class="custom-select" [(ngModel)] = "project.leader" formControlName="leaderSelect"  id="projectLeader"
           required>
-          <option [ngValue]="l" *ngFor="let l of developers">
-            {{l.name}}
+          <option [ngValue]="l" *ngFor="let l of leaders">
+            
+              {{l.name}}
+         
+       
           </option>
       </select>
       <div class="invalid-feedback">
           <div>The project's leader is missing</div>
       </div>
   </div>
-
 
   <button class="button mx-sm-3 mb-2" type="submit" [disabled]="projectForm.invalid">Submit</button>
 

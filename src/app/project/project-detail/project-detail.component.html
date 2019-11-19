@@ -1,26 +1,7 @@
 <div class="col-md-12">
   <div class="container-fluid">   
     <p class="h3 p-3">El project # {{projectid}}</p>
-    <h1>Developers</h1>   
-  <table class="table">
-  <thead class="thead-light">
-    <tr>
-      <th scope="col">ID</th>
-      <th scope='col'>Login</th>
-      <th scope='col'>Email</th>
-      <th scope='col'>Phone</th>
-
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let d of projectDetail.developers">
-      <td>{{d.id}}</td>
-      <td>{{d.login}}</td>
-      <td>{{d.email}}</td>
-      <td>{{d.phone}}</td>
-    </tr>
-  </tbody>
-  </table>
+ 
   <div >
     <div class="row">
         <div class="col-md-3">
@@ -37,10 +18,31 @@
             </button>
         </p>
     </div>
-    </div>
+    <app-project-iterations [projectIterations]="projectDetail.iterations"></app-project-iterations>
+    <app-project-add-iteration [project]="projectDetail" (updateIterations)="updateIterations()"></app-project-add-iteration>
   </div>
-  <app-project-iterations [projectIterations]="projectDetail.iterations"></app-project-iterations>
-  <app-project-add-iteration [project]="projectDetail" (updateIterations)="updateIterations()"></app-project-add-iteration>
+  <div class="row">
+    <div class="col-md-3">
+        <p *ngIf = "projectDetail.developers.length > 0">
+            <button type="button" class="btn" [ngClass]="{ 'btn-primary':developerListComponent.isCollapsed,'btn-outline-primary':!developerListComponent.isCollapsed}" (click)="toggleDevelopers()">
+                    Developers of the Project
+            </button>
+        </p>
+    </div>
+    <div class="col-md-3">
+        <p>
+            <button type="button" class="btn" [ngClass]="{ 'btn-primary': developerAddComponent.isCollapsed,'btn-outline-primary':!developerAddComponent.isCollapsed}" (click)="toggleCreateDevelopers()">
+                    Add Developers
+            </button>
+        </p>
+    </div>
+    <app-project-developers [projectDevelopers]="projectDetail.developers"></app-project-developers>
+    <app-project-add-developer [projectDetail]="projectDetail" ></app-project-add-developer>
+  </div>
+    
+  </div>
+
+  
 <br>
     </div>
 </div>

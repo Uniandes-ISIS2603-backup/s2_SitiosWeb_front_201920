@@ -30,11 +30,14 @@ export class ProjectCreateComponent implements OnInit {
 
   hardware:Hardware[];
 
-  developers:Developer[];
+  allDevelopers: Developer[]=[];
+
+  leaders:Developer[]=[];
 
   providers: Provider[];
 
   providerPrueba:ProviderDetail;
+
 
   constructor(private projectService:ProjectService, private hardwareService:HardwareService, private developerService:DeveloperService, private providerService: ProviderService, private toastr:ToastrService, private formBuilder:FormBuilder) {
     this.projectForm  = this.formBuilder.group({
@@ -54,7 +57,14 @@ export class ProjectCreateComponent implements OnInit {
    }
 
    getDevelopers():void{
-     this.developerService.getDevelopers().subscribe(l=>{this.developers=l});
+     this.developerService.getDevelopers().subscribe(
+       l=>{
+         this.allDevelopers=l
+         this.filterDevs(l)
+        }
+        
+       );
+     
    }
 
    getHardware():void{
@@ -66,25 +76,14 @@ export class ProjectCreateComponent implements OnInit {
     newProject.provider = this.project.provider;
     newProject.leader = this.project.leader;
 //    newProject.hw = this.project.hw;
+    
     console.warn("el proyecto fue creado", newProject);
     this.projectService.createProject(newProject).subscribe(p => {
       this.projects.push(p);
       this.showSuccess();
     }, err => {
                 this.toastr.error(err, 'Error')});
-
-/*
-    prov :ProviderDetail;
-    provider_id: number;
-    console.log(newProject.provider+" there");
-    this.provider_id = Number(newProject.provider);
-    console.log(this.provider_id+" here");
-    this.providerService.getProvider(this.provider_id).subscribe(pr => {this.prov = pr;});
-    console.log(this.prov);
-    this.prov.projects.push(newProject);
-    this.providerService.updateProvider(this.prov);
-
-*/
+    this.providerService.getProvider(newProject.provider.id).subscribe(p => {p.projects.push(newProject)});
     this.projectForm.reset();
   }
 
@@ -95,13 +94,26 @@ export class ProjectCreateComponent implements OnInit {
     this.toastr.success("Project", "Creado exitosamente!", {"progressBar": true,timeOut:4000});
 
   }
+
+  filterDevs(developer: Developer[]):void{
+  
+    for(let i of developer){
+      if(i.leader==true){
+        this.leaders.push(i);
+      }
+    }
+
+  }
+
   ngOnInit() {
     this.project = new Project();
     this.project.provider = new Provider();
     this.project.leader = new Developer();
+    //No borrar, se comento mientras se arregla lo de agregar hardware junto a project
    // this.project.hw = new Hardware();
     this.getProviders();
     this.getDevelopers();
+    //No borrar, se comento mientras se arregla do de agregar hardware junto a project
  //   this.getHardware();
     this.projectService
       .getProjects()
