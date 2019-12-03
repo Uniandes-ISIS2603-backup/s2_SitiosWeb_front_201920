@@ -1,4 +1,4 @@
-<form [formGroup]="developerForm" (ngSubmit)="!developerForm.invalid &&createDeveloper(developerForm.value)">
+<form [formGroup]="developerForm" (ngSubmit)="!developerForm.invalid &&createDeveloper(developerForm.value) &&signUp()">
 
   <div class="form-group mx-sm-3 mb-2">
     <label for="name">
@@ -29,7 +29,14 @@
   </div>
 
   <div class="form-group mx-sm-3 mb-2">
-  <label>Is a leader</label>
+      <label for="image">
+        Image
+      </label>
+      <input novalidate id="image" class="form-control" formControlName="image" placeholder="Image of the developer [OPTIONAL]">
+    </div>
+
+  <div class="form-group mx-sm-3 mb-2">
+  <label>Is a leader? </label>
     <label>
         <input type="radio" name="leader" formControlName="leader" [value]="true" />Yes
     </label>
@@ -37,6 +44,14 @@
         <input type="radio" name="leader" formControlName="leader" [value]="false" />No
     </label>
   </div>
+
+        
+  <div class="form-group mx-sm-3 mb-2">
+      <label for="password">
+        Password
+      </label>
+      <input novalidate id="password" class="form-control" formControlName="password" placeholder="Password of the developer">
+    </div>
 
   <button class="button mx-sm-3 mb-2" type="submit" [disabled]="developerForm.invalid">Create</button>
 

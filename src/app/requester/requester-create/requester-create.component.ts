@@ -40,10 +40,12 @@ export class RequesterCreateComponent implements OnInit {
   */
   constructor(private requesterService: RequesterService, private toastr: ToastrService, private formBuilder: FormBuilder, private unitService: UnitService) {
     this.requesterForm = this.formBuilder.group({
-      name: ["", [Validators.required, Validators.minLength(2)]],
-      login: ["", [Validators.required, Validators.minLength(2)]],
-      email: ["", [Validators.required, Validators.minLength(2)]],
-      phone: ["", [Validators.required, Validators.minLength(2)]],
+      name:["",[Validators.required, Validators.minLength(2)]],
+      login:["",[Validators.required, Validators.minLength(2)]],
+      email:["",[Validators.required, Validators.minLength(2)]],
+      phone:["",[Validators.required, Validators.minLength(2)]],
+      image:["",[Validators.nullValidator]],
+      password:["",[Validators.required, Validators.minLength(2)]],
       unitSelect: [" ", Validators.required]
     });
   }

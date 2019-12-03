@@ -22,7 +22,9 @@ export class DeveloperCreateComponent implements OnInit {
       login:["",[Validators.required, Validators.minLength(2)]],
       email:["",[Validators.required, Validators.minLength(2)]],
       phone:["",[Validators.required, Validators.minLength(2)]],
-      leader:[" ", Validators.required]});
+      image:["",[Validators.nullValidator]],
+      leader:[" ", Validators.required],
+      password:["",[Validators.required, Validators.minLength(2)]]});
    }
 
     /**
