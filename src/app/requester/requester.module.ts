@@ -7,6 +7,7 @@ import { NgxPermissionsModule } from 'ngx-permissions';
 
 import { AppRoutingModule } from '../app-routing/app-routing.module';
 import { RequesterListComponent } from './requester-list/requester-list.component';
+import { RequesterDetailComponent } from './requester-detail/requester-detail.component';
 import { RequesterService } from './requester.service';
 import { RequesterCreateComponent } from './requester-create/requester-create.component';
 
