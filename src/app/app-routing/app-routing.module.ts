@@ -19,8 +19,9 @@ import { DeveloperDetailComponent } from '../developer/developer-detail/develope
 import { DeveloperCreateComponent } from '../developer/developer-create/developer-create.component';
 
 import { RequesterListComponent } from '../requester/requester-list/requester-list.component';
-import { RequesterDetailComponent } from '../requester/requester-detail/requester-detail.component';
 import { RequesterCreateComponent } from '../requester/requester-create/requester-create.component';
+import { RequesterDetailComponent } from '../requester/requester-detail/requester-detail.component';
+
 
 import { ProviderListComponent } from '../provider/provider-list/provider-list.component';
 import { ProviderDetailComponent } from '../provider/provider-detail/provider-detail.component';
@@ -137,8 +138,9 @@ const routes: Routes = [
       outlet: 'detail'
     },
     {
-      path: 'agregar',
-      component: RequesterCreateComponent
+      path: 'add',
+      component: RequesterCreateComponent,
+      outlet: 'create'
     }
     ]
   },
@@ -155,8 +157,9 @@ const routes: Routes = [
       outlet: 'detail'
     },
     {
-      path: 'create',
-      component: DeveloperCreateComponent
+      path: 'add',
+      component: DeveloperCreateComponent,
+      outlet: 'create'
 
     }
     ]
