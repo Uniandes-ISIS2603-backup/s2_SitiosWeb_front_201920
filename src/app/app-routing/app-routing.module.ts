@@ -20,7 +20,7 @@ import { DeveloperCreateComponent } from '../developer/developer-create/develope
 
 import { RequesterListComponent } from '../requester/requester-list/requester-list.component';
 import { RequesterCreateComponent } from '../requester/requester-create/requester-create.component';
-//import { RequesterDetailComponent } from '../requester/';
+import { RequesterDetailComponent } from '../requester/requester-detail/requester-detail.component';
 
 import { ProviderListComponent } from '../provider/provider-list/provider-list.component';
 import { ProviderDetailComponent } from '../provider/provider-detail/provider-detail.component';
@@ -32,6 +32,8 @@ import { UnitCreateComponent } from '../unit/unit-create/unit-create.component';
 
 import {RequestListComponent} from '../request/request-list/request-list.component';
 import {RequestDetailComponent} from '../request/request-detail/request-detail.component';
+
+import { AdminModComponent } from '../admin/admin-mod/admin-mod.component';
 
 const routes: Routes = [
 
@@ -59,6 +61,21 @@ const routes: Routes = [
              }
          }
      ]
+    },
+    {
+      path: 'admin',
+      children: [
+        {
+          path: 'mod',
+          component: AdminModComponent,
+          canActivate: [NgxPermissionsGuard],
+             data: {
+                 permissions: {
+                     only: ['ADMIN']
+                 }
+             }
+        }
+      ]
     },
     {
         path: 'home',
@@ -133,11 +150,11 @@ const routes: Routes = [
       path: 'list',
       component: RequesterListComponent
     },
-  //  {
-    //  path: ':id',
-    //  component: RequesterDetailComponent,
-     // outlet: 'detail'
-   // },
+    {
+      path: ':id',
+      component: RequesterDetailComponent,
+      outlet: 'detail'
+    },
     {
       path: 'add',
       component: RequesterCreateComponent,
