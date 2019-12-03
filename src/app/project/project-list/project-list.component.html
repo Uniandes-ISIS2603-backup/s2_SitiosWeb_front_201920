@@ -19,8 +19,8 @@
         </tr>
 
         <div>
-            <button class="small" (click)="onSelectCreate()">Add Project</button>
-          </div>
+            <button class="button mx-sm-3 mb-2" [routerLink]="['/projects',{outlets:{'create':'add'}}]" >Add project</button>
+        </div>
       </tbody>
     </table>
     

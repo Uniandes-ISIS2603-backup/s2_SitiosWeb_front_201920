@@ -7,13 +7,17 @@ import { NgxPermissionsModule } from 'ngx-permissions';
 
 import { AppRoutingModule } from '../app-routing/app-routing.module';
 import { RequesterListComponent } from './requester-list/requester-list.component';
-import { RequesterDetailComponent } from './requester-detail/requester-detail.component';
+//import { RequesterDetailComponent } from './requester-detail/requester-detail.component';
 import { RequesterService } from './requester.service';
 import { RequesterCreateComponent } from './requester-create/requester-create.component';
 
 @NgModule({
-  imports: [ BrowserModule, AppRoutingModule, CommonModule, ReactiveFormsModule, FormsModule, NgbModule, NgxPermissionsModule ],
-  declarations: [ RequesterListComponent, RequesterCreateComponent, RequesterDetailComponent ],
+  imports: [ AppRoutingModule, CommonModule, ReactiveFormsModule],
+  declarations: [ 
+    RequesterListComponent, 
+    RequesterCreateComponent, 
+    //RequesterDetailComponent
+   ],
   exports: [ RequesterListComponent, RequesterCreateComponent ],
   providers: [ RequesterService ]
 })
