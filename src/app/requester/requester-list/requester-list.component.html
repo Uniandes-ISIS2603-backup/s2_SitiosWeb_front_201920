@@ -10,17 +10,15 @@
             <th scope="col">Name</th>
             <th scope="col">Login</th>
             <th scope="col">Email</th>
-            <th scope="col">info</th>
 
           </tr>
         </thead>
         <tbody>
           <tr *ngFor="let r of requesters" >
-            <th scope="row">{{r.id}}</th>
+            <th scope="row"><a class="nav-link" [routerLink]="['/requesters',{outlets:{'detail':[r.id]}}]" routerLinkActive="active">{{r.id}}</a></th>
             <td>{{r.name}}</td>
             <td>{{r.login}}</td>
             <td>{{r.email}}</td>
-            <td><a class="btn btn-primary btn-sm" [routerLink] ="['/requesters', { outlets: { 'detail': [r.id] } }]">Detalles</a></td>
           </tr>
         </tbody>
       </table>

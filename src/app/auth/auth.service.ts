@@ -20,14 +20,16 @@ export class AuthService {
     start (): void {
         this.permissionsService.flushPermissions();
         this.roleService.flushRoles();
-        this.permissionsService.loadPermissions(['edit_author_permission', 'delete_author_permission', 'leave_review']);
+        this.permissionsService.loadPermissions(['edit_author_permission', 'delete_author_permission', 'leave_review','see_profile']);
         const role = localStorage.getItem('role');
         if (!role) {
             this.setGuestRole();
         } else if (role === 'ADMIN') {
             this.setAdministratorRole();
-        } else {
-            this.setClientRole();
+        } else if (role === 'DEVELOPER') {
+            this.setDeveloperRole();
+        } else{
+            this.setRequesterRole();
         }
     }
 
@@ -36,15 +38,21 @@ export class AuthService {
         this.roleService.addRole('GUEST', ['']);
     }
 
-    setClientRole (): void {
+    setDeveloperRole (): void {
         this.roleService.flushRoles();
-        this.roleService.addRole('CLIENT', ['leave_review']);
-        localStorage.setItem('role', 'CLIENT');
+        this.roleService.addRole('DEVELOPER', ['see_profile']);
+        localStorage.setItem('role', 'DEVELOPER');
+    }
+
+    setRequesterRole (): void {
+        this.roleService.flushRoles();
+        this.roleService.addRole('REQUESTER', ['see_profile']);
+        localStorage.setItem('role', 'REQUESTER');
     }
 
     setAdministratorRole (): void {
         this.roleService.flushRoles();
-        this.roleService.addRole('ADMIN', ['edit_author_permission', 'delete_author_permission']);
+        this.roleService.addRole('ADMIN', ['see_profile','edit_author_permission', 'delete_author_permission']);
         localStorage.setItem('role', 'ADMIN');
     }
 
@@ -59,8 +67,10 @@ export class AuthService {
     login (role): void {
         if (role === 'Administrator') {
             this.setAdministratorRole();
-        } else {
-            this.setClientRole()
+        }else if(role === 'Developer') {
+            this.setDeveloperRole();
+        }else if(role === 'Requester'){
+            this.setRequesterRole();
         }
         this.router.navigateByUrl('/');
     }

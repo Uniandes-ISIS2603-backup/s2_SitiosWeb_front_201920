@@ -20,7 +20,7 @@ import { DeveloperCreateComponent } from '../developer/developer-create/develope
 
 import { RequesterListComponent } from '../requester/requester-list/requester-list.component';
 import { RequesterCreateComponent } from '../requester/requester-create/requester-create.component';
-//import { RequesterDetailComponent } from '../requester/';
+import { RequesterDetailComponent } from '../requester/requester-detail/requester-detail.component';
 
 import { ProviderListComponent } from '../provider/provider-list/provider-list.component';
 import { ProviderDetailComponent } from '../provider/provider-detail/provider-detail.component';
@@ -133,11 +133,11 @@ const routes: Routes = [
       path: 'list',
       component: RequesterListComponent
     },
-  //  {
-    //  path: ':id',
-    //  component: RequesterDetailComponent,
-     // outlet: 'detail'
-   // },
+    {
+      path: ':id',
+      component: RequesterDetailComponent,
+      outlet: 'detail'
+    },
     {
       path: 'add',
       component: RequesterCreateComponent,
