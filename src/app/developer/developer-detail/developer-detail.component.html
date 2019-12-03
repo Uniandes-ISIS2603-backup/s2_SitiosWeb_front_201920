@@ -1,18 +1,51 @@
-<div class="container-fluid">
-	<p class="h4 p-3">
-		Name: {{developerDetail.name}}
-	</p>
-	<p class="h4 p-3">
-		Login: {{developerDetail.login}}
-	</p>
-  <p class="h4 p-3">
-		Email: {{developerDetail.email}}
-	</p>
-  <p class="h4 p-3">
-		Phone: {{developerDetail.phone}}
-	</p>
-  <p class="h4 p-3">
-		Leader: {{leader}}
-	</p>
+<div class="panel-body">
+		<div class="border margin">
+			<p class="h3 p-3">{{developerDetail.name}}<p> 
+			<div class="row">
+				<div class="col-md-3">
+					<div class="thumb">
+						<img class="img-fluid" src='{{developerDetail.image}}' alt="{{developerDetail.image}}" />   
+					</div>
+				</div>
+				<div class="col">
+					<dl>
+						<dt>Login</dt>
+						<dd>{{developerDetail.login}}</dd>
+						<dt>Email</dt>
+						<dd>{{developerDetail.email}}</dd>
+						<dt>Phone</dt>
+						<dd>{{developerDetail.phone}}</dd>
+						<dt>Is a leader?</dt>
+						<dd>{{developerDetail.leader}}</dd>
+					</dl>
+				</div>
 	
-</div>
+			</div>
+		</div>
+		<p class="h3 p-3">Projects by this developer : </p>
+		<div class="container-fluid">
+				<div class="col-md-2">
+				 
+				  <table class="table table-striped">
+					<thead class="thead-dark">
+					  <tr>
+						<th>Id</th>
+						<th>Company</th>
+						<th>Internal Project</th>
+						
+					  </tr>
+					</thead>
+					<tbody>
+					  <tr *ngFor = "let p of developerDetail.projects">
+						<td>{{p.id}}</td> 
+						<td>{{p.company}}</td>
+						<td>{{p.internalProject}}</td>
+					   
+					  </tr>
+					</tbody>
+				  </table>
+				  
+				</div>
+	</div>
+	
+	

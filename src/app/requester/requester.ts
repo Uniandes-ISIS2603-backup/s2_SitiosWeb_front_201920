@@ -1,4 +1,4 @@
-//import { Unit } from '../unit/unit';
+import { Unit } from '../unit/unit';
 
 export class Requester {
   
@@ -28,8 +28,13 @@ export class Requester {
   phone: string;
 
   /**
+   * The requester's image
+   */
+  image: string;
+
+  /**
    * The requester's unit
    */
-  //unit: Unit;
+  unit: Unit;
 
 }

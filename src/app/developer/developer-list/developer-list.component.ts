@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Developer } from '../developer';
 import { DeveloperService } from '../developer.service';
 
-const developerInfoTbody: HTMLElement = document.getElementById("promedio");
 @Component({
   selector: 'app-developer-list',
   templateUrl: './developer-list.component.html',

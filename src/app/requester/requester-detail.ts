@@ -1,8 +1,8 @@
-//import { Unit } from '../unit/unit';
+import { Request } from '../request/request';
 
 import { Requester } from './requester'
 
 export class RequesterDetail extends Requester{
 
-   //unit : Unit[];
+   requests : Request[];
 }

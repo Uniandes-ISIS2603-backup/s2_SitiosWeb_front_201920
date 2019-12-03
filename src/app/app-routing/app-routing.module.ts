@@ -22,7 +22,6 @@ import { RequesterListComponent } from '../requester/requester-list/requester-li
 import { RequesterCreateComponent } from '../requester/requester-create/requester-create.component';
 import { RequesterDetailComponent } from '../requester/requester-detail/requester-detail.component';
 
-
 import { ProviderListComponent } from '../provider/provider-list/provider-list.component';
 import { ProviderDetailComponent } from '../provider/provider-detail/provider-detail.component';
 import { ProviderCreateComponent } from '../provider/provider-create/provider-create.component';

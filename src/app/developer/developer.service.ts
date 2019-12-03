@@ -1,15 +1,14 @@
-import {Injectable} from '@angular/core';
-import {Observable} from 'rxjs';
-import {HttpClient} from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
-import {Developer} from './developer';
-import {DeveloperDetail} from './developer-detail';
+import { Developer } from './developer';
+import { DeveloperDetail } from './developer-detail';
 
+import { environment } from '../../environments/environment';
 
-import {environment} from '../../environments/environment';
 const API_URL = environment.apiURL;
 const developers = '/developers';
-const reviews = '/reviews';
 
 
 /**
@@ -17,6 +16,10 @@ const reviews = '/reviews';
 */
 @Injectable()
 export class DeveloperService {
+
+    httpOptions = {
+        headers: new HttpHeaders({ "Content-Type": "application/json" })
+      };  
 
     /**
     * Constructor of the service
@@ -37,8 +40,8 @@ export class DeveloperService {
     * @param developer The new developer
     * @returns The developer with its new id if it was created, false if it wasn't
     */
-    createDeveloper(developer): Observable<DeveloperDetail> {
-        return this.http.post<DeveloperDetail>(API_URL + developers, developer);
+    createDeveloper(developer): Observable<Developer> {
+        return this.http.post<Developer>(API_URL + developers, developer);
     }
 
     /**
@@ -48,13 +51,21 @@ export class DeveloperService {
     getDeveloperDetail(developerId): Observable<DeveloperDetail> {
         return this.http.get<DeveloperDetail>(API_URL + developers + '/' + developerId);
     }
+
     /**
-     * Updates a developer by parameter
      * @param developer Developer object to be updated
+     * Updates a developer by parameter
      */
     updateDeveloper(developer): Observable<DeveloperDetail> {
         return this.http.put<DeveloperDetail>(API_URL + developers + '/' + developer.id, developer);
     }
     
+    /**
+     * Deletes a developer by its id given as parameter.
+     * @param developerId id of the developer to be deleted
+     */
+    deleteDeveloper(developerId): Observable<DeveloperDetail> {
+        return this.http.delete<DeveloperDetail>(API_URL + developers + '/' + developerId);
+    }
 }
 

@@ -3,7 +3,7 @@ export class Developer {
   /**
    * The developer's id
    */
-  id:number;
+  id: number;
 
   /**
    * The developer's name
