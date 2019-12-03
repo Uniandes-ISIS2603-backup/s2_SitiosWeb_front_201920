@@ -99,10 +99,19 @@ const routes: Routes = [
       },
     
       {
-        path:'add',
+       path:'agregar',
         component:ProjectCreateComponent,
-        outlet:'create'
+        outlet:'detail'
        }
+    ]
+  },
+  {
+    path: 'projectos',
+    children: [{
+      path:'agregar',
+      component:ProjectCreateComponent,
+      outlet:'detail'
+    }
     ]
   },
   {
