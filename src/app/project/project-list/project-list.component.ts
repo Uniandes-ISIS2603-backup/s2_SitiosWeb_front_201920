@@ -30,12 +30,15 @@ export class ProjectListComponent implements OnInit {
     this.projectService.getProjects().subscribe(projects => this.projects = projects);
   }
 
-  onSelectCreate(): void {
+  /** 
+   *   onSelectCreate(): void {
     console.log("navigating ", this.route.toString());
     this.router.navigate(['/projects', { outlets: { create: ['agregar'] } }], {
       relativeTo: this.route.parent
     });
   }
+  */
+
   /**
    * Default method to be executed once the component is initialized
    */
