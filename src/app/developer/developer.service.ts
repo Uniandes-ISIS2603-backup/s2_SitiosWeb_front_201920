@@ -51,7 +51,7 @@ export class DeveloperService {
     getDeveloperDetail(developerId): Observable<DeveloperDetail> {
         return this.http.get<DeveloperDetail>(API_URL + developers + '/' + developerId);
     }
-
+    
     /**
      * @param developer Developer object to be updated
      * Updates a developer by parameter

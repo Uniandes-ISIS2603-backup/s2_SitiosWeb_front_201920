@@ -12,9 +12,6 @@
       <a class="nav-link" routerLink="home" routerLinkActive="active">Home <span class="sr-only">(current)</span></a>
     </li>
     <li class="nav-item active">
-      <a class="nav-link" routerLink="providers/list" routerLinkActive="active">Provider</a>
-    </li>
-    <li class="nav-item active">
       <a class="nav-link active" routerLink="projects/list" routerLinkActive="active">Project</a>
     </li>
     <li class="nav-item active">
@@ -24,23 +21,22 @@
       <a class="nav-link active" routerLink="developers/list" routerLinkActive="active">Developer</a>
     </li>
     <li class="nav-item active">
-      <a class="nav-link" routerLink="units/list" routerLinkActive="active">Unit</a>
-    </li>
-        <li class="nav-item active">
-      <a class="nav-link" routerLink="hardwares/list" routerLinkActive="active">Hardware</a>
-    </li>
-    <li class="nav-item active">
         <a class="nav-link active" routerLink="auth/login" routerLinkActive="active">Login</a>
     </li>
     <li class="nav-item active">
         <a class="nav-link active" routerLink="auth/sign-up" routerLinkActive="active">SignUp</a>
     </li>
-    <li class="nav-item active">
-      <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-    </li>
     <li class ="nav-item active">
       <a class = "nav-link disable" routerLink="requests/list" routerLinkActive="active">Requests</a>
     </li>
+    <li class="nav-item active">
+        <a class="nav-link active" routerLink="admin/mod" routerLinkActive="active" *ngxPermissionsOnly="['ADMIN']" >Modify data</a>
+    </li>
+    <div class="flex-row" *ngxPermissionsOnly="['DEVELOPER','REQUESTER', 'ADMIN']">
+        <div class="form-inline">
+            <li><a id="logout-navbar-item" (click)="logout()" href="#"><span class="fa fa-sign-out"></span>Logout</a></li>
+        </div>
+    </div>
   </ul>
 </div>
 </nav>
