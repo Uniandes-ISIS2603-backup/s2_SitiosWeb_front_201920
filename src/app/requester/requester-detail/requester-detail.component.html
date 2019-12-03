@@ -1,51 +1,48 @@
 <div class="panel-body">
 		<div class="border margin">
-			<p class="h3 p-3">{{developerDetail.name}}<p> 
+			<p class="h3 p-3">{{requesterDetail.name}}<p> 
 			<div class="row">
 				<div class="col-md-3">
 					<div class="thumb">
-						<img class="img-fluid" src='{{developerDetail.image}}' alt="{{developerDetail.image}}" />   
+						<img class="img-fluid" src='{{requesterDetail.image}}' alt="{{requesterDetail.image}}" />   
 					</div>
 				</div>
 				<div class="col">
-					<dl>     
+					<dl> 
 						<dt>Login</dt>
-						<dd>{{developerDetail.login}}</dd>
+						<dd>{{requesterDetail.login}}</dd>
 						<dt>Email</dt>
-						<dd>{{developerDetail.email}}</dd>
+						<dd>{{requesterDetail.email}}</dd>
 						<dt>Phone</dt>
-						<dd>{{developerDetail.phone}}</dd>
+						<dd>{{requesterDetail.phone}}</dd>
 						<dt>Is a leader?</dt>
-						<dd>{{developerDetail.leader}}</dd>
+						<dd>{{requesterDetail.leader}}</dd>
 					</dl>
 				</div>
 	
 			</div>
 		</div>
-		<p class="h3 p-3">Projects by this developer : </p>
-		<div class="container-fluid">
+		<p class="h3 p-3" *ngIf = "requesterDetail.requests.length != 0">Requests by this requester : </p>
+		<div class="container-fluid" *ngIf = "requesterDetail.requests.length != 0">
 				<div class="col-md-2">
-				 
-				  <table class="table table-striped">
-					<thead class="thead-dark">
-					  <tr>
-						<th>Id</th>
-						<th>Company</th>
-						<th>Internal Project</th>
-						
-					  </tr>
-					</thead>
-					<tbody>
-					  <tr *ngFor = "let p of developerDetail.projects">
-						<td>{{p.id}}</td> 
-						<td>{{p.company}}</td>
-						<td>{{p.internalProject}}</td>
-					   
-					  </tr>
-					</tbody>
-				  </table>
-				  
+					<table class="table table-striped">
+						<thead class="thead-dark">
+							<tr>
+								<th>Name</th>
+								<th>Purpose</th>    
+								<th>Description</th>    
+							</tr>
+						</thead>
+						<tbody>
+							<tr *ngFor = "let r of requesterDetail.requests">
+								<td>{{r.name}}</td>
+								<td>{{r.purpose}}</td>
+								<td>{{r.description}}</td>
+							</tr>
+						</tbody>
+					</table>
 				</div>
+			</div>
 	</div>
 	
 	
