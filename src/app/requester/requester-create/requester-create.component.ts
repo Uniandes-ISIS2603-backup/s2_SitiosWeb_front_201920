@@ -43,8 +43,8 @@ export class RequesterCreateComponent implements OnInit {
       name:["",[Validators.required, Validators.minLength(2)]],
       login:["",[Validators.required, Validators.minLength(2)]],
       email:["",[Validators.required, Validators.minLength(2)]],
-      phone:["",[Validators.required, Validators.minLength(2)]],
-      image:["",[Validators.nullValidator]],
+      phone:["",[Validators.required, Validators.minLength(10)]],
+      image:["",[]],
       password:["",[Validators.required, Validators.minLength(2)]],
       unitSelect: [" ", Validators.required]
     });

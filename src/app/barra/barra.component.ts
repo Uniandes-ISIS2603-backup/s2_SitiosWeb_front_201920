@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import { AuthService } from '../auth/auth.service';
+import { RouterModule, Routes } from '@angular/router';
 
 @Component({
   selector: 'app-barra',

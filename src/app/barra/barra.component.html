@@ -41,14 +41,14 @@
     <li class ="nav-item active">
       <a class = "nav-link disable" routerLink="requests/list" routerLinkActive="active">Requests</a>
     </li>
-    <li class="nav-item dropdown" dropdown>
-        <a dropdownToggle mdbWavesEffect type="button" class="nav-link dropdown-toggle waves-light" mdbWavesEffect>
-          <mdb-icon fas icon="user"></mdb-icon> Profile<span class="caret"></span></a>
-        <div *dropdownMenu class="dropdown-menu dropdown-menu-right dropdown dropdown-primary" role="menu">
-          <a class="dropdown-item waves-light" mdbWavesEffect href="#">My account</a>
-          <a class="dropdown-item waves-light" mdbWavesEffect href="#" (click)="logout()">Log out</a>
+    <li class="nav-item active">
+        <a class="nav-link active" routerLink="admin/mod" routerLinkActive="active" *ngxPermissionsOnly="['ADMIN']" >Modify data</a>
+    </li>
+    <div class="flex-row" *ngxPermissionsOnly="['DEVELOPER','REQUESTER', 'ADMIN']">
+        <div class="form-inline">
+            <li><a id="logout-navbar-item" (click)="logout()" href="#"><span class="fa fa-sign-out"></span>Logout</a></li>
         </div>
-      </li>
+    </div>
   </ul>
 </div>
 </nav>

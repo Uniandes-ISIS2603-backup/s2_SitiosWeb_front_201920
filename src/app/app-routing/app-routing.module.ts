@@ -33,6 +33,8 @@ import { UnitCreateComponent } from '../unit/unit-create/unit-create.component';
 import {RequestListComponent} from '../request/request-list/request-list.component';
 import {RequestDetailComponent} from '../request/request-detail/request-detail.component';
 
+import { AdminModComponent } from '../admin/admin-mod/admin-mod.component';
+
 const routes: Routes = [
 
     {
@@ -59,6 +61,21 @@ const routes: Routes = [
              }
          }
      ]
+    },
+    {
+      path: 'admin',
+      children: [
+        {
+          path: 'mod',
+          component: AdminModComponent,
+          canActivate: [NgxPermissionsGuard],
+             data: {
+                 permissions: {
+                     only: ['ADMIN']
+                 }
+             }
+        }
+      ]
     },
     {
         path: 'home',
