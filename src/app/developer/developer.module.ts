@@ -12,6 +12,7 @@ import { DeveloperService } from './developer.service';
 import { DeveloperDetailComponent } from './developer-detail/developer-detail.component';
 import { DeveloperCreateComponent } from './developer-create/developer-create.component';
 import { ProjectModule } from '../project/project.module';
+//import { AuthModule } from '../auth/auth.module';
 
 @NgModule({
   imports: [ BrowserModule, AppRoutingModule, CommonModule, ReactiveFormsModule, FormsModule, NgbModule, NgxPermissionsModule, HttpClientModule, ProjectModule ],

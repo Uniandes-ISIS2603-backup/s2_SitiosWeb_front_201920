@@ -1,6 +1,5 @@
-<form [formGroup]="requesterForm" (ngSubmit)="!requesterForm.invalid &&createRequester(requesterForm.value)">
 
-    <form [formGroup]="requesterForm" (ngSubmit)="!requesterForm.invalid &&createRequester(requesterForm.value) &&signUp()">
+    <form [formGroup]="requesterForm" (ngSubmit)="!requesterForm.invalid &&createRequester(requesterForm.value)">
 
         <div class="form-group mx-sm-3 mb-2">
           <label for="name">

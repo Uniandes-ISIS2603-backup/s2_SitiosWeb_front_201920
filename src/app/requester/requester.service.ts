@@ -2,11 +2,12 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
-import {Requester} from './requester';
-import {RequesterDetail} from './requester-detail';
+import { Requester } from './requester';
+import { RequesterDetail } from './requester-detail';
 
+import { environment } from '../../environments/environment';
+import { AuthService } from '../auth/auth.service';
 
-import {environment} from '../../environments/environment';
 const API_URL = environment.apiURL;
 const requesters = '/requesters';
 
@@ -19,13 +20,13 @@ export class RequesterService {
 
     httpOptions = {
         headers: new HttpHeaders({ "Content-Type": "application/json" })
-      };  
+    };
 
     /**
     * Constructor of the service
     * @param http The HttpClient - This is necessary in order to perform requests
     */
-    constructor(private http: HttpClient) {}
+    constructor(private http: HttpClient, private authService: AuthService) { }
 
     /**
     * Returns the Observable object containing the list of requesters retrieved from the API
@@ -52,6 +53,12 @@ export class RequesterService {
         return this.http.get<RequesterDetail>(API_URL + requesters + '/' + requesterId);
     }
 
-    
+
+    /**
+  * Sign the user up with the selected role
+  */
+    signUp(login): void {
+        this.authService.login('Developer', login);
+    }
 }
 

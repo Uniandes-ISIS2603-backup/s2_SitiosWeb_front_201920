@@ -42,7 +42,7 @@ export class AuthLoginComponent implements OnInit {
             this.toastrService.error("El usuario no existe", "Error no encontrado")
         }
         else{
-            this.authService.login(this.user.role);
+            this.authService.login(this.user.role, this.user.login);
             this.toastrService.success('Logged in');
         }
     }
