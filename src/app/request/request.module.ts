@@ -6,9 +6,11 @@ import { RequestDetailComponent } from '../request/request-detail/request-detail
 import {RequestCreateComponent} from '../request/request-create/request-create.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { RouterModule } from "@angular/router";
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
 @NgModule({
   imports: [
-    CommonModule, ReactiveFormsModule, FormsModule, RouterModule
+    CommonModule, ReactiveFormsModule, FormsModule, RouterModule, NgbModule
   ],
   declarations: [RequestListComponent, RequestDetailComponent, RequestCreateComponent],
   exports : [RequestListComponent, RequestDetailComponent, RequestCreateComponent],
