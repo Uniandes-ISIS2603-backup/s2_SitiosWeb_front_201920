@@ -68,6 +68,7 @@ export class ProjectDetailComponent implements OnInit {
    */
   @ViewChild(ProjectAddDeveloperComponent) developerAddComponent: ProjectAddDeveloperComponent;
 
+  
   toggleIterations(): void {
     if (this.iterationAddComponent.isCollapsed == false) {
         this.iterationAddComponent.isCollapsed = true;
