@@ -75,7 +75,7 @@ export class DeveloperService {
   * Sign the user up with the selected role
   */
     signUp(login): void {
-        this.authService.login('Developer', login);
+        this.authService.login('Developer', login, null);
     }
 }
 
