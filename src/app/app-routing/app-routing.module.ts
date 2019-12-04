@@ -227,7 +227,7 @@ const routes: Routes = [
     {
       path: 'agregar',
       component: RequestCreateComponent,
-      outlet: 'detail'
+      outlet: 'create'
     }
     ]
   }
