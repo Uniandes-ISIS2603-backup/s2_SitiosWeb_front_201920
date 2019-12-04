@@ -28,4 +28,16 @@
 #proveedores tr:hover {color: #ffffff ;}
 }
 */
+#proveedores th{
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: center;
+  background-color: #23395B;
+  color: white;
+  text-size-adjust: true ;
+}
+table.center{
+  text-align: center;  
+}
+
 #proveedores tr:hover {background-color: #a9a9a9 ;}
