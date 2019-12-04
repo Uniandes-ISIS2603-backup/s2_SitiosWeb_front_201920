@@ -19,6 +19,8 @@ export class ProjectListComponent implements OnInit {
  /**
   * Constructor of the project list component
   * @param projectService 
+  * @param router Router to manage component navigation
+  * @param route Route to navigate
   */
   constructor(private projectService: ProjectService, private router:Router ,private route:ActivatedRoute) { }
 
