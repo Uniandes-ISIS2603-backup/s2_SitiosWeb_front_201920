@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import { AuthService } from '../auth/auth.service';
+import { RouterModule, Routes } from '@angular/router';
 
 @Component({
   selector: 'app-barra',
@@ -7,9 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BarraComponent implements OnInit {
 
-  constructor() { }
+  constructor(private authService: AuthService) { }
 
   ngOnInit() {
+  }
+
+  logout(): void {
+      this.authService.logout()
   }
 
 }

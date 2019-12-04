@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
+
 import { DeveloperService } from '../developer.service';
 import { DeveloperDetail } from '../developer-detail';
 
@@ -13,7 +14,13 @@ export class DeveloperDetailComponent implements OnInit {
     /**
     * The developer
     */
-    @Input() developerDetail: DeveloperDetail;
+    developerDetail: DeveloperDetail;
+
+    /**
+    * Class loader
+    */
+    loader: any;
+
     /**
     * Constructor for the component
     * @param route The route which helps to retrieves the id of the book to be shown
@@ -22,16 +29,14 @@ export class DeveloperDetailComponent implements OnInit {
     */
     constructor(
         private route: ActivatedRoute,
-        private developerService: DeveloperService 
+        private developerService: DeveloperService
     ) { }
-
-    
-    
 
     /**
     * El id del developer que viene en el path get .../developers/developer_id
     */
     developer_id: number;
+
     /**
     * The method which obtains the developer whose details we want to show
     */
@@ -42,16 +47,28 @@ export class DeveloperDetailComponent implements OnInit {
             });
     }
 
-   
     /**
-    * The method which initializes the component.
-    * We need to create the developer so it is never considered as undefined
-    */
-    ngOnInit() {
-        this.developer_id = +this.route.snapshot.paramMap.get('id');
-        if (this.developer_id){
+     * Method to be executed once this component is loads
+     * @param params default parameter of method
+     */
+    onLoad(params) {
+        this.developer_id = parseInt(params['id']);
         this.developerDetail = new DeveloperDetail();
         this.getDeveloperDetail();
-        }
+    }
+
+
+    /**
+     * Method to be executed automatically once this component is initialized.
+     */
+    ngOnInit() {
+        this.loader = this.route.params.subscribe((params: Params) => this.onLoad(params));
+    }
+
+    /**
+     * Method to be execuuted automatically once this component is destroyed.
+     */
+    ngOnDestroy() {
+        this.loader.unsubscribe();
     }
 }

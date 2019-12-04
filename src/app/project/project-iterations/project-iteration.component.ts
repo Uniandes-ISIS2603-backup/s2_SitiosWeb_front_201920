@@ -8,7 +8,7 @@ import { Iteration } from '../iteration';
 export class ProjectIterationComponent implements OnInit {
     @Input() projectIterations : Iteration [];
     
-    public isCollapsed = false;
+    public isCollapsed = true;
     
     /**
      * The function called when a iteration is posted to update the iterations

@@ -22,6 +22,9 @@ import {AuthModule} from './auth/auth.module';
 import { PieComponent } from './pie/pie.component';
 import { HomeComponent } from './home/home.component';
 import { BarraComponent } from './barra/barra.component';
+import { RouterModule } from '@angular/router';
+import { AdminModule } from './admin/admin.module';
+
 
 import {DragDropModule} from "@angular/cdk/drag-drop";
 
@@ -53,7 +56,9 @@ import {DragDropModule} from "@angular/cdk/drag-drop";
         NgxPaginationModule,
         NgxPermissionsModule.forRoot(),
         NgbModule,
-        DragDropModule
+        DragDropModule,
+        RouterModule,
+        AdminModule
         
     ],
     bootstrap: [AppComponent],

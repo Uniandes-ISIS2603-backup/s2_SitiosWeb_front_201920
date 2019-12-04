@@ -5,6 +5,10 @@ import { AuthService } from '../auth.service';
 import { User } from '../user';
 
 import { ToastrService } from 'ngx-toastr';
+import { RequesterService } from '../../requester/requester.service';
+import { Requester } from '../../requester/requester';
+import { DeveloperService } from '../../developer/developer.service';
+import { Developer } from '../../developer/developer';
 
 @Component({
     selector: 'app-auth-login',
@@ -21,6 +25,8 @@ export class AuthLoginComponent implements OnInit {
     constructor(
         private authService: AuthService,
         private toastrService: ToastrService,
+        private requesterService: RequesterService,
+        private developerService: DeveloperService
     ) { }
 
     user: User;
@@ -31,8 +37,14 @@ export class AuthLoginComponent implements OnInit {
     * Logs the user in with the selected role
     */
     login(): void {
-        this.authService.login(this.user.role);
-        this.toastrService.success('Logged in')
+        if( (this.user.role === 'Developer' && this.developerService.getDeveloperDetail(this.user.login) == null )
+        ||  (this.user.role === 'Requester' && this.requesterService.getRequesterDetail(this.user.login) == null ) ){
+            this.toastrService.error("El usuario no existe", "Error no encontrado")
+        }
+        else{
+            this.authService.login(this.user.role);
+            this.toastrService.success('Logged in');
+        }
     }
 
     /**
@@ -40,7 +52,7 @@ export class AuthLoginComponent implements OnInit {
     */
     ngOnInit() {
         this.user = new User();
-        this.roles = ['Administrator', 'Client'];
+        this.roles = ['Administrator', 'Developer', 'Requester'];
     }
 
 }

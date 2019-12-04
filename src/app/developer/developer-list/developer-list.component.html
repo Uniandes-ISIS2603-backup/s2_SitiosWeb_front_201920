@@ -1,5 +1,6 @@
-<h2>Developers</h2>
+<h2 class="developersHeader">Developers</h2>
 <div class="container">
+ 
 	<div class="row">
     <div class="col-10">
 
@@ -11,18 +12,16 @@
             <th scope="col">Login</th>
             <th scope="col">Email</th>
             <th scope="col">Is Leader?</th>
-            <th scope="col">info</th>
 
           </tr>
         </thead>
         <tbody>
           <tr *ngFor="let d of developers" >
-            <th scope="row">{{d.id}}</th>
+            <th scope="row"><a class="nav-link" [routerLink]="['/developers',{outlets:{'detail':[d.id]}}]" routerLinkActive="active">{{d.id}}</a></th>
             <td>{{d.name}}</td>
             <td>{{d.login}}</td>
             <td>{{d.email}}</td>
             <td>{{d.leader}}</td>
-            <td><a class="btn btn-primary btn-sm" [routerLink] ="['/developers', { outlets: { 'detail': [d.id] } }]">Detalles</a></td>
           </tr>
         </tbody>
       </table>
