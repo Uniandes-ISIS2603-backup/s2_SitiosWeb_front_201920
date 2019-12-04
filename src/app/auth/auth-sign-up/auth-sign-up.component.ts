@@ -29,7 +29,7 @@ export class AuthSignUpComponent implements OnInit {
     * Sign the user up with the selected role
     */
     signUp(): void {
-        this.authService.login(this.user.role, this.user.login);
+        this.authService.login(this.user.role, this.user.login, null);
         this.toastrService.success('Successfully signed up')
     }
 

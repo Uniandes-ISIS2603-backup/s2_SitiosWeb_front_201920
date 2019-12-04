@@ -28,8 +28,6 @@ export class DeveloperCreateComponent implements OnInit {
     });
   }
 
-  login: String;
-
   /**
   * The new developer
   */
@@ -49,7 +47,6 @@ export class DeveloperCreateComponent implements OnInit {
   * Creates an developer
   */
   createDeveloper(newDeveloper: Developer) {
-    this.login = newDeveloper.login;
     console.warn("el desarrollador fue creado", newDeveloper);
     this.developerService.createDeveloper(newDeveloper).subscribe(p => {
       this.developers.push(p);

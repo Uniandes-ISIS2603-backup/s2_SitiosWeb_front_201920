@@ -57,8 +57,8 @@ export class RequesterService {
     /**
   * Sign the user up with the selected role
   */
-    signUp(login): void {
-        this.authService.login('Developer', login);
+    signUp(login, unit): void {
+        this.authService.login('Requester', login, unit);
     }
 }
 

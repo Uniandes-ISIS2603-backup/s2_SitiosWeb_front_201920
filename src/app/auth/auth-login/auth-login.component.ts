@@ -6,9 +6,9 @@ import { User } from '../user';
 
 import { ToastrService } from 'ngx-toastr';
 import { RequesterService } from '../../requester/requester.service';
-import { Requester } from '../../requester/requester';
+import { RequesterDetail } from '../../requester/requester-detail';
 import { DeveloperService } from '../../developer/developer.service';
-import { Developer } from '../../developer/developer';
+import { DeveloperDetail } from '../../developer/developer-detail';
 
 @Component({
     selector: 'app-auth-login',
@@ -37,12 +37,27 @@ export class AuthLoginComponent implements OnInit {
     * Logs the user in with the selected role
     */
     login(): void {
-        if( (this.user.role === 'Developer' && this.developerService.getDeveloperDetail(this.user.login) == null )
-        ||  (this.user.role === 'Requester' && this.requesterService.getRequesterDetail(this.user.login) == null ) ){
+        var dev: DeveloperDetail;var req: RequesterDetail;
+        dev = null; req = null;
+        
+        this.developerService.getDeveloperDetail(this.user.login)
+            .subscribe(developerDetail => {
+                dev = developerDetail
+            });
+        this.requesterService.getRequesterDetail(this.user.login)
+            .subscribe(requesterDetail => {
+                req = requesterDetail
+            });
+
+        if( (this.user.role === 'Developer' && dev == null )
+        ||  (this.user.role === 'Requester' && req == null ) ){
             this.toastrService.error("El usuario no existe", "Error no encontrado")
         }
         else{
-            this.authService.login(this.user.role, this.user.login);
+            var unit: String = null;
+            if(req != null)
+                unit = req.unit.name;
+            this.authService.login(this.user.role, this.user.login, unit);
             this.toastrService.success('Logged in');
         }
     }
