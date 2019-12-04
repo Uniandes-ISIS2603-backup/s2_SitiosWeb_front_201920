@@ -12,13 +12,22 @@ import { Unit } from '../../unit/unit';
   })
 export class RequestCreateComponent implements OnInit {
     
-
-    constructor(private requestService:RequestService, private unitService:UnitService, private toastr:ToastrService, private formBuilder:FormBuilder) {
-        
-    }
-
     units:Unit[];
     
+    requestForm:FormGroup;
+
+    constructor(private requestService:RequestService, private unitService:UnitService, private toastr:ToastrService, private formBuilder:FormBuilder) {
+        this.requestForm  = this.formBuilder.group({
+            name:["",[Validators.required, Validators.minLength(2)]],
+            purpose:["", Validators.required],
+            description:["",Validators.required],
+            unit:["", Validators.required],
+            budget:["", Validators.required],
+            beginDate:["",Validators.required],
+            dueDate:["", Validators.required],
+            endDate:["",Validators.required]});
+    }
+
     getUnits():void{
        this.unitService.getUnits().subscribe(u=>this.units = u); 
     }
