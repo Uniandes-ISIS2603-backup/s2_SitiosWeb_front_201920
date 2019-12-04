@@ -24,10 +24,10 @@
       <a class="nav-link active" routerLink="developers/list" routerLinkActive="active">Developer</a>
     </li>
     <li class="nav-item active">
-        <a class="nav-link active" routerLink="auth/login" routerLinkActive="active">Login</a>
+        <a class="nav-link active" routerLink="auth/login" routerLinkActive="active" *ngxPermissionsOnly="['GUEST']" >Login</a>
     </li>
     <li class="nav-item active">
-        <a class="nav-link active" routerLink="auth/sign-up" routerLinkActive="active">SignUp</a>
+        <a class="nav-link active" routerLink="auth/sign-up" routerLinkActive="active" *ngxPermissionsOnly="['GUEST']" >SignUp</a>
     </li>
     <li class="nav-item active">
         <a class="nav-link active" routerLink="admin/mod" routerLinkActive="active" *ngxPermissionsOnly="['ADMIN']" >Modify data</a>

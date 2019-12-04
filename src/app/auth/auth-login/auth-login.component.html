@@ -12,13 +12,13 @@
             </div>
             <div class="form-group">
                 <label for="userlogin"><b>Login</b></label>
-                <input type="text" name="userlogin" class="form-control" id="userlogin" [(ngModel)]="user.login"
+                <input type="text" name="userlogin" class="form-control" id="userlogin" [(ngModel)]="user.login" 
                     required>
             </div>
             <div class="form-group">
                 <label for="password"><b>Password</b></label>
-                <input type="text" name="password" class="form-control" id="password" [(ngModel)]="user.password"
-                    required>
+                <input type="password" name="password" class="form-control" id="password" [(ngModel)]="user.password"
+                required>
             </div>
             <div class="justify-content-center align-self-center">
                 <button type="submit" class="btn btn-primary">Login</button>
