@@ -5,7 +5,7 @@
         <br>
 
 
-        <form name="sign-up" (ngSubmit)="f.form.valid && signUp()" #f="ngForm" novalidate>
+        <form name="sign-up" (ngSubmit)="f.form.valid" #f="ngForm" novalidate>
             <div class="form-group">
                 <label for="role"><b>Role</b></label>
                 <select class="custom-select" name="role" id="role" [(ngModel)]="user.role" required>

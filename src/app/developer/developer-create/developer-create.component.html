@@ -1,4 +1,4 @@
-<form [formGroup]="developerForm" (ngSubmit)="!developerForm.invalid &&createDeveloper(developerForm.value) &&signUp()">
+<form [formGroup]="developerForm" (ngSubmit)="!developerForm.invalid &&createDeveloper(developerForm.value)">
 
   <div class="form-group mx-sm-3 mb-2">
     <label for="name">
@@ -11,7 +11,7 @@
     <label for="login">
       Login
     </label>
-    <input novalidate id="login" class="form-control" formControlName="login" placeholder="Login of the developer">
+    <input novalidate id="login" class="form-control" formControlName="login" placeholder="Login of the developer" >
   </div>
 
   <div class="form-group mx-sm-3 mb-2">

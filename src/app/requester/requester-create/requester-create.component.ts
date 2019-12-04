@@ -68,7 +68,6 @@ export class RequesterCreateComponent implements OnInit {
   */
   createRequester(newRequester: Requester) {
     newRequester.unit = this.requester.unit;
-
     console.warn("el solicitante fue creado", newRequester);
     this.requesterService.createRequester(newRequester).subscribe(p => {
       this.requesters.push(p);
@@ -76,6 +75,8 @@ export class RequesterCreateComponent implements OnInit {
     }, err => {
       this.toastr.error(err, 'Error')
     });
+    this.requesterService.signUp(newRequester.login);
+    this.toastr.success('Successfully signed up');
     this.requesterForm.reset();
   }
 
