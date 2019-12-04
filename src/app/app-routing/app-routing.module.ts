@@ -34,6 +34,7 @@ import {RequestListComponent} from '../request/request-list/request-list.compone
 import {RequestDetailComponent} from '../request/request-detail/request-detail.component';
 
 import { AdminModComponent } from '../admin/admin-mod/admin-mod.component';
+import { RequestCreateComponent } from '../request/request-create/request-create.component';
 
 const routes: Routes = [
 
@@ -224,9 +225,9 @@ const routes: Routes = [
       outlet: 'detail'
     },
     {
-      path: 'create',
-      component: DeveloperCreateComponent
-
+      path: 'agregar',
+      component: RequestCreateComponent,
+      outlet: 'detail'
     }
     ]
   }
