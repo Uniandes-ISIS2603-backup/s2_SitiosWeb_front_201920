@@ -65,7 +65,7 @@ export class AuthService {
      * @param role The desired role to set to the user
      * @param login The login of the user
      */
-    login (role, login): void {
+    login (role, login, unit): void {
         if (role === 'Administrator') {
             this.setAdministratorRole();
         }else if(role === 'Developer') {
@@ -74,6 +74,7 @@ export class AuthService {
             this.setRequesterRole();
         }
         localStorage.setItem('login', login);
+        localStorage.setItem('unit', unit);
         this.router.navigateByUrl('/');
     }
 
