@@ -41,6 +41,7 @@ export class ProjectCreateComponent implements OnInit {
 
   constructor(private projectService:ProjectService, private hardwareService:HardwareService, private developerService:DeveloperService, private providerService: ProviderService, private toastr:ToastrService, private formBuilder:FormBuilder) {
     this.projectForm  = this.formBuilder.group({
+      name:["", Validators.required],
       company:["",[Validators.required, Validators.minLength(2)]],
       internalProject:["", Validators.required],
       providerSelect:[" ",Validators.required],
