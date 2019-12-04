@@ -75,7 +75,7 @@ export class RequesterCreateComponent implements OnInit {
     }, err => {
       this.toastr.error(err, 'Error')
     });
-    this.requesterService.signUp(newRequester.login);
+    this.requesterService.signUp(newRequester.login, newRequester.unit.name);
     this.toastr.success('Successfully signed up');
     this.requesterForm.reset();
   }
