@@ -12,36 +12,60 @@ import { RequestService } from '../request.service';
 })
 export class RequestDetailComponent implements OnInit {
 
-  constructor(private requestService: RequestService, private route: ActivatedRoute) { }
 
+  /**
+   * Constructor for the component
+   * @param requestService service to access HTTP methods
+   * @param route route to navigate
+   */
+  constructor(private requestService: RequestService, private route: ActivatedRoute) { }
+  
+  /**
+   * Attribute that represents the detail object of request
+   */
   requestDetail: RequestDetail;
 
+  /**
+   * ID of the current detail
+   */
   request_id: number;
 
+  /**
+   * loader for the component
+   */
   loader: any;
 
-  getProviderDetail(): void {
+  getRequestDetail(): void {
       this.requestService.getRequest(this.request_id).subscribe(requestDetail => {this.requestDetail = requestDetail});
     }
-/*
-  ngOnInit() {
-    this.provider_id = +this.route.snapshot.paramMap.get('id');
-    this.providerDetail = new ProviderDetail();
-    this.getProviderDetail();
+
+  /**
+   * Method to be executed once this component is loads
+   * @param params default parameter of method
+   */
+  
+  onLoad(params) {
+
+    this.request_id = parseInt(params['id']);
+    console.log(" en detail " + this.request_id);
+    this.requestDetail = new RequestDetail();
+    this.getRequestDetail();
   }
-*/
+  
+  /**
+   * Method to be executed automatically once this component is initialized.
+   */
+  ngOnInit() {
 
-onLoad(params) {
-  this.request_id = parseInt(params['id']);
-  this.requestDetail = new RequestDetail();
-  this.getProviderDetail();
-}
-ngOnInit() {
-  this.loader = this.route.params.subscribe((params: Params) => this.onLoad(params));
-}
+    this.loader = this.route.params.subscribe((params: Params) => this.onLoad(params));
+  }
 
-ngOnDestroy() {
-  this.loader.unsubscribe();
-}
+  /**
+   * Method to be execuuted automatically once this component is destroyed.
+   */
+  
+  ngOnDestroy() {
+    this.loader.unsubscribe();
+  }
 
 }
