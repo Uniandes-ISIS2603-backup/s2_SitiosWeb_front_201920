@@ -60,6 +60,24 @@
       formControlName="plataforma"
       placeholder="Plataforma of hardware">
    </div>
+
+   <div class="form-group mx-sm-3 mb-2">
+    <label for="projecto">Choose the project</label>
+    
+    <select class="custom-select" [(ngModel)] = "hardware.projecto" formControlName="projectSelect"  id="projectLeader"
+        required>
+        <option [ngValue]="l" *ngFor="let l of projects">
+          
+            {{l.name}}
+       
+     
+        </option>
+    </select>
+    <div class="invalid-feedback">
+        <div>The hardwares's project is missing</div>
+    </div>
+</div>
+
   
   
   

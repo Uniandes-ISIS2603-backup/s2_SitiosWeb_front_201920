@@ -27,11 +27,12 @@ export class ProjectAddHardwareComponent implements OnInit {
         private formBuilder:FormBuilder
     ) { 
         this.hardwareForm  = this.formBuilder.group({
-            ip:["", Validators.required],
-            cores:["",Validators.required],
-            ram:["", Validators.required],
-            cpu:[" ",Validators.required],
-            plataforma:[" ", Validators.required]
+            ip:[""],
+            cores:[""],
+            ram:[""],
+            cpu:[" "],
+            plataforma:[" "],
+            projectSelect:[" "]
             });
       
      }

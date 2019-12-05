@@ -4,7 +4,7 @@ import { Hardware } from './hardware';
 import { Observable } from 'rxjs';
 
 const API_URL = 'http://localhost:8080/s2_sitiosweb-api/api/hardwares';
-
+const editorials = " ";
 @Injectable()
 export class HardwareService {
     
