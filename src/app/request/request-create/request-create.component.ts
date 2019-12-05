@@ -9,7 +9,7 @@ import {Request} from '../request'
 import { RequestDetail } from '../request-detail';
 
 import {RequesterService} from '../../requester/requester.service';
-import { Requester } from 'src/app/requester/requester';
+import { Requester } from '../../requester/requester';
 @Component({
     selector: 'app-request-create',
     templateUrl: './request-create.component.html',
@@ -25,7 +25,7 @@ export class RequestCreateComponent implements OnInit {
     request:RequestDetail;
 
     requests:Request[];
-    constructor(private requestService:RequestService, private unitService:UnitService, private toastr:ToastrService, private formBuilder:FormBuilder, private requesterService:RequesterService,private dp: DatePipe) {
+    constructor(private requestService:RequestService, private unitService:UnitService, private toastr:ToastrService, private formBuilder:FormBuilder, private requesterService:RequesterService, private dp:DatePipe) {
         this.requestForm  = this.formBuilder.group({
             name:["",[Validators.required, Validators.minLength(2)]],
             purpose:["", Validators.required],
@@ -34,7 +34,9 @@ export class RequestCreateComponent implements OnInit {
             budget:["", Validators.required],
             beginDate:["",Validators.required],
             dueDate:["", Validators.required],
-            endDate:["",Validators.required]});
+            endDate:["",Validators.required],
+            webCategorySelect:["", Validators.required],
+            requestSelect:["",Validators.required]});
     }
 
 
