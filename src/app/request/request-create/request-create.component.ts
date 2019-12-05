@@ -19,6 +19,7 @@ export class RequestCreateComponent implements OnInit {
     requestForm:FormGroup;
 
     request:Request;
+
     constructor(private requestService:RequestService, private unitService:UnitService, private toastr:ToastrService, private formBuilder:FormBuilder) {
         this.requestForm  = this.formBuilder.group({
             name:["",[Validators.required, Validators.minLength(2)]],
@@ -39,5 +40,11 @@ export class RequestCreateComponent implements OnInit {
         this.getUnits();
     }
 
-    
+    requestType: string[] = ['Elimination','Creation','Change','Development','Production'];
+
+    webCategory: string[] = ['Descriptive','Application','Event'];
+
+    statues: string[] = ['Development','Production','Accepted','Pending','Denied'];
+
+
 }
