@@ -68,11 +68,11 @@ export class RequestCreateComponent implements OnInit {
         this.getUnits();
     }
 
-    requestType: string[] = ['Elimination','Creation','Change','Development','Production'];
+    requestType: string[] = ['ELIMINATION','CREATION','CHANGE','DEVELOPMENT','PRODUCTION'];
 
-    webCategory: string[] = ['Descriptive','Application','Event'];
+    webCategory: string[] = ['DESCRIPTIVE','APPLICATION','EVENT'];
 
-    statues: string[] = ['Development','Production','Accepted','Pending','Denied'];
+    statues: string[] = ['DEVELOPMENT','PRODUCTION','ACCEPTED','PENDING','DENIED'];
 
 
 }
