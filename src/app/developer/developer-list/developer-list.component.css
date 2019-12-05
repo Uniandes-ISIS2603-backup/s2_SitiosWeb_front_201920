@@ -29,3 +29,14 @@ tr{
       opacity: 0%;
     }
   }
+
+  h2 {
+    text-indent: 50px;
+    text-align: justify;
+    color: #ffffff;
+  }
+  p {
+    text-indent: 50px;
+    text-align: justify;
+    color: #ffffff;
+  }
