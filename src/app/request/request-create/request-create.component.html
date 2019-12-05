@@ -110,6 +110,6 @@
         </div>
     </div>
 
-       <button class="button mx-sm-3 mb-2" type="submit" [disabled]="" (onClick)="click()">Submit</button>
+       <button (click)="click(requestForm.value)" class="button mx-sm-3 mb-2" type="submit" [disabled]="" >Submit</button>
      
      </form>
