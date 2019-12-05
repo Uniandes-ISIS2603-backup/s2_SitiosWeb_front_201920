@@ -9,7 +9,7 @@ import {Request} from '../request'
 import { RequestDetail } from '../request-detail';
 
 import {RequesterService} from '../../requester/requester.service';
-import { Requester } from 'src/app/requester/requester';
+import { Requester } from '../../requester/requester';
 @Component({
     selector: 'app-request-create',
     templateUrl: './request-create.component.html',
@@ -34,7 +34,9 @@ export class RequestCreateComponent implements OnInit {
             budget:["", Validators.required],
             beginDate:["",Validators.required],
             dueDate:["", Validators.required],
-            endDate:["",Validators.required]});
+            endDate:["",Validators.required],
+            webCategorySelect:["", Validators.required],
+            requestSelect:["",Validators.required]});
     }
 
 

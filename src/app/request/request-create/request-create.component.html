@@ -72,7 +72,7 @@
     <div class="form-group mx-sm-3 mb-2">
             <label for="dueDate">What's your end date expected for your request?</label>
                 <div [ngClass]="">
-                    <input class="form-control" id="dueDate" name="dueDate" [(ngModel)]="request.endDate"
+                    <input class="form-control" id="dueDate" name="endDate" [(ngModel)]="request.endDate"
                         ngbDatepicker #h="ngbDatepicker" (click)="h.toggle()" #dueDate="ngModel" [ngClass]=""
                         required>
                     <div class="invalid-feedback">

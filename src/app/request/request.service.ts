@@ -32,8 +32,8 @@ export class RequestService {
     * Gets a specific request according to its ID
     * @param idRequest id of the request to be retrieved
     */
-   getRequest(idRequest) : Observable<Request> {
-       return this.http.get<Request>(API_URL + requests + '/' + idRequest);
+   getRequest(idRequest) : Observable<RequestDetail> {
+       return this.http.get<RequestDetail>(API_URL + requests + '/' + idRequest);
    }
 
    /**
