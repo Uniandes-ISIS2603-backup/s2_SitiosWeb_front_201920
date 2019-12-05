@@ -44,19 +44,19 @@
               [(ngModel)]="request.budget"
               placeholder="Your request's budget">
         </div>
-
         <div class="form-group mx-sm-3 mb-2">
             <label for="beginDate">When do you expect your request to begin?</label>
                <div [ngClass]="">
-                   <input class="form-control" id="beginDate" name="beginDate" [(ngModel)]="request.beginDate"
+                   
+                   <input class="form-control"  id="beginDate" name="beginDate" [(ngModel)]="request.beginDate"
                        ngbDatepicker #w="ngbDatepicker" (click)="w.toggle()" #beginDate="ngModel" [ngClass]=""
-                       required>
+                       required >
                    <div class="invalid-feedback">
                        <div>The request's begin date is missing</div>
                    </div>
                </div>
        </div>
-       
+   
        <div class="form-group mx-sm-3 mb-2">
         <label for="dueDate">What's your due date for your request?</label>
             <div [ngClass]="">
