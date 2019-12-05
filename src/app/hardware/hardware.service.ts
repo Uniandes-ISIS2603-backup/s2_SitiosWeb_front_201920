@@ -15,7 +15,7 @@ export class HardwareService {
     }
 
   getHardwareDetail(hardwareid): Observable<Hardware[]> {
-        return this.http.get<Hardware[]>('http://localhost:8080/s2_sitiosweb-api/api/projects/3/hardwares/' + hardwareid);
+        return this.http.get<Hardware[]>('http://localhost:8080/s2_sitiosweb-api/api/projects/100000/hardwares/' + hardwareid);
   }
 
 
