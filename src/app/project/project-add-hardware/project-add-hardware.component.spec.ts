@@ -10,7 +10,7 @@ import {AppRoutingModule} from '../../app-routing/app-routing.module';
 import {ProjectService} from '../project.service';
 import {Project} from '../project';
 
-describe('BookAddReviewComponent', () => {
+describe('ProjectAddHardwareComponent', () => {
   let component: ProjectAddHardwareComponent;
     let fixture: ComponentFixture<ProjectAddHardwareComponent>;
     

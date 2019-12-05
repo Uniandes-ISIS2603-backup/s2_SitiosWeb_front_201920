@@ -1,4 +1,4 @@
-import { Hardware } from '../hardware/hardware';
+import { Hardware } from "./hardware";
 import { Developer } from '../developer/developer';
 import { Provider } from '../provider/provider';
 

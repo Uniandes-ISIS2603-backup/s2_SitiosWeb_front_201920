@@ -53,12 +53,19 @@ export class RequesterService {
         return this.http.get<RequesterDetail>(API_URL + requesters + '/' + requesterId);
     }
 
+        /**
+     * @param requester Requester object to be updated
+     * Updates a requester by parameter
+     */
+    updateRequester(requester): Observable<RequesterDetail> {
+        return this.http.put<RequesterDetail>(API_URL + requesters + '/' + requester.id, requester);
+    }
 
     /**
   * Sign the user up with the selected role
   */
-    signUp(login, unit): void {
-        this.authService.login('Requester', login, unit);
+    signUp(login, unit, id): void {
+        this.authService.login('Requester', login, unit, id);
     }
 }
 

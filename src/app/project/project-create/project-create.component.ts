@@ -119,6 +119,7 @@ export class ProjectCreateComponent implements OnInit {
       //  this.providerService.getProvider(newProject.provider.id).subscribe(p => {p.projects.push(newProject)});
         this.projectForm.reset();
    }
+   
   showSuccess() {
     for (let i = 0; i < this.projects.length; i++){
       console.log(this.projects[i].name+' '+this.projects[i].company);

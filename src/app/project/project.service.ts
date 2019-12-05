@@ -75,7 +75,7 @@ export class ProjectService {
     return this.http.post<Iteration>(API_URL + projects + '/' + projectId + iterations, iteration);
     }
 
-    createHardware(projectId, hardware): Observable<Iteration> {
-    return this.http.post<Iteration>(API_URL + projects + '/' + projectId + hardwares, hardware);
+    createHardware(projectId, hardware): Observable<Hardware> {
+    return this.http.post<Hardware>(API_URL + projects + '/' + projectId + hardwares, hardware);
     }
 }

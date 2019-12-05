@@ -10,15 +10,17 @@ import {ProjectAddIterationComponent} from './project-add-iteration/project-add-
 import {ProjectIterationComponent} from './project-iterations/project-iteration.component';
 import{ProjectAddDeveloperComponent} from "./project-add-developers/project-add-developers.component";
 import{ProjectDeveloperComponent} from "./project-developers/project-developer.component";
+import{ProjectAddHardwareComponent} from "./project-add-hardware/project-add-hardware.component";
+import{ProjectHardwareComponent} from "./project-hardware/project-hardware.component";
+
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import {DragDropModule} from "@angular/cdk/drag-drop";
-import { ProjectHardwareComponent } from './project-hardware/project-hardware.component';
 
 
 
 @NgModule({
   imports: [CommonModule, ReactiveFormsModule, RouterModule, FormsModule,NgbModule, DragDropModule],
-  declarations: [ProjectListComponent, ProjectDetailComponent, ProjectCreateComponent,ProjectAddIterationComponent,ProjectIterationComponent, ProjectAddDeveloperComponent, ProjectDeveloperComponent, ProjectHardwareComponent],
+  declarations: [ProjectListComponent, ProjectDetailComponent, ProjectCreateComponent,ProjectAddIterationComponent,ProjectIterationComponent, ProjectAddDeveloperComponent, ProjectDeveloperComponent, ProjectHardwareComponent, ProjectAddHardwareComponent],
   exports: [ProjectListComponent, ProjectCreateComponent],
   providers: [ProjectService],
 })

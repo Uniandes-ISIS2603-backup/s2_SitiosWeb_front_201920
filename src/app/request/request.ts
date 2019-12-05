@@ -1,17 +1,3 @@
-// Enums
-
-/** Enumeration of the request's RequestType. */
-enum RequestType
-{ Elimination, Creation, Change, Development, Production }
-
-/** Enumeration of the request's WebCategory. */
-enum WebCategory
-{ Descriptive, Application, Event }
-
-/** Enumeration of the request's Status. */
-enum Status
-{ Development, Production, Accepted, Pending, Denied }
-
 
 // Class
 
@@ -46,4 +32,19 @@ export class Request
 
   /** End date of the request. */
   endDate : Date;
+
+  /**
+  * The status of the request 
+  */
+  status : String;
+
+  /**
+   * the category of the web page 
+   */
+  webCategory: String;
+
+  /**
+   * the type of the request
+   */
+  requestType: String;
 }

@@ -16,7 +16,9 @@ export class HardwareDetailComponent implements OnInit {
     private route: ActivatedRoute
   ) { }
 
-  hardwareDetail: Hardware;
+  hardwareDetail2: Hardware[];
+
+  hardwareDetail:Hardware
 
   @Input() hardwareid: number;
 
@@ -26,8 +28,10 @@ export class HardwareDetailComponent implements OnInit {
 
     this.hardwareService.getHardwareDetail(this.hardwareid)
       .subscribe(value => {
-        this.hardwareDetail = value
+        this.hardwareDetail2 = value
       });
+    
+    this.hardwareDetail2.forEach(p => {if(p.id = this.hardwareid){this.hardwareDetail=p}});
   }
 
   onLoad(params) {

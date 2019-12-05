@@ -5,6 +5,7 @@ import { Hardware } from '../hardware';
 import { ProjectService } from '../project.service';
 import { Project } from '../project';
 import {DatePipe} from '@angular/common';
+import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 
 @Component({
     selector: 'app-project-add-hardware',
@@ -22,13 +23,31 @@ export class ProjectAddHardwareComponent implements OnInit {
     constructor(
         private projectService: ProjectService,
         private toastrService: ToastrService,
-        private dp: DatePipe
-    ) { }
+        private dp: DatePipe,
+        private formBuilder:FormBuilder
+    ) { 
+        this.hardwareForm  = this.formBuilder.group({
+            ip:[""],
+            cores:[""],
+            ram:[""],
+            cpu:[" "],
+            plataforma:[" "],
+            projectSelect:[" "]
+            });
+      
+     }
 
     /**
     * The book's id
     */
     @Input() project: Project;
+
+    projects:Project[] = [this.project];
+
+    /**
+     Form to create project
+    */
+    hardwareForm: FormGroup;
 
     /**
     * The review to post
@@ -47,19 +66,27 @@ export class ProjectAddHardwareComponent implements OnInit {
     * This function posts a iteration
     * @param iteraionForm The form of the iteration
     */
-    postHardware(hardwareForm: NgForm): Hardware {
+   createHardware(newHardware: Hardware) {
+    // Process checkout data here
+    newHardware.projecto = this.project;
+//    newProject.hw = this.project.hw;
+    
+    console.warn("el hardware fue creado", newHardware);
+    this.projectService.createHardware(this.project.id, newHardware).subscribe(p => {
+      this.project.hw = p;
+      this.showSuccess();
+    }, err => {
+                this.toastrService.error(err, 'Error')});
+  //  this.providerService.getProvider(newProject.provider.id).subscribe(p => {p.projects.push(newProject)});
+    this.hardwareForm.reset();
+}
 
-        this.hardware.projecto = this.project;
-        this.projectService.createHardware(this.project.id,this.hardware)
-            .subscribe(() => {
-                hardwareForm.resetForm();
-                this.updateHardware.emit();
-                this.toastrService.success("The hardware was successfully created", 'hardware added');
-            }, err => {
-                this.toastrService.error(err, 'Error');
-            });
-        return this.hardware;
-    }
+showSuccess() {
+
+    this.toastrService.success("Hardware", "Successfully created!", {"progressBar": true,timeOut:3000});
+
+  }
+
 
     /**
     * The function which initializes the component.

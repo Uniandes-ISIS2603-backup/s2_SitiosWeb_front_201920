@@ -15,7 +15,7 @@ export class HardwareListComponent implements OnInit {
 hardwares: Hardware[];
 
 getHardwares(): void {
-        this.hardwareService.getHardwares().subscribe(hardwaresN => this.hardwares = hardwaresN);
+        this.hardwareService.getHardwareDetail(9).subscribe(hardwaresN => this.hardwares = hardwaresN);
 }
 
   onSelectCreate(): void {

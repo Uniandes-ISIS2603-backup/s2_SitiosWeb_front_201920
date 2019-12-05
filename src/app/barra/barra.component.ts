@@ -9,9 +9,12 @@ import { RouterModule, Routes } from '@angular/router';
 })
 export class BarraComponent implements OnInit {
 
+  id: string;
   constructor(private authService: AuthService) { }
 
   ngOnInit() {
+    this.id = localStorage.getItem('id');
+    console.log(this.id);
   }
 
   logout(): void {

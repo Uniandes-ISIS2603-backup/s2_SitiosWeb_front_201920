@@ -7,6 +7,7 @@ import { ProjectService } from '../project.service';
 import { ProjectDetail } from '../projectDetail';
 import { DeveloperService} from '../../developer/developer.service';
 import {CdkDragDrop, moveItemInArray, transferArrayItem} from "@angular/cdk/drag-drop";
+import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 
 
 import {DatePipe} from '@angular/common';

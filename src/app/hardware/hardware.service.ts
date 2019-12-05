@@ -4,8 +4,7 @@ import { Hardware } from './hardware';
 import { Observable } from 'rxjs';
 
 const API_URL = 'http://localhost:8080/s2_sitiosweb-api/api/hardwares';
-const editorials = '/hardwares';
-
+const editorials = " ";
 @Injectable()
 export class HardwareService {
     
@@ -15,8 +14,8 @@ export class HardwareService {
         return this.http.get<Hardware[]>(API_URL);
     }
 
-  getHardwareDetail(hardwareid): Observable<Hardware> {
-        return this.http.get<Hardware>('http://localhost:8080/s2_sitiosweb-api/api/projects/3/hardwares/' + hardwareid);
+  getHardwareDetail(hardwareid): Observable<Hardware[]> {
+        return this.http.get<Hardware[]>('http://localhost:8080/s2_sitiosweb-api/api/projects/100000/hardwares/' + hardwareid);
   }
 
 
