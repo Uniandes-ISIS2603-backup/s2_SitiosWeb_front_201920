@@ -1,0 +1,52 @@
+<div class="row">
+        <div class="col-12">
+            <br>
+            <h2 class="text-center">Edit an developer</h2>
+            <br>
+            <form name="developer" (ngSubmit)="f.form.valid && editDeveloper()" #f="ngForm" novalidate>
+                  <div class="form-group">
+                    <label for="developerName"><b>Name</b></label>
+                    <input type="text" name="developerName" class="form-control" id="developerName" [(ngModel)]="developer.name"
+                           #developerName="ngModel" [ngClass]="{ 'is-invalid': f.submitted && developerName.invalid }" required>
+                           <div class="invalid-feedback">
+                        <div>The developer's name is missing</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                        <label for="developerlogin"><b>login</b></label>
+                         <input type="text" name="developerlogin" class="form-control" id="developerlogin" [(ngModel)]="developer.login"
+                                #developerlogin="ngModel" [ngClass]="{ 'is-invalid': f.submitted && developerlogin.invalid }" required>
+                                <div class="invalid-feedback"> 
+                             <div>The developer's login is missing</div> 
+                           </div>
+                        </div>
+                <div class="form-group">
+                        <label for="developeremail"><b>email</b></label>
+                         <input type="text" name="developeremail" class="form-control" id="developeremail" [(ngModel)]="developer.email"
+                                #developeremail="ngModel" [ngClass]="{ 'is-invalid': f.submitted && developeremail.invalid }" required>
+                                <div class="invalid-feedback"> 
+                             <div>The developer's email is missing</div> 
+                           </div>
+                        </div>
+                <div class="form-group">
+                        <label for="developerphone"><b>phone</b></label>
+                         <input type="text" name="developerphone" class="form-control" id="developerphone" [(ngModel)]="developer.phone"
+                                #developerphone="ngModel" [ngClass]="{ 'is-invalid': f.submitted && developerphone.invalid }" required>
+                                <div class="invalid-feedback"> 
+                             <div>The developer's phone is missing</div> 
+                           </div>
+                        </div>
+            </form>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <div class="row form-inline justify-content-center align-self-center">
+                <i  style="padding-right: 1em;"class="fa fa-save " (click)="editDeveloper()"></i>
+              
+                <i class="fa fa-ban" (click)="cancelEdition()"></i>
+            </div>
+        </div>
+    </div>
+    <br>
+    <br>

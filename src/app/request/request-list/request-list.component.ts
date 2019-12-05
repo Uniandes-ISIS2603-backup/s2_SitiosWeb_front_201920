@@ -30,6 +30,7 @@ export class RequestListComponent implements OnInit {
   getRequests(): void {
     this.requestService.getRequests().subscribe(requests => this.requests = requests);
   }
+  
   /**
    * Default method to be executed once the component is initialized
    */

@@ -50,6 +50,11 @@ export class DeveloperDetailComponent implements OnInit {
     developer_id: number;
 
     /**
+     * Boolean si es la info. usuario
+     */
+    info: boolean;
+
+    /**
     * The method which obtains the developer whose details we want to show
     */
     getDeveloperDetail(): void {
@@ -57,6 +62,10 @@ export class DeveloperDetailComponent implements OnInit {
             .subscribe(developerDetail => {
                 this.developerDetail = developerDetail
             });
+        if(localStorage.getItem('role') == 'Developer' && this.developerDetail.login == localStorage.getItem('login')){
+            this.info = true;
+        }
+        console.log(this.info);
     }
 
     /**
@@ -115,6 +124,7 @@ export class DeveloperDetailComponent implements OnInit {
      * Method to be executed automatically once this component is initialized.
      */
     ngOnInit() {
+        this.info = false;
        // this.getProjects();
         this.loader = this.route.params.subscribe((params: Params) => this.onLoad(params));
     }
