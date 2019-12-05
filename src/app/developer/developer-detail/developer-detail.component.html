@@ -1,29 +1,29 @@
 <div class="panel-body">
-		<div class="border margin">
-			<p class="h3 p-3">{{developerDetail.name}}<p>
-					<div class="row">
-						<div class="col-md-3">
-							<div class="thumb">
-								<img class="img-fluid" src='{{developerDetail.image}}' alt="{{developerDetail.image}}" />
-							</div>
+	<div class="border margin">
+		<p class="h3 p-3">{{developerDetail.name}}<p>
+				<div class="row">
+					<div class="col-md-3">
+						<div class="thumb">
+							<img class="img-fluid" src='{{developerDetail.image}}' alt="{{developerDetail.image}}" />
 						</div>
-						<div class="col">
-							<dl>
-								<dt>Login</dt>
-								<dd>{{developerDetail.login}}</dd>
-								<dt>Email</dt>
-								<dd>{{developerDetail.email}}</dd>
-								<dt>Phone</dt>
-								<dd>{{developerDetail.phone}}</dd>
-								<dt>Is a leader?</dt>
-								<dd>{{developerDetail.leader}}</dd>
-							</dl>
-						</div>
-	
 					</div>
-		</div>
-		<p class="h3 p-3" *ngIf="developerDetail.projects.length != 0">Projects by this developer: </p>
-		<div class="container-fluid" *ngIf="developerDetail.projects.length != 0">
+					<div class="col">
+						<dl>
+							<dt>Login</dt>
+							<dd>{{developerDetail.login}}</dd>
+							<dt>Email</dt>
+							<dd>{{developerDetail.email}}</dd>
+							<dt>Phone</dt>
+							<dd>{{developerDetail.phone}}</dd>
+							<dt>Is a leader?</dt>
+							<dd>{{developerDetail.leader}}</dd>
+						</dl>
+					</div>
+
+				</div>
+	</div>
+		<p class="h3 p-3">Projects by this developer: </p>
+		<div class="container-fluid" >
 			<div class="col-md-2">
 				<table class="table table-striped">
 					<thead class="thead-dark">
@@ -68,4 +68,5 @@
 				</table>
 			</div>
 		</div>
+
 	</div>

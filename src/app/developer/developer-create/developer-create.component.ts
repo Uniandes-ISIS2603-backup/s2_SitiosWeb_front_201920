@@ -54,7 +54,7 @@ export class DeveloperCreateComponent implements OnInit {
     }, err => {
       this.toastr.error(err, 'Error')
     });
-    this.developerService.signUp(newDeveloper.login);
+    this.developerService.signUp(newDeveloper.login, newDeveloper.id);
     this.toastr.success('Successfully signed up');
     this.developerForm.reset();
   }
