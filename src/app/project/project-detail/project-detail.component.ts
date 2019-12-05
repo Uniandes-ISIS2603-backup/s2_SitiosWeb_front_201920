@@ -113,10 +113,10 @@ export class ProjectDetailComponent implements OnInit {
 
   toggleHardware(): void {
     if (this.hardwareAddComponent.isCollapsed == false) {
-        this.hardwareAddComponent.isCollapsed = true;
-    }
-    this.hardwareListComponent.isCollapsed = !this.hardwareListComponent.isCollapsed;
+      this.hardwareAddComponent.isCollapsed = true;
   }
+  this.hardwareListComponent.isCollapsed = !this.hardwareListComponent.isCollapsed;
+}
 
   toggleCreateHardware(): void {
     if (this.hardwareListComponent.isCollapsed == false) {
