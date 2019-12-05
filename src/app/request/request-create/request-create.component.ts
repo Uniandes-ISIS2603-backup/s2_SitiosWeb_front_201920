@@ -32,6 +32,25 @@ export class RequestCreateComponent implements OnInit {
             endDate:["",Validators.required]});
     }
 
+
+    createRequest(newRequest: Request) {
+        // Process checkout data here
+        newRequest.status = 'Pending';
+    //    newProject.hw = this.project.hw;
+        
+        console.warn("el request fue creado", newRequest);
+        this.requestService.createRequest(newRequest).subscribe(p => {
+          this.showSuccess();
+        }, err => {
+                    this.toastr.error(err, 'Error')});
+      //  this.providerService.getProvider(newProject.provider.id).subscribe(p => {p.projects.push(newProject)});
+        this.requestForm.reset();
+   }
+  showSuccess() {
+    this.toastr.success("Request", "Successfully created!", {"progressBar": true,timeOut:3000});
+  }
+
+
     getUnits():void{
        this.unitService.getUnits().subscribe(u=>this.units = u); 
     }
