@@ -128,6 +128,9 @@ export class ProjectCreateComponent implements OnInit {
         this.developerService.updateDeveloper(this.developerDetail).subscribe(() => {
           this.toastr.success("Developer has been succesfully updated", "Leader updated")
         })
+        for(let a of this.developerDetail.leadingProjects){
+          console.log("leading after update " + a.id);
+        }
       })
       this.showSuccess();
     }, 
