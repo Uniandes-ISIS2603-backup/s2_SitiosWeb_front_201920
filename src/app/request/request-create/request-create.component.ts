@@ -57,6 +57,7 @@ export class RequestCreateComponent implements OnInit {
       }, err => {
         this.toastr.error(err, 'Error')
       });
+      
       this.requestService.createRequest(newRequest).subscribe(p => {
         this.requests.push(p);
         this.showSuccess();
@@ -74,9 +75,9 @@ export class RequestCreateComponent implements OnInit {
     this.requestForm.reset();
    }
 
-   click(request:Request):void{
-     console.log('lel');
-     console.log(request.name);
+   click(request:RequestDetail):void{
+    
+    this.createRequest(request);
 
    }
   showSuccess() {
