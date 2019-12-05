@@ -11,7 +11,7 @@
           
         </tr>
       </thead>
-      <tbody>
+      <tbody align="right">
         <tr *ngFor = "let p of projects">
           <td><a class="nav-link" [routerLink]="['/projects',{outlets:{'detail':[p.id]}}]" routerLinkActive="active">{{p.id}}</a></td> 
           <td>{{p.name}}</td>
