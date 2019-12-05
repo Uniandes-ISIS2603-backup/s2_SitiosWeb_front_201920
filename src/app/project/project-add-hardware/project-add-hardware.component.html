@@ -1,3 +1,4 @@
+<div  id="collapseAddHardware" [ngbCollapse]="isCollapsed">
 <form [formGroup]="hardwareForm" (ngSubmit)="!hardwareForm.invalid &&createHardware(hardwareForm.value)">
 
   
@@ -84,4 +85,4 @@
   <button class="button mx-sm-3 mb-2" type="submit" [disabled]="hardwareForm.invalid">Submit</button>
   
   </form>
-  
+</div>

@@ -6,6 +6,7 @@ import { ProjectService } from '../project.service';
 import { Project } from '../project';
 import {DatePipe} from '@angular/common';
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import { ProjectDetail } from '../projectDetail';
 
 @Component({
     selector: 'app-project-add-hardware',
@@ -40,9 +41,9 @@ export class ProjectAddHardwareComponent implements OnInit {
     /**
     * The book's id
     */
-    @Input() project: Project;
+    @Input() projectDetail: ProjectDetail;
 
-    projects:Project[] = [this.project];
+    projects:ProjectDetail[] = [this.projectDetail];
 
     /**
      Form to create project
@@ -68,12 +69,17 @@ export class ProjectAddHardwareComponent implements OnInit {
     */
    createHardware(newHardware: Hardware) {
     // Process checkout data here
-    newHardware.projecto = this.project;
+    let newProj: Project;
+    newProj.name = this.projectDetail.name;
+    newProj.company = this.projectDetail.company;
+    newProj.internalProject = this.projectDetail.internalProject;
+
+    newHardware.projecto =newProj;
 //    newProject.hw = this.project.hw;
     
     console.warn("el hardware fue creado", newHardware);
-    this.projectService.createHardware(this.project.id, newHardware).subscribe(p => {
-      this.project.hw = p;
+    this.projectService.createHardware(this.projectDetail.id, newHardware).subscribe(p => {
+      this.projectDetail.hw = p;
       this.showSuccess();
     }, err => {
                 this.toastrService.error(err, 'Error')});

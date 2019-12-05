@@ -24,23 +24,6 @@
   </div>
 
   <div class="row">
-        <div class="col-md-3">
-            <p >
-                <button type="button" class="btn" [ngClass]="{ 'btn-primary': hardwareListComponent.isCollapsed,'btn-outline-primary':!hardwareListComponent.isCollapsed}" (click)="toggleHardware()">
-                        Hardware of the project
-            </button>
-            </p>
-        </div>
-        <div class="col-md-3">
-                <p>
-                    <button type="button" class="btn" [ngClass]="{ 'btn-primary': hardwareAddComponent.isCollapsed,'btn-outline-primary':!hardwareAddComponent.isCollapsed}" (click)="toggleCreateHardware()">
-                            Create a Hardware
-                    </button>
-                </p>
-            </div>        
-  </div>
-
-  <div class="row">
     <div class="col-md-3">
         <p *ngIf = "projectDetail.developers.length > 0">
             <button type="button" class="btn" [ngClass]="{ 'btn-primary':developerListComponent.isCollapsed,'btn-outline-primary':!developerListComponent.isCollapsed}" (click)="toggleDevelopers()">
@@ -59,6 +42,27 @@
     <app-project-add-developer [projectDetail]="projectDetail" ></app-project-add-developer>
   </div>
     
+  <div class="row">
+        <div class="col-md-3">
+        <p *ngIf = "projectDetail.hardware != null">
+                <p >
+                <button type="button" class="btn" [ngClass]="{ 'btn-primary': hardwareListComponent.isCollapsed,'btn-outline-primary':!hardwareListComponent.isCollapsed}" (click)="toggleHardware()">
+                        Hardware of the project
+            </button>
+            </p>
+        </div>
+        <div class="col-md-3">
+                <p>
+                    <button type="button" class="btn" [ngClass]="{ 'btn-primary': hardwareAddComponent.isCollapsed,'btn-outline-primary':!hardwareAddComponent.isCollapsed}" (click)="toggleCreateHardware()">
+                            Create a Hardware
+                    </button>
+                </p>
+            </div> 
+            <app-project-hardware [projectHardware]="projectDetail.hw"></app-project-hardware>      
+            <app-project-add-hardware [projectDetail]="projectDetail"></app-project-add-hardware>      
+
+  </div>
+
   </div>
 
   
