@@ -87,6 +87,9 @@ export class AuthService {
         this.roleService.flushRoles();
         this.setGuestRole();
         localStorage.removeItem('role');
+        localStorage.removeItem('login');
+        localStorage.removeItem('unit');
+        localStorage.removeItem('id');
         this.router.navigateByUrl('/');
     }
 }
