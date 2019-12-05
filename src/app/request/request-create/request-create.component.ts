@@ -24,7 +24,6 @@ export class RequestCreateComponent implements OnInit {
 
     request:RequestDetail;
 
-    requests:Request[];
     constructor(private requestService:RequestService, private unitService:UnitService, private toastr:ToastrService, private formBuilder:FormBuilder, private requesterService:RequesterService) {
         this.requestForm  = this.formBuilder.group({
             name:["",[Validators.required, Validators.minLength(2)]],
@@ -39,39 +38,23 @@ export class RequestCreateComponent implements OnInit {
 
 
     createRequest(newRequest: RequestDetail) {
-
-      newRequest.description = this.request.description;
-      newRequest.budget = this.request.budget;
-      newRequest.name = this.request.name;
-      newRequest.purpose = this.request.purpose;
-      newRequest.beginDate = this.request.beginDate;
-      newRequest.dueDate = this.request.dueDate;
-      newRequest.endDate = this.request.endDate;
-      newRequest.requestType = this.request.requestType;
-      newRequest.status = 'Pending';
       this.requesterService.getRequesterDetail(localStorage.getItem('id')).subscribe(p => {
         newRequest.requester = p;
       }, err => {
         this.toastr.error(err, 'Error')
       });
-      this.requestService.createRequest(newRequest).subscribe(p => {
-        this.requests.push(p);
-        this.showSuccess();
-      }, err => {
-                  this.toastr.error(err, 'Error')});
-    //  this.providerService.getProvider(newProject.provider.id).subscribe(p => {p.projects.push(newProject)});
-
-   
-       
+        // Process checkout data here
+        newRequest.status = 'Pending';
+    //    newProject.hw = this.project.hw;
+        newRequest
         console.warn("el request fue creado", newRequest);
         this.requestService.createRequest(newRequest).subscribe(p => {
           this.showSuccess();
         }, err => {
                     this.toastr.error(err, 'Error')});
-    this.requestForm.reset();
+      //  this.providerService.getProvider(newProject.provider.id).subscribe(p => {p.projects.push(newProject)});
+        this.requestForm.reset();
    }
-
-   
   showSuccess() {
     this.toastr.success("Request", "Successfully created!", {"progressBar": true,timeOut:3000});
   }

@@ -68,19 +68,6 @@
                 </div>
             </div>
     </div>
-
-    <div class="form-group mx-sm-3 mb-2">
-            <label for="dueDate">What's your end date expected for your request?</label>
-                <div [ngClass]="">
-                    <input class="form-control" id="dueDate" name="dueDate" [(ngModel)]="request.endDate"
-                        ngbDatepicker #h="ngbDatepicker" (click)="h.toggle()" #dueDate="ngModel" [ngClass]=""
-                        required>
-                    <div class="invalid-feedback">
-                        <div>The request's end date is missing</div>
-                    </div>
-                </div>
-        </div>
-
        <div class="form-group">
         <label for="requestType">Choose the request type</label>
         
@@ -94,8 +81,6 @@
             <div>The request category is missing</div>
         </div>
     </div>
-</div>
-
 
     <div class="form-group">
         <label for="webCategory">choose the webCategory</label>
