@@ -66,18 +66,33 @@
         </div>
 
         <div class="form-group">
-            <label for="endDate">When do you expect your request to end?</label>
-                <div [ngClass]="{ 'is-invalid': requestForm.submitted && endDate.invalid }">
-                    <input class="form-control" id="endDate" name="endDate" [(ngModel)]="request.endDate"
-                        ngbDatepicker #r="ngbDatepicker" (click)="r.toggle()" #endDate="ngModel" [ngClass]="{'is-invalid': (endDate.untouched || endDate.invalid) }"
-                        required>
-                    <div class="invalid-feedback">
-                        <div>The request's end date is missing</div>
-                    </div>
-                </div>
+            <label for="requestType">Choose the request type</label>
+            
+            <select class="custom-select" [(ngModel)] = "request.requestType" formControlName="requestSelect"  id="requestType"
+                required>
+                <option [ngValue]="l" *ngFor="let l of this.requestType">   
+                    {{l}}
+                </option>
+            </select>
+            <div class="invalid-feedback">
+                <div>The request category is missing</div>
+            </div>
         </div>
 
-     
+        <div class="form-group">
+            <label for="webCategory">choose the webCategory</label>
+            <select class="custom-select" [(ngModel)] = "request.webCategory" formControlName="webCategorySelect"  id="webCategory"
+                required>
+                <option [ngValue]="l" *ngFor="let l of this.webCategory">   
+                    {{l}}
+                </option>
+            </select>
+            <div class="invalid-feedback">
+                <div>The web category is missing</div>
+            </div>
+        </div>
+
+
        <button class="button mx-sm-3 mb-2" type="submit" [disabled]="requestForm.invalid">Submit</button>
      
      </form>
