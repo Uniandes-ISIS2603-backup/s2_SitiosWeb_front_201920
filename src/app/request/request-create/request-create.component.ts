@@ -42,6 +42,7 @@ export class RequestCreateComponent implements OnInit {
 
     createRequest(newRequest: RequestDetail) {
 
+      console.log("Entro");
       newRequest.description = this.request.description;
       newRequest.budget = this.request.budget;
       newRequest.name = this.request.name;
@@ -73,7 +74,9 @@ export class RequestCreateComponent implements OnInit {
     this.requestForm.reset();
    }
 
-   
+   click():void{
+     console.log('lel');
+   }
   showSuccess() {
     this.toastr.success("Request", "Successfully created!", {"progressBar": true,timeOut:3000});
   }
