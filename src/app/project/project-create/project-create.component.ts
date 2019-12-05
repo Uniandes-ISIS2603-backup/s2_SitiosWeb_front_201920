@@ -105,49 +105,20 @@ export class ProjectCreateComponent implements OnInit {
   }
 
    createProject(newProject: Project) {
-    // Process checkout data here
-    newProject.provider = this.project.provider;
-    newProject.leader = this.project.leader;
-//    newProject.hw = this.project.hw;
-    
-    console.warn("el proyecto fue creado", newProject);
-    this.projectService.createProject(newProject).subscribe(p => {
-      this.projects.push(p);
-      console.log(p.leader.id);
-      console.log(p.id);
-      this.developerService.getDeveloperDetail(p.leader.id).subscribe(ll => {
-        console.log("Get detail: " +ll.id);
-        this.developerDetail = ll;
-        console.log("dev detal id: " + this.developerDetail.id);
-        this.developerDetail.leadingProjects = [];
-        this.developerDetail.leadingProjects.push(p);
-        for(let a of this.developerDetail.leadingProjects){
-          console.log("leading " + a.id);
-        }
+        // Process checkout data here
+        newProject.provider = this.project.provider;
+        newProject.leader = this.project.leader;
+    //    newProject.hw = this.project.hw;
         
-        this.developerService.updateDeveloper(this.developerDetail).subscribe(() => {
-          this.toastr.success("Developer has been succesfully updated", "Leader updated")
-        })
-        for(let a of this.developerDetail.leadingProjects){
-          console.log("leading after update " + a.id);
-        }
-      })
-      this.showSuccess();
-    }, 
-    
-    err => { this.toastr.error(err, 'Error')});
-    /**
-    this.developerService.getDeveloperDetail(this.project.leader.id).subscribe(le =>{
-      le.leadingProjects.push(this.project);
-      this.developerService.updateDeveloper(le).subscribe(()=>{
-        this.toastr.success("Developer has been succesfully updated", "Leader updated")
-      })
-    });
-    */
-  //  this.providerService.getProvider(newProject.provider.id).subscribe(p => {p.projects.push(newProject)});
-    this.projectForm.reset();
-  }
-
+        console.warn("el proyecto fue creado", newProject);
+        this.projectService.createProject(newProject).subscribe(p => {
+          this.projects.push(p);
+          this.showSuccess();
+        }, err => {
+                    this.toastr.error(err, 'Error')});
+      //  this.providerService.getProvider(newProject.provider.id).subscribe(p => {p.projects.push(newProject)});
+        this.projectForm.reset();
+   }
   showSuccess() {
     for (let i = 0; i < this.projects.length; i++){
       console.log(this.projects[i].name+' '+this.projects[i].company);
