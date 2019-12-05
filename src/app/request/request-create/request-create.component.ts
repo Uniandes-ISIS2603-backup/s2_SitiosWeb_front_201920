@@ -24,7 +24,7 @@ export class RequestCreateComponent implements OnInit {
 
     request:RequestDetail;
 
-    requests:Request[];
+    requests:Request[]=[];
     constructor(private requestService:RequestService, private unitService:UnitService, private toastr:ToastrService, private formBuilder:FormBuilder, private requesterService:RequesterService, private dp:DatePipe) {
         this.requestForm  = this.formBuilder.group({
             name:["",[Validators.required, Validators.minLength(2)]],
@@ -52,17 +52,35 @@ export class RequestCreateComponent implements OnInit {
       newRequest.endDate = this.request.endDate;
       newRequest.requestType = this.request.requestType;
       newRequest.status = 'Pending';
+      newRequest.webCategory = this.request.webCategory;
       this.requesterService.getRequesterDetail(localStorage.getItem('id')).subscribe(p => {
+        console.log("unit name "+ p.unit.name);
+        console.log("requester login " + p.login);
+        console.log("request descr " + newRequest.description);
+        console.log("request budget " + newRequest.budget);
+        console.log("request nama " + newRequest.name);
+
         newRequest.requester = p;
+        newRequest.unit = p.unit.name;
+        console.log("unit del rquest"+ newRequest.unit);
+        this.requestService.createRequest(newRequest).subscribe(p => {
+          this.requests.push(p);
+          this.showSuccess();
+          console.log("entro create");
+          console.log("unit name "+ newRequest.requester.unit.name);
+          console.log("requester login " + newRequest.requester.login);
+          console.log("request descr " + newRequest.description);
+          console.log("request budget " + newRequest.budget);
+          console.log("request nama " + newRequest.name);
+        }, err => {
+                    this.toastr.error(err, 'Error')});
       }, err => {
         this.toastr.error(err, 'Error')
       });
       
-      this.requestService.createRequest(newRequest).subscribe(p => {
-        this.requests.push(p);
-        this.showSuccess();
-      }, err => {
-                  this.toastr.error(err, 'Error')});
+
+
+     
     //  this.providerService.getProvider(newProject.provider.id).subscribe(p => {p.projects.push(newProject)});
 
    
@@ -93,9 +111,9 @@ export class RequestCreateComponent implements OnInit {
         this.getUnits();
     }
 
-    requestType: string[] = ['ELIMINATION','CREATION','CHANGE','DEVELOPMENT','PRODUCTION'];
+    requestType: string[] = ['Elimination','Creation','Change','Development','Production'];
 
-    webCategory: string[] = ['DESCRIPTIVE','APPLICATION','EVENT'];
+    webCategory: string[] = ['Descriptive','Application','Event'];
 
     statues: string[] = ['DEVELOPMENT','PRODUCTION','ACCEPTED','PENDING','DENIED'];
 
