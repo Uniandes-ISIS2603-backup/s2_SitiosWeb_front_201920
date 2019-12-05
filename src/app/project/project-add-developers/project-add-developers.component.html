@@ -1,68 +1,32 @@
-<form [formGroup]="hardwareForm" (ngSubmit)="!hardwareForm.invalid &&createHardware(hardwareForm.value)">
-
-  
-  <div class="form-group mx-sm-3 mb-2">
-      <label for="ip">
-        Hardware's Ip
-      </label>
-      <input novalidate
-        id="ip"
-        type="text"
-        class="form-control"
-        formControlName="ip"
-        placeholder="Ip of the hardware">
-     </div>
-  
- <div class="form-group mx-sm-3 mb-2">
-  <label for="cores">
-    Cores
-  </label>
-  <input novalidate
-    id="cores"
-    type="number"
-    class="form-control"
-    formControlName="cores"
-    placeholder="Cores of hardware">
- </div>
-
- <div class="form-group mx-sm-3 mb-2">
-  <label for="ram">
-    Ram
-  </label>
-  <input novalidate
-    id="ram"
-    type="number"
-    class="form-control"
-    formControlName="ram"
-    placeholder="Ram of hardware">
- </div>
-
- <div class="form-group mx-sm-3 mb-2">
-  <label for="cpu">
-    Cpu
-  </label>
-  <input novalidate
-    id="cpu"
-    type="text"
-    class="form-control"
-    formControlName="cpu"
-    placeholder="Cpu of hardware">
- </div>
-
- <div class="form-group mx-sm-3 mb-2">
-  <label for="plataforma">
-    Plataforma
-  </label>
-  <input novalidate
-    id="plataforma"
-    type="text"
-    class="form-control"
-    formControlName="plataforma"
-    placeholder="Plataforma of hardware">
- </div>
-
-
-
-<button class="button mx-sm-3 mb-2" type="submit" [disabled]="hardwareForm.invalid">Submit</button>
-
-</form>
+<div id="collapseReview" [ngbCollapse]="isCollapsed">
+  <div cdkDropListGroup>
+          <div class="example-container">
+            <h2>Available developers</h2>
+        
+            <div
+              cdkDropList
+              [cdkDropListData]="filteredDevelopers"
+              class="example-list"
+              cdkDropListSortingDisabled
+              (cdkDropListDropped)="drop($event)">
+              <div class="example-box" *ngFor="let id of filteredDevelopers" cdkDrag>{{id.name}}</div>
+            </div>
+          </div>
+        
+          <div class="example-container">
+            <h2>Developers to add</h2>
+        
+            <div
+              cdkDropList
+              [cdkDropListData]="finalDevelopers"
+              class="example-list"
+              cdkDropListSortingDisabled
+              (cdkDropListDropped)="drop($event)">
+              <div class="example-box" *ngFor="let fd of finalDevelopers" cdkDrag>{{fd.name}}</div>
+            </div>
+          </div>
+    </div>
+    <div>
+        <button class="small" (click)="onSelectAddDevelopers()">Add Developers to Project</button>
+      </div>
+</div>

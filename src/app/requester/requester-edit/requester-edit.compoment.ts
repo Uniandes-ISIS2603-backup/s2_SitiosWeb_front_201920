@@ -3,7 +3,7 @@ import {Component, OnInit, Input, OnChanges, Output, EventEmitter} from '@angula
 import {RequesterService} from '../requester.service';
 import {RequesterDetail} from '../requester-detail';
 import {ToastrService} from 'ngx-toastr';
-import { UnitService } from 'src/app/unit/unit.service';
+import { UnitService } from '.../unit/unit.service';
 import { Unit } from 'src/app/unit/unit';
 
 @Component({

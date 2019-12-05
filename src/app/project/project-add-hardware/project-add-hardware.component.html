@@ -1,69 +1,69 @@
-<div id="collapseAddHardware" [ngbCollapse]="isCollapsed">
-    <div class="container-fluid">
-        <h3>Agregar un hardware</h3>
-        <form name="post" (ngSubmit)="hardwareForm.valid && postHardware(hardwareForm.value)" #hardwareForm="ngForm" novalidate>
-              <div class="row">
+<form [formGroup]="hardwareForm" (ngSubmit)="!hardwareForm.invalid &&createHardware(hardwareForm.value)">
 
-                <div class="col">
-                    <div class="form-group">
-                        <label for="hardwareIp"><b>Ip</b></label>
-                        <input type="number" name="hardwareIp" class="form-control" id="hardwareIp" [(ngModel)]="hardware.ip"
-                               #ip="ngModel" [ngClass]="{ 'is-invalid': hardwareForm.submitted && ip.invalid }" required>
-                               <div class="invalid-feedback">
-                            <div>The hardware's ip is missing</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="form-group">
-                        <label for="hardwareCores"><b>Cores</b></label>
-                        <input type="number" name="hardwareCores" class="form-control" id="hardwareCores" [(ngModel)]="hardware.cores"
-                               #cores="ngModel" [ngClass]="{ 'is-invalid': hardwareForm.submitted && cores.invalid }" required>
-                               <div class="invalid-feedback">
-                            <div>The hardware's cores is missing</div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col">
-                    <div class="form-group">
-                        <label for="hardwareRam"><b>Ram</b></label>
-                        <input type="number" name="hardwareRam" class="form-control" id="hardwareRam" [(ngModel)]="hardware.ram"
-                               #ram="ngModel" [ngClass]="{ 'is-invalid': hardwareForm.submitted && ram.invalid }" required>
-                               <div class="invalid-feedback">
-                            <div>The hardware's ram is missing</div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col">
-                    <div class="form-group">
-                        <label for="hardwareCpu"><b>Cpu</b></label>
-                        <input type="text" name="hardwareCpu" class="form-control" id="hardwareCpu" [(ngModel)]="hardware.cpu"
-                               #cpu="ngModel" [ngClass]="{ 'is-invalid': hardwareForm.submitted && cpu.invalid }" required>
-                               <div class="invalid-feedback">
-                            <div>The hardware's cpu is missing</div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col">
-                    <div class="form-group">
-                        <label for="hardwarePlataforma"><b>Plataforma</b></label>
-                        <input type="text" name="hardwarePlataforma" class="form-control" id="hardwarePlataforma" [(ngModel)]="hardware.plataforma"
-                               #plataforma="ngModel" [ngClass]="{ 'is-invalid': hardwareForm.submitted && plataforma.invalid }" required>
-                               <div class="invalid-feedback">
-                            <div>The hardware's plataforma is missing</div>
-                        </div>
-                    </div>
-                </div>
-
-
-                
-            </div>
-            <div class="row form-inline justify-content-center align-self-center">
-                <button type="submit" class="btn btn-primary">Post hardware</button>
-            </div>
-        </form>
-    </div>
-</div>
+  
+    <div class="form-group mx-sm-3 mb-2">
+        <label for="ip">
+          Hardware's Ip
+        </label>
+        <input novalidate
+          id="ip"
+          type="text"
+          class="form-control"
+          formControlName="ip"
+          placeholder="Ip of the hardware">
+       </div>
+    
+   <div class="form-group mx-sm-3 mb-2">
+    <label for="cores">
+      Cores
+    </label>
+    <input novalidate
+      id="cores"
+      type="number"
+      class="form-control"
+      formControlName="cores"
+      placeholder="Cores of hardware">
+   </div>
+  
+   <div class="form-group mx-sm-3 mb-2">
+    <label for="ram">
+      Ram
+    </label>
+    <input novalidate
+      id="ram"
+      type="number"
+      class="form-control"
+      formControlName="ram"
+      placeholder="Ram of hardware">
+   </div>
+  
+   <div class="form-group mx-sm-3 mb-2">
+    <label for="cpu">
+      Cpu
+    </label>
+    <input novalidate
+      id="cpu"
+      type="text"
+      class="form-control"
+      formControlName="cpu"
+      placeholder="Cpu of hardware">
+   </div>
+  
+   <div class="form-group mx-sm-3 mb-2">
+    <label for="plataforma">
+      Plataforma
+    </label>
+    <input novalidate
+      id="plataforma"
+      type="text"
+      class="form-control"
+      formControlName="plataforma"
+      placeholder="Plataforma of hardware">
+   </div>
+  
+  
+  
+  <button class="button mx-sm-3 mb-2" type="submit" [disabled]="hardwareForm.invalid">Submit</button>
+  
+  </form>
+  
