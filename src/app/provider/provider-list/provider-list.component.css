@@ -41,3 +41,14 @@ table.center{
 }
 
 #proveedores tr:hover {background-color: #a9a9a9 ;}
+
+h2 {
+  text-indent: 50px;
+  text-align: justify;
+  color: #ffffff;
+}
+p {
+  text-indent: 50px;
+  text-align: justify;
+  color: #ffffff;
+}
