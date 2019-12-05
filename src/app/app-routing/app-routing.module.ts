@@ -117,9 +117,9 @@ const routes: Routes = [
       },
     
       {
-       path:'agregar',
+       path:'add',
         component:ProjectCreateComponent,
-        outlet:'detail'
+        outlet:'create'
        }
     ]
   },
