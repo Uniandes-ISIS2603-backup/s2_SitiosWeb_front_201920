@@ -1,5 +1,5 @@
 import {Component, OnInit, Input, ViewChild, ViewContainerRef} from '@angular/core';
-import {ActivatedRoute, Params,  Router} from '@angular/router';
+import {ActivatedRoute, Params,  Router, NavigationEnd} from '@angular/router';
 import {DatePipe} from '@angular/common';
 import {ModalDialogService, SimpleModalComponent} from 'ngx-modal-dialog';
 import { ProjectService } from '../project.service';
@@ -11,6 +11,7 @@ import { ProjectDeveloperComponent } from '../project-developers/project-develop
 import {ProjectAddDeveloperComponent} from '../project-add-developers/project-add-developers.component';
 import { ProjectHardwareComponent } from '../project-hardware/project-hardware.component';
 import {ProjectAddHardwareComponent} from '../project-add-hardware/project-add-hardware.component';
+import {ToastrService} from 'ngx-toastr';
 
 
 @Component({
@@ -32,9 +33,17 @@ export class ProjectDetailComponent implements OnInit {
     private modalDialogService: ModalDialogService,
     private router: Router,
     private viewRef: ViewContainerRef,
-    private dp: DatePipe
-  ) { }
+    private dp: DatePipe,
+    private toastrService: ToastrService
 
+  ) { this.navigationSubscription = this.router.events.subscribe((e: any) => {
+    if (e instanceof NavigationEnd) {
+        this.ngOnInit();
+    }
+});
+ }
+
+ navigationSubscription
   /**
    * ProjectDetail attribute of this component
    */

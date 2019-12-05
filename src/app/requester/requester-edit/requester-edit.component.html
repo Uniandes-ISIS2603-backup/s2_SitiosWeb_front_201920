@@ -1,0 +1,52 @@
+<div class="row">
+        <div class="col-12">
+            <br>
+            <h2 class="text-center">Edit an requester</h2>
+            <br>
+            <form name="requester" (ngSubmit)="f.form.valid && editRequester()" #f="ngForm" novalidate>
+                  <div class="form-group">
+                    <label for="requesterName"><b>Name</b></label>
+                    <input type="text" name="requesterName" class="form-control" id="requesterName" [(ngModel)]="requester.name"
+                           #requesterName="ngModel" [ngClass]="{ 'is-invalid': f.submitted && requesterName.invalid }" required>
+                           <div class="invalid-feedback">
+                        <div>The requester's name is missing</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                        <label for="requesterlogin"><b>login</b></label>
+                         <input type="text" name="requesterlogin" class="form-control" id="requesterlogin" [(ngModel)]="requester.login"
+                                #requesterlogin="ngModel" [ngClass]="{ 'is-invalid': f.submitted && requesterlogin.invalid }" required>
+                                <div class="invalid-feedback"> 
+                             <div>The requester's login is missing</div> 
+                           </div>
+                        </div>
+                <div class="form-group">
+                        <label for="requesteremail"><b>email</b></label>
+                         <input type="text" name="requesteremail" class="form-control" id="requesteremail" [(ngModel)]="requester.email"
+                                #requesteremail="ngModel" [ngClass]="{ 'is-invalid': f.submitted && requesteremail.invalid }" required>
+                                <div class="invalid-feedback"> 
+                             <div>The requester's email is missing</div> 
+                           </div>
+                        </div>
+                <div class="form-group">
+                        <label for="requesterphone"><b>phone</b></label>
+                         <input type="text" name="requesterphone" class="form-control" id="requesterphone" [(ngModel)]="requester.phone"
+                                #requesterphone="ngModel" [ngClass]="{ 'is-invalid': f.submitted && requesterphone.invalid }" required>
+                                <div class="invalid-feedback"> 
+                             <div>The requester's phone is missing</div> 
+                           </div>
+                        </div>
+            </form>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <div class="row form-inline justify-content-center align-self-center">
+                <i  style="padding-right: 1em;"class="fa fa-save " (click)="editRequester()"></i>
+              
+                <i class="fa fa-ban" (click)="cancelEdition()"></i>
+            </div>
+        </div>
+    </div>
+    <br>
+    <br>
