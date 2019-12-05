@@ -6,10 +6,14 @@ import { catchError, map, tap } from "rxjs/operators";
 import { ProjectDetail } from './projectDetail';
 import { environment } from '../../environments/environment';
 import {Iteration} from './iteration';
+import {Hardware} from './hardware';
+
 
 const API_URL = environment.apiURL;
 const projects = '/projects';
 const iterations = '/iterations';
+const hardwares = '/hardwares';
+
 
 @Injectable()
 export class ProjectService {
@@ -69,5 +73,9 @@ export class ProjectService {
     */
    createIteration(projectId, iteration): Observable<Iteration> {
     return this.http.post<Iteration>(API_URL + projects + '/' + projectId + iterations, iteration);
+    }
+
+    createHardware(projectId, hardware): Observable<Iteration> {
+    return this.http.post<Iteration>(API_URL + projects + '/' + projectId + hardwares, hardware);
     }
 }
