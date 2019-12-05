@@ -9,6 +9,8 @@ import {ProjectIterationComponent} from '../project-iterations/project-iteration
 import {ProjectAddIterationComponent} from '../project-add-iteration/project-add-iteration.component';
 import { ProjectDeveloperComponent } from '../project-developers/project-developer.component';
 import {ProjectAddDeveloperComponent} from '../project-add-developers/project-add-developers.component';
+import { ProjectHardwareComponent } from '../project-hardware/project-hardware.component';
+import {ProjectAddHardwareComponent} from '../project-add-hardware/project-add-hardware.component';
 
 
 @Component({
@@ -68,6 +70,17 @@ export class ProjectDetailComponent implements OnInit {
    */
   @ViewChild(ProjectAddDeveloperComponent) developerAddComponent: ProjectAddDeveloperComponent;
 
+     /**
+   * The child IterationListComponent
+   */
+  @ViewChild(ProjectHardwareComponent) hardwareListComponent: ProjectHardwareComponent;
+
+  /**
+   * The child IterationAddComponent
+   */
+  @ViewChild(ProjectAddHardwareComponent) hardwareAddComponent: ProjectAddHardwareComponent;
+
+
   
   toggleIterations(): void {
     if (this.iterationAddComponent.isCollapsed == false) {
@@ -97,6 +110,20 @@ export class ProjectDetailComponent implements OnInit {
     }
     this.developerAddComponent.isCollapsed = !this.developerAddComponent.isCollapsed;
   }
+
+  toggleHardware(): void {
+    if (this.hardwareAddComponent.isCollapsed == false) {
+        this.hardwareAddComponent.isCollapsed = true;
+    }
+    this.hardwareListComponent.isCollapsed = !this.hardwareListComponent.isCollapsed;
+  }
+
+  toggleCreateHardware(): void {
+    if (this.hardwareListComponent.isCollapsed == false) {
+        this.hardwareListComponent.isCollapsed = true;
+    }
+    this.hardwareAddComponent.isCollapsed = !this.hardwareAddComponent.isCollapsed;
+  }
   /**
    * Method that gets the detail of a project from its id
    */
@@ -113,12 +140,20 @@ export class ProjectDetailComponent implements OnInit {
   /**
    * The function called when a review is posted, so that the child component can refresh the list
    */
+  updateHardware(): void {
+    this.getProjectDetail();
+    this.hardwareListComponent.updateHardware(this.projectDetail.hw);
+    this.hardwareListComponent.isCollapsed = false;
+    this.hardwareAddComponent.isCollapsed = true;
+  }
+
   updateIterations(): void {
     this.getProjectDetail();
     this.iterationListComponent.updateIterations(this.projectDetail.iterations);
     this.iterationListComponent.isCollapsed = false;
     this.iterationAddComponent.isCollapsed = true;
   }
+
   /**
    * Method to be executed once this component is loads
    * @param params default parameter of method
