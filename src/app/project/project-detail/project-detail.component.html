@@ -25,7 +25,7 @@
 
   <div class="row">
         <div class="col-md-3">
-            <p>
+            <p *ngIf = "projectDetail.hardware!=null">
                 <button type="button" class="btn" [ngClass]="{ 'btn-primary': hardwareListComponent.isCollapsed,'btn-outline-primary':!hardwareListComponent.isCollapsed}" (click)="toggleHardware()">
                         Hardware of the project
             </button>
@@ -34,7 +34,7 @@
     <div class="col-md-3">
         <p>
             <button type="button" class="btn" [ngClass]="{ 'btn-primary': hardwareAddComponent.isCollapsed,'btn-outline-primary':!hardwareAddComponent.isCollapsed}" (click)="toggleCreateHardware()">
-                    Create a Iteration
+                    Create a Hardware
             </button>
         </p>
     </div>
