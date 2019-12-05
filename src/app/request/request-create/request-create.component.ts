@@ -74,8 +74,10 @@ export class RequestCreateComponent implements OnInit {
     this.requestForm.reset();
    }
 
-   click():void{
+   click(request:Request):void{
      console.log('lel');
+     console.log(request.name);
+
    }
   showSuccess() {
     this.toastr.success("Request", "Successfully created!", {"progressBar": true,timeOut:3000});
