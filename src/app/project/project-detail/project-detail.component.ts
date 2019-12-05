@@ -43,7 +43,8 @@ export class ProjectDetailComponent implements OnInit {
 });
  }
 
- navigationSubscription
+ navigationSubscription;
+
   /**
    * ProjectDetail attribute of this component
    */
@@ -137,6 +138,16 @@ export class ProjectDetailComponent implements OnInit {
    * Method that gets the detail of a project from its id
    */
   getProjectDetail(): void {
+
+    this.projectService.getProjectDetail(this.projectid).subscribe
+    (value => {
+        this.projectDetail = value
+      }
+    );
+   
+  }
+
+  getHardware(): void {
 
     this.projectService.getProjectDetail(this.projectid).subscribe
     (value => {

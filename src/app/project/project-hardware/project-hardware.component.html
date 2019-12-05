@@ -1,12 +1,34 @@
-<div id="collapseHardware" [ngbCollapse]="isCollapsed">
-    <table class="table table-striped">
+<div class="container-fluid" [ngbCollapse]="isCollapsed">
+    <div class="col-md-2">
+      <h2>Hardware</h2>
+      <table class="table table-striped">
+        <thead class="thead-dark">
+          <tr>
+            <th>ID</th>
+            <th>IP</th>
+            <th>CORES</th>
+            <th>RAM</th>
+            <th>CPU</th>
+            <th>PLATAFORMA</th>
+
+
+            
+          </tr>
+        </thead>
         <tbody>
-            <tr>
-                <td>
-                <span id="hardware-ip">{{hardware.ip}}</span><br><span id="hardware-plataforma"><i>{{hardware.plataforma}}</i></span>
-                <span id="hardware-cores">{{hardware.cores}}</span><br><span id="hardware-cpu"><i>{{hardware.cpu}}</i></span>      
-                <span id="hardware-ram">{{hardware.ram}}</span></td>
-            </tr>
+          <tr>
+            <td>{{projectHardware.id}}</td>
+            <td>{{projectHardware.ip}}</td>
+            <td>{{projectHardware.cores}}</td>
+            <td>{{projectHardware.ram}}</td>
+            <td>{{projectHardware.cpu}}</td>
+            <td>{{projectHardware.plataforma}}</td>
+
+          </tr>
+  
+      
         </tbody>
-    </table>
-</div> 
+      </table>
+    
+    
+    </div>

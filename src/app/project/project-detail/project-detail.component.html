@@ -25,7 +25,7 @@
 
   <div class="row">
         <div class="col-md-3">
-            <p *ngIf = "projectDetail.hardware!=null">
+            <p >
                 <button type="button" class="btn" [ngClass]="{ 'btn-primary': hardwareListComponent.isCollapsed,'btn-outline-primary':!hardwareListComponent.isCollapsed}" (click)="toggleHardware()">
                         Hardware of the project
             </button>

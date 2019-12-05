@@ -8,7 +8,7 @@ import { Hardware } from '../hardware';
 export class ProjectHardwareComponent implements OnInit {
     @Input() projectHardware : Hardware;
     
-    public isCollapsed = false;
+    public isCollapsed = true;
     
     /**
      * The function called when a iteration is posted to update the iterations
