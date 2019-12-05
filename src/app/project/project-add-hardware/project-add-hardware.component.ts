@@ -7,9 +7,9 @@ import { Project } from '../project';
 import {DatePipe} from '@angular/common';
 
 @Component({
-    selector: 'app-project-add-iteration',
-    templateUrl: './project-add-iteration.component.html',
-    styleUrls: ['./project-add-iteration.component.css'],
+    selector: 'app-project-add-hardware',
+    templateUrl: './project-add-hardware.component.html',
+    styleUrls: ['./project-add-hardware.component.css'],
     providers: [DatePipe]
 })
 export class ProjectAddHardwareComponent implements OnInit {
