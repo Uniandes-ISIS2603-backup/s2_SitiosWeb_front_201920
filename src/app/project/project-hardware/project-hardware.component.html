@@ -1,3 +1,12 @@
-<p>
-project-hardware works!
-</p>
+<div id="collapseReview" [ngbCollapse]="isCollapsed">
+    <table class="table table-striped">
+        <tbody>
+            <tr>
+                <td><span id="project-hardware"><b>{{hardware.id}}</b></span>:<span></span> 
+                <span id="iteration-objetive">{{hardware.ip}}</span><br><span id="book-validationDate"><i>{{hardware.plataforma}}</i></span>
+                <span id="iteration-changes">{{hardware.cores}}</span><br><span id="book-beginDate"><i>{{hardware.cpu}}</i></span>      
+                <span id="iteration-endDate">{{hardware.ram}}</span></td>
+            </tr>
+        </tbody>
+    </table>
+</div> 
