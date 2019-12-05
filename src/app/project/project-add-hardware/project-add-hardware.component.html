@@ -1,7 +1,7 @@
 <div id="collapseAddHardware" [ngbCollapse]="isCollapsed">
     <div class="container-fluid">
         <h3>Agregar un hardware</h3>
-        <form name="post" (ngSubmit)="hardwareForm.valid && postHardware(hardwareForm)" #hardwareForm="ngForm" novalidate>
+        <form name="post" (ngSubmit)="hardwareForm.valid && postHardware(hardwareForm.value)" #hardwareForm="ngForm" novalidate>
               <div class="row">
 
                 <div class="col">
