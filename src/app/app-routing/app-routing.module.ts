@@ -227,7 +227,13 @@ const routes: Routes = [
     {
       path: 'agregar',
       component: RequestCreateComponent,
-      outlet: 'create'
+      outlet: 'create',
+      canActivate: [NgxPermissionsGuard],
+        data: {
+          permissions: {
+            only: ['REQUESTER']
+          }
+        }
     }
     ]
   },
