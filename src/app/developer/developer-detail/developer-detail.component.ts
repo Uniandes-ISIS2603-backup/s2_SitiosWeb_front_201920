@@ -3,6 +3,8 @@ import { ActivatedRoute, Params, Router } from '@angular/router';
 
 import { DeveloperService } from '../developer.service';
 import { DeveloperDetail } from '../developer-detail';
+import { Project } from '../../project/project';
+import { ProjectService } from '../../project/project.service';
 
 @Component({
     selector: 'app-developer-detail',
@@ -22,6 +24,15 @@ export class DeveloperDetailComponent implements OnInit {
     loader: any;
 
     /**
+     * Projects lead by thi developer
+     */
+    leadProjects: Project[]=[];
+
+    /**
+     * Projects in the app
+     */
+    projects:Project[];
+    /**
     * Constructor for the component
     * @param route The route which helps to retrieves the id of the book to be shown
     * @param developerService The developer's services provider
@@ -29,7 +40,8 @@ export class DeveloperDetailComponent implements OnInit {
     */
     constructor(
         private route: ActivatedRoute,
-        private developerService: DeveloperService
+        private developerService: DeveloperService,
+        private projectService: ProjectService
     ) { }
 
     /**
@@ -54,7 +66,48 @@ export class DeveloperDetailComponent implements OnInit {
     onLoad(params) {
         this.developer_id = parseInt(params['id']);
         this.developerDetail = new DeveloperDetail();
+        this.leadProjects=[];
+        this.getProjects();
         this.getDeveloperDetail();
+    }
+
+
+    getProjects():void{
+        this.projectService.getProjects().subscribe(
+             pro =>{this.projects = pro
+            this.filterProjects(pro)
+        });
+    }
+
+    
+    /**
+     * Filters projects according if they have leader
+     */
+    filterProjects(projects: Project[]):void{
+        /*
+        for(let i=0;i<projects.length;i++){
+            if(projects[i].leader === this.developerDetail){
+                this.leadProjects.push(d);
+            }
+        }
+        */
+       console.log("tamano projects " +this.projects.length);
+       let i=0;
+       let j=0;
+        for(let d of this.projects){
+            j++;
+            if(d.leader.id==this.developer_id){
+               
+                console.log("lead antes: " +this.leadProjects.length);
+                this.leadProjects.push(d);
+                console.log("lead despues: " +this.leadProjects.length);
+
+                i++;
+               console.log("Tam i: " + i);
+            }
+        }
+        console.log("tam j: " + j);
+        console.log("tamano lead: " + this.leadProjects.length);
     }
 
 
@@ -62,6 +115,7 @@ export class DeveloperDetailComponent implements OnInit {
      * Method to be executed automatically once this component is initialized.
      */
     ngOnInit() {
+       // this.getProjects();
         this.loader = this.route.params.subscribe((params: Params) => this.onLoad(params));
     }
 
